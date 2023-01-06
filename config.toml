@@ -1,0 +1,130 @@
+baseURL = "http://corax.com.cn/"
+languageCode = "en-us"
+title = "Corax の Personal Blog"
+# theme         = "roxo-hugo"
+summarylength = 25
+
+# Site Menus
+[menu]
+# Navbar Menus
+[[menu.nav]]
+name = "🏠Home"
+url = ""
+weight = 1
+[[menu.nav]]
+name = "📄About"
+url = "about"
+weight = 2
+[[menu.nav]]
+name = "🔗Friend"
+url = "friend"
+weight = 3
+[[menu.nav]]
+name = "🕊Blog"
+url = "blog"
+weight = 4
+[[menu.nav]]
+name = "Get in touch"
+url = "contact"
+weight = 5
+
+# Site Params
+[params]
+dateFormat = "26 FEB 1994"
+logo = "images/logo.png"
+# Meta data
+author = "StaticMania"
+description = "Roxo Hugo themes | Design Agency Template by StaticMania"
+# Google Analitycs
+googleAnalitycsID = "Your ID"
+# We're using formspree.io for form handling, paste your formspree url below
+fabform = "https://fabform.io/f/USAg2Jl"
+
+# Contact Form
+[params.contactForm]
+placeholder_about_the_project = "About the Project"
+placeholder_email = "Email"
+placeholder_first_name = "First Name"
+placeholder_last_name = "Last Name"
+placeholder_project_type = "Project Type"
+send_message = "Send Message"
+
+[[params.contactForm.projectType]]
+title = "Graphics Design"
+value = "gd"
+[[params.contactForm.projectType]]
+
+title = "Web Design"
+value = "wd"
+# Navbar Action Button
+[params.navAction]
+name = "Get in touch"
+status = true
+url = "contact"
+
+# Banner Section
+[params.banner]
+background_image = "images/backgrounds/bochi.jpg"
+enable = true
+heading = "ようこそCoraxの小さな巣へ"
+primary_button = "See My Friend"
+primary_button_url = "friend"
+secondary_button = "Connect with Me"
+secondary_button_url = "contact"
+tagline = "最怕你一生碌碌无为，还安慰自己平凡可贵"
+
+[params.portfolio]
+enable = true
+subtitle = "Crafting experiences and seeking to make the complex clear & beautiful."
+title = "OUR RECENT WORKS"
+
+[params.call_to_action]
+background_image = "images/backgrounds/cta-background.jpg"
+enable = true
+primary_button = "Submit Query"
+primary_button_url = "contact"
+secondary_button = "Not Convinced"
+secondary_button_url = "portfolio"
+title = "LET’S WORK TOGETHER"
+
+[params.footer]
+# Footer Contact Info
+[params.footer.contactInfo]
+address = "713 Elmwood St.<br>Prior Lake, MN 55372"
+email = "info@roxo.co"
+phone = "409-896-1444"
+title = "Contact Info"
+# Footer Sitemap
+[params.footer.sitemap]
+title = "Sitemap"
+[[params.footer.sitemap.link]]
+name = "About Company"
+url = "about"
+[[params.footer.sitemap.link]]
+name = "Projects"
+url = "portfolio"
+[[params.footer.sitemap.link]]
+name = "Blog"
+url = "blog"
+[[params.footer.sitemap.link]]
+name = "Contact"
+url = "contact"
+# Footer Social Media
+[params.footer.social]
+title = "Social Media"
+[[params.footer.social.link]]
+name = "Medium"
+url = "#"
+[[params.footer.social.link]]
+name = "Behance"
+url = "#"
+[[params.footer.social.link]]
+name = "Dribbble"
+url = "#"
+[[params.footer.social.link]]
+name = "Instagram"
+url = "#"
+# Footer Service
+[params.footer.service]
+description = "develop design solutions<br>produce valuable cultural content<br>create fresh brand experience"
+title = "We help brands:"
