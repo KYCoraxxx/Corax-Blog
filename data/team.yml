@@ -1,4 +1,4 @@
-enable  : true
+enable  : false
 title   : Team that makes the difference.
 members  :
   - image       : images/team/team-member-one.jpg
