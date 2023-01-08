@@ -1,14 +1,14 @@
 enable : true
-heading : "THE PROOF IS IN THE PUDDING!"
+heading : "欢迎来到鸦酱的小窝o(*￣▽￣*)ブ"
 counter_item: 
-  - title: "Happy Clients"
-    number: "250"
+  - title: "笨比鸦酱的学习笔记"
+    number: "NJU@SE"
 
-  - title: "Projects Completed"
-    number: "100"
+  - title: "社恐鸦酱的好朋友"
+    number: "哇酷哇酷"
 
-  - title: "Cups of coffee"
-    number: "350"
+  - title: "菜比鸦酱的开发经验"
+    number: "绝赞瞎搞中"
 
-  - title: "Telephone Talks"
-    number: "775"
+  - title: "TODOLIST"
+    number: "还不能休息哦"

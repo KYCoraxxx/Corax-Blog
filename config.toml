@@ -1,6 +1,6 @@
-baseURL = "http://corax.com.cn/"
+baseURL = "https://110.42.252.167"
 languageCode = "en-us"
-title = "Corax の Personal Blog"
+title = "Corax の Bathmos"
 # theme         = "roxo-hugo"
 summarylength = 25
 
@@ -33,7 +33,7 @@ weight = 5
 dateFormat = "26 FEB 1994"
 logo = "images/logo.png"
 # Meta data
-author = "StaticMania"
+author = "Corax"
 description = "Roxo Hugo themes | Design Agency Template by StaticMania"
 # Google Analitycs
 googleAnalitycsID = "Your ID"
@@ -69,7 +69,7 @@ enable = true
 heading = "ようこそCoraxの小さな巣へ"
 primary_button = "See My Friend"
 primary_button_url = "friend"
-secondary_button = "Connect with Me"
+secondary_button = "Contact with Me"
 secondary_button_url = "contact"
 tagline = "最怕你一生碌碌无为，还安慰自己平凡可贵"
 
@@ -81,28 +81,27 @@ title = "OUR RECENT WORKS"
 [params.call_to_action]
 background_image = "images/backgrounds/cta-background.jpg"
 enable = true
-primary_button = "Submit Query"
+primary_button = "Submit Advice"
 primary_button_url = "contact"
-secondary_button = "Not Convinced"
-secondary_button_url = "portfolio"
+secondary_button = "See My Friend"
+secondary_button_url = "friend"
 title = "LET’S WORK TOGETHER"
 
 [params.footer]
 # Footer Contact Info
 [params.footer.contactInfo]
-address = "713 Elmwood St.<br>Prior Lake, MN 55372"
-email = "info@roxo.co"
-phone = "409-896-1444"
+address = "JiangSu NanJing University"
+email = "2631197015@qq.com"
 title = "Contact Info"
 # Footer Sitemap
 [params.footer.sitemap]
 title = "Sitemap"
 [[params.footer.sitemap.link]]
-name = "About Company"
+name = "About Me"
 url = "about"
 [[params.footer.sitemap.link]]
-name = "Projects"
-url = "portfolio"
+name = "Friends"
+url = "friend"
 [[params.footer.sitemap.link]]
 name = "Blog"
 url = "blog"
@@ -113,18 +112,12 @@ url = "contact"
 [params.footer.social]
 title = "Social Media"
 [[params.footer.social.link]]
-name = "Medium"
-url = "#"
+name = "Bilibili"
+url = "https://space.bilibili.com/330247538?spm_id_from=333.1007.0.0"
 [[params.footer.social.link]]
-name = "Behance"
-url = "#"
-[[params.footer.social.link]]
-name = "Dribbble"
-url = "#"
-[[params.footer.social.link]]
-name = "Instagram"
-url = "#"
+name = "Github"
+url = "https://github.com/KYCoraxxx"
 # Footer Service
 [params.footer.service]
-description = "develop design solutions<br>produce valuable cultural content<br>create fresh brand experience"
-title = "We help brands:"
+description = "Communication<br>Exchanging Ideas<br>Learning and Playing joyfully"
+title = "This site is built for"
