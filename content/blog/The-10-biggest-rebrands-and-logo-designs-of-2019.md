@@ -2,6 +2,7 @@
 title: "The 10 Biggest Rebrands and Logo Designs of 2019"
 date: 2019-12-24T13:40:00+06:00
 image: images/blog/blog-post-01.jpg
+visible: false
 feature_image: images/blog/blog-details-image.jpg
 author: Alexender Schoitiz
 ---

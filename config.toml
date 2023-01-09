@@ -42,20 +42,12 @@ fabform = "https://fabform.io/f/USAg2Jl"
 
 # Contact Form
 [params.contactForm]
-placeholder_about_the_project = "About the Project"
+placeholder_about_the_project = "Your Advice"
 placeholder_email = "Email"
 placeholder_first_name = "First Name"
 placeholder_last_name = "Last Name"
-placeholder_project_type = "Project Type"
 send_message = "Send Message"
 
-[[params.contactForm.projectType]]
-title = "Graphics Design"
-value = "gd"
-[[params.contactForm.projectType]]
-
-title = "Web Design"
-value = "wd"
 # Navbar Action Button
 [params.navAction]
 name = "Get in touch"
@@ -73,11 +65,6 @@ secondary_button = "Contact with Me"
 secondary_button_url = "contact"
 tagline = "最怕你一生碌碌无为，还安慰自己平凡可贵"
 
-[params.portfolio]
-enable = true
-subtitle = "Crafting experiences and seeking to make the complex clear & beautiful."
-title = "OUR RECENT WORKS"
-
 [params.call_to_action]
 background_image = "images/backgrounds/cta-background.jpg"
 enable = true
@@ -85,7 +72,7 @@ primary_button = "Submit Advice"
 primary_button_url = "contact"
 secondary_button = "See My Friend"
 secondary_button_url = "friend"
-title = "LET’S WORK TOGETHER"
+title = "Happy Learning Happy Playing"
 
 [params.footer]
 # Footer Contact Info

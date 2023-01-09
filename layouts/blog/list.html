@@ -1,5 +1,4 @@
 {{ define "main" }}
-
 <section class="site-blog-header">
   <div class="container">
     <div class="row justify-content-center">
@@ -18,6 +17,7 @@
     <div class="row">
       {{ range (.Paginator 4).Pages }}
       <div class="col-lg-6">
+
         <article class="site-blog-post">
           {{ with .Params.image }}
           <div class="site-blog-post-thumb">
@@ -26,13 +26,24 @@
           {{ end }}
           <div class="site-blog-post-content">
             <span>{{ .PublishDate.Format "January 2, 2006" }}</span>
-            <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+            <h3>
+              {{ if .Params.visible }}
+              <a href="{{ .Permalink }}">{{ .Title }}</a>
+              {{ else }}
+              <a>{{ .Title }}</a>
+              {{ end }}
+            </h3>
             <p>
               {{ .Summary }} ...
             </p>
+            {{ if .Params.visible }}
             <a href="{{ .Permalink }}" class="read-more">read more</a>
+            {{ else }}
+            <a class="read-more">额芝士demo不可以看的哦</a>
+            {{ end }}
           </div>
         </article>
+
       </div>
       {{ end }}
       <div class="col-12">
@@ -43,7 +54,6 @@
     </div>
   </div>
 </section>
-
 {{ partial "call-to-action.html" . }}
 
 {{ end }}

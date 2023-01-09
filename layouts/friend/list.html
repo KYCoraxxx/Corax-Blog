@@ -22,6 +22,7 @@
 
 <section class="site-project" id="project">
   <div class="container">
+    <h3>鸦酱施工中……</h3>
     <div class="row">
       {{ range (.Paginator 4).Pages }}
       <div class="col-lg-6 col-md-10 mx-auto">
@@ -32,7 +33,11 @@
           <div class="site-project-item-content">
             <span>{{ delimit .Params.category ", " }}</span>
             <h3>{{ .Title }}</h3>
+            {{ if .Params.visible }}
             <a href="{{ .Permalink }}" class="read-more">view project</a>
+            {{ else }}
+            <a class="read-more">额芝士demo不可以看的哦</a>
+            {{ end }}
           </div>
         </div>
       </div>
