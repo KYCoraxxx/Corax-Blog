@@ -2,45 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Corax Blog on Corax の Bathmos</title>
-    <link>https://110.42.252.167/blog/</link>
+    <link>https://corax.com.cn/blog/</link>
     <description>Recent content in Corax Blog on Corax の Bathmos</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 09 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://110.42.252.167/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 09 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://corax.com.cn/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CPL2022网络编程与多线程教程(Windows)</title>
-      <link>https://110.42.252.167/blog/cpl2022socket/</link>
+      <link>https://corax.com.cn/blog/cpl2022/socket/</link>
       <pubDate>Mon, 09 Jan 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://110.42.252.167/blog/cpl2022socket/</guid>
+      <guid>https://corax.com.cn/blog/cpl2022/socket/</guid>
       <description>本教程将简单介绍利用WINAPI进行网络编程的环境配置和基础使用，同时还会附带一些简单的多线程内容</description>
-    </item>
-    
-    <item>
-      <title>Design Inspiration: The Best Projects From December</title>
-      <link>https://110.42.252.167/blog/design-inspiration-the-best-projects-from-december/</link>
-      <pubDate>Tue, 24 Dec 2019 13:45:06 +0600</pubDate>
-      
-      <guid>https://110.42.252.167/blog/design-inspiration-the-best-projects-from-december/</guid>
-      <description>Black Lines brand identity, by &amp;amp; Smith Black Lines wants it to be as easy to serve a Negroni as it is a pint of lager.</description>
-    </item>
-    
-    <item>
-      <title>The 10 Biggest Rebrands and Logo Designs of 2019</title>
-      <link>https://110.42.252.167/blog/the-10-biggest-rebrands-and-logo-designs-of-2019/</link>
-      <pubDate>Tue, 24 Dec 2019 13:40:00 +0600</pubDate>
-      
-      <guid>https://110.42.252.167/blog/the-10-biggest-rebrands-and-logo-designs-of-2019/</guid>
-      <description>Black Lines brand identity, by &amp;amp; Smith Black Lines wants it to be as easy to serve a Negroni as it is a pint of lager.</description>
-    </item>
-    
-    <item>
-      <title>The 10 Biggest Product Stories of 2019</title>
-      <link>https://110.42.252.167/blog/the-10-biggest-product-stories-of-2019/</link>
-      <pubDate>Tue, 24 Dec 2019 12:58:17 +0600</pubDate>
-      
-      <guid>https://110.42.252.167/blog/the-10-biggest-product-stories-of-2019/</guid>
-      <description>Black Lines brand identity, by &amp;amp; Smith Black Lines wants it to be as easy to serve a Negroni as it is a pint of lager.</description>
     </item>
     
   </channel>

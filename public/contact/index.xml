@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Contact on Corax の Bathmos</title>
-    <link>https://110.42.252.167/contact/</link>
+    <link>https://corax.com.cn/contact/</link>
     <description>Recent content in Contact on Corax の Bathmos</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 09 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://110.42.252.167/contact/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 09 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://corax.com.cn/contact/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
