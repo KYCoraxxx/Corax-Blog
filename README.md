@@ -1,50 +1,28 @@
-<h1>Roxo Hugo</h1>
-<img src="https://user-images.githubusercontent.com/16266381/76162082-10850b80-6164-11ea-8b20-f30b2611f92c.png" alt="screenshot" width="100%">
+![image](https://user-images.githubusercontent.com/5889006/190859441-141b5f81-8483-40d2-bd96-ebf85616a46d.png)
 
-Roxo Hugo is a digital agency Hugo theme for creative agencies,  freelancers, graphic designers, photographers. Can be used for any kind of corporate websites who provides digital services with many expertise such as  Design, Digital Products, Development, Campaign & Content, Employer Branding, Animation & Motion Graphics ,Packaging & Product Design, Retail & Spacial, Print & Editorial Design, Concept/Text, Information Design etc. Roxo Hugo’s contact form is supported fabform.
+# Hugo Theme Stack
 
-## Table of Contents
+<img align="right" width="150" alt="logo" src="https://user-images.githubusercontent.com/5889006/190859553-5b229b4f-c476-4cbd-928f-890f5265ca4c.png">
 
-- [Live Demo](#live-demo)
-- [Installation](#installation)
-- [Main Features](#features)
-- [Support](#support)
-- [Licensing](#licensing)
-- [Hire](#hire)
+Card-style Hugo theme designed for bloggers.
 
-## Live Demo
+## Quickstart
 
-Checkout the live demo [here](https://roxo-hugo.staticmania.com/)
+Use this template: [CaiJimmy/hugo-theme-stack-starter](https://github.com/CaiJimmy/hugo-theme-stack-starter)
 
-## Installation
+## Demo
 
-1. Add the repository into your Hugo Project repository as a submodule, `git submodule add git@github.com:StaticMania/roxo-hugo.git themes/roxo-hugo`.
-2. Copy the `data`, `content`, `static`, `resources` & `config.toml` files from the `exampleSite` directory and paste it on you Hugo Project repository/directory. From the site home directory:
+* Stater template demo: [demo.stack.jimmycai.com](https://demo.stack.jimmycai.com)
+* Dev build: [dev.stack.jimmycai.com](https://dev.stack.jimmycai.com)
 
-    cp -a themes/roxo-hugo/exampleSite/* .
+## Documentation
 
-3. Build your site with `hugo serve` and see the result at `http://localhost:1313/`.
+Visit [stack.jimmycai.com](https://stack.jimmycai.com)
 
+## Copyright
 
-## Features
+**Licensed under the GNU General Public License v3.0**
 
-* Responsive Ready.
-* Powered by Bootstrap 4.
-* Dedicated portfolio page.
-* Blog Support.
-* Well formatted code.
-* Easy Customization.
-* FabForm.io [static website form](https://fabform.io).
-* Crafted for Design Agency/ Portfolio
+Please do not remove the "*Theme Stack designed by Jimmy*" text and link.
 
-## Support
-
-Have some question or facing any technical trouble feel free to [Contact Us](https://staticmania.com/contact/)
-
-## Licensing
-
-This Repository is licensed under the [MIT](https://github.com/StaticMania/roxo-hugo/blob/master/LICENSE) License
-
-## Hire
-
-Need help to build HUGO websites with your custom requirements. Feel free to [contact](https://staticmania.com/contact/) with us. We provide custom development service for HUGO.
+If you want to port this theme to another blogging platform, please let me know🙏.
