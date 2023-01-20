@@ -6,7 +6,411 @@
         <description>Recent content on Corax の Bathmos</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Tue, 17 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://corax.com.cn/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 19 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://corax.com.cn/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>OSI参考模型第一层 物理层原理与技术</title>
+        <link>https://corax.com.cn/posts/ic1/</link>
+        <pubDate>Thu, 19 Jan 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://corax.com.cn/posts/ic1/</guid>
+        <description>&lt;img src="https://corax.com.cn/posts/ic1/cover.jpg" alt="Featured image of post OSI参考模型第一层 物理层原理与技术" /&gt;&lt;h2 id=&#34;网络类型&#34;&gt;网络类型&lt;/h2&gt;
+&lt;h3 id=&#34;共享介质&#34;&gt;共享介质&lt;/h3&gt;
+&lt;p&gt;$Shared~Media(Multiple~Access)$，一般用于局域网，接入的主机数量不能过多，否则容易引发冲突，连接线通常使用双绞线(UTP居多)。例如局域网中的总线拓扑，其中的总线就是局域网内主机的共享介质&lt;/p&gt;
+&lt;p&gt;特点是常用广播，非持续不断地使用介质，且介质传输数据时数据量相对集中于某些时段&lt;/p&gt;
+&lt;h3 id=&#34;点对点通信&#34;&gt;点对点通信&lt;/h3&gt;
+&lt;p&gt;$Point-to-point~Network$，一般用于广域网之间的连接，通信双方持续占用介质，不可以插入&lt;/p&gt;
+&lt;p&gt;特点是控制简单，但是建设代价大（参考网状拓扑）&lt;/p&gt;
+&lt;h2 id=&#34;局域网传输介质&#34;&gt;局域网传输介质&lt;/h2&gt;
+&lt;p&gt;传输介质是用于传输数据的方式&lt;/p&gt;
+&lt;h3 id=&#34;信号种类&#34;&gt;信号种类&lt;/h3&gt;
+&lt;p&gt;传输数据过程的本质是用某种信号的两种或更多的不同易区分状态来完成与数据相关的特定信号编码&lt;/p&gt;
+&lt;p&gt;常用的介质信号如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;电信号，分别用高电平和低电平表示两种不同状态&lt;/li&gt;
+&lt;li&gt;光信号，用波长来反应不同的状态&lt;/li&gt;
+&lt;li&gt;微波信号，可以通过振幅的大小、频率的高低、相位等来表示不同的状态&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;线缆种类&#34;&gt;线缆种类&lt;/h3&gt;
+&lt;h4 id=&#34;屏蔽双绞线&#34;&gt;屏蔽双绞线&lt;/h4&gt;
+&lt;p&gt;$Shielded~Twisted~Pair,STP$&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://corax.com.cn/posts/ic1/stp.png&#34;
+	width=&#34;1598&#34;
+	height=&#34;692&#34;
+	srcset=&#34;https://corax.com.cn/posts/ic1/stp_huc4f0e03ae4ba44eff2850327135a5f05_313034_480x0_resize_box_3.png 480w, https://corax.com.cn/posts/ic1/stp_huc4f0e03ae4ba44eff2850327135a5f05_313034_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;230&#34;
+		data-flex-basis=&#34;554px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;特点：使用双层屏蔽，外层屏蔽减轻了外部磁场对电流的干扰，而加装内层屏蔽是为了削弱线缆内部电流的磁场干扰，因此通信线偏细，电阻高，性能好(不容易出错)，但造价高昂，带宽$1\sim10G$，通量$10\sim 100Mbps$，因电阻高而传输距离仅有100m，并且由于外层屏蔽需要接地，所以安装也相对复杂&lt;/p&gt;
+&lt;h4 id=&#34;半屏弊双绞线&#34;&gt;半屏弊双绞线&lt;/h4&gt;
+&lt;p&gt;我也不知英文全写是啥😅$ScTP$&lt;/p&gt;
+&lt;p&gt;特点：相比STP，ScTP舍弃了内层的屏蔽，只保留了最外层的屏蔽，造价更低，电阻更小，但性能和STP差不多，安装时外层屏蔽仍然需要接地&lt;/p&gt;
+&lt;h4 id=&#34;无屏蔽双绞线&#34;&gt;无屏蔽双绞线&lt;/h4&gt;
+&lt;p&gt;$Unshielded~Twisted~Pair,UTP$&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://corax.com.cn/posts/ic1/utp.png&#34;
+	width=&#34;818&#34;
+	height=&#34;298&#34;
+	srcset=&#34;https://corax.com.cn/posts/ic1/utp_hu0665a1390dea32362eb152cdda6b7706_146681_480x0_resize_box_3.png 480w, https://corax.com.cn/posts/ic1/utp_hu0665a1390dea32362eb152cdda6b7706_146681_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;274&#34;
+		data-flex-basis=&#34;658px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;特点：最常用的双绞线，舍弃了两层屏蔽，安装便捷，造价低廉，传输距离仍然在100m内，性能仍然和STP差不多，但在磁场干扰的情况下信号可能出错&lt;/p&gt;
+&lt;h4 id=&#34;同轴电缆&#34;&gt;同轴电缆&lt;/h4&gt;
+&lt;p&gt;$Coaxial$&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://corax.com.cn/posts/ic1/coaxial.png&#34;
+	width=&#34;1012&#34;
+	height=&#34;510&#34;
+	srcset=&#34;https://corax.com.cn/posts/ic1/coaxial_hu72c3b33fff592eb890487ffe32371a80_72551_480x0_resize_box_3.png 480w, https://corax.com.cn/posts/ic1/coaxial_hu72c3b33fff592eb890487ffe32371a80_72551_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;198&#34;
+		data-flex-basis=&#34;476px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;特点：分为粗缆和细缆，由绝缘层包裹铜导体，造价高于双绞线但不算太离谱，通量与双绞线几乎一致，但传输距离更远，可以达到500m，对于粗缆来说甚至可以达到1km&lt;/p&gt;
+&lt;h4 id=&#34;光缆光纤&#34;&gt;光缆/光纤&lt;/h4&gt;
+&lt;p&gt;$Fiber-Optic$&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://corax.com.cn/posts/ic1/fiber-optic.png&#34;
+	width=&#34;1547&#34;
+	height=&#34;746&#34;
+	srcset=&#34;https://corax.com.cn/posts/ic1/fiber-optic_hu8b9ca8c9c14d02004e7ec83321bc191f_245370_480x0_resize_box_3.png 480w, https://corax.com.cn/posts/ic1/fiber-optic_hu8b9ca8c9c14d02004e7ec83321bc191f_245370_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;207&#34;
+		data-flex-basis=&#34;497px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;特点：分为单模光纤(&lt;strong&gt;axial&lt;/strong&gt;)和多模光纤，其中单模光纤只能发送单路信号，传输距离更长，能达到3km，一般用于广域网；而多模光纤可以同时发送多路信号(不同路的光信号沿不同角度入射)，传输距离相对更短，只能达到2km，一般用于局域网。在光缆中传输的数据信号不受电磁干扰，通量高于之前的所有线缆，但造价也最为高昂&lt;/p&gt;
+&lt;h4 id=&#34;无线通讯&#34;&gt;无线通讯&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;激光，不需要介质传导，但是不能衍射(即不能绕过障碍物)&lt;/li&gt;
+&lt;li&gt;红外线，同样不能衍射&lt;/li&gt;
+&lt;li&gt;无线电波，通过基站和卫星等技术设施发送信号&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;以太网双绞线utp&#34;&gt;以太网双绞线(UTP)&lt;/h2&gt;
+&lt;h3 id=&#34;通信标准&#34;&gt;通信标准&lt;/h3&gt;
+&lt;p&gt;计算机网络标准主要由五个组织制定，分别是&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$IEEE(Institution~of~Electrical~and~Electronics~Engineers)$&lt;/li&gt;
+&lt;li&gt;$UL(Underwriters~Laboratories)$&lt;/li&gt;
+&lt;li&gt;$ELA(Electronic~Industries~Alliance)$&lt;/li&gt;
+&lt;li&gt;$TIA(Telecommunications~Industry~Association)$&lt;/li&gt;
+&lt;li&gt;$ANSI(American~National~Standards~Institute)$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;其中ELA和TIA主要制定通信方面的标准&lt;/p&gt;
+&lt;p&gt;UTP一共有八种分类，其中的&lt;strong&gt;三类线&lt;/strong&gt;是 &lt;strong&gt;EIA/TIA568标准(最早的标准)&lt;/strong&gt; 指定的电缆，传输频率为16MHz，最高传输速率为10Mbps，主要用于10BASE-T(10表示最高传输速率为10Mbps，BASE表示基带传输，T表示双绞线)；而&lt;strong&gt;五类线&lt;/strong&gt;是最常用的以太网电缆，主要用于100/1000BASE-T&lt;/p&gt;
+&lt;h3 id=&#34;线缆分类&#34;&gt;线缆分类&lt;/h3&gt;
+&lt;p&gt;按照线缆的不同绕制方式和功能用途可以将线缆分为三类&lt;/p&gt;
+&lt;h4 id=&#34;传输协议&#34;&gt;传输协议&lt;/h4&gt;
+&lt;p&gt;由$TIA$组织制定了&lt;strong&gt;T568A&lt;/strong&gt;和&lt;strong&gt;T568B&lt;/strong&gt;两种标准，指定了双绞线的配线线序规范&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://corax.com.cn/posts/ic1/t568.jpg&#34;
+	width=&#34;396&#34;
+	height=&#34;286&#34;
+	srcset=&#34;https://corax.com.cn/posts/ic1/t568_huf1ccddbe5f78f63dd7d76a957eaa8d7c_15981_480x0_resize_q75_box.jpg 480w, https://corax.com.cn/posts/ic1/t568_huf1ccddbe5f78f63dd7d76a957eaa8d7c_15981_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;138&#34;
+		data-flex-basis=&#34;332px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;其中&lt;code&gt;T568A&lt;/code&gt;标准颜色顺序为：绿白-绿-橙白-蓝-蓝白-橙-棕白-棕&lt;/p&gt;
+&lt;p&gt;而&lt;code&gt;T568B&lt;/code&gt;标准的颜色顺序为：橙白-橙-绿白-蓝-蓝白-绿-棕白-棕&lt;/p&gt;
+&lt;h4 id=&#34;直通线&#34;&gt;直通线&lt;/h4&gt;
+&lt;p&gt;$Straight~Cable$&lt;/p&gt;
+&lt;p&gt;直通线是两端采用同一标准的UTP，用于连接PC与交换机、交换机与路由器（但由于现在具有自动反转技术，所以不需要特别区分）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://corax.com.cn/posts/ic1/straight.png&#34;
+	width=&#34;900&#34;
+	height=&#34;561&#34;
+	srcset=&#34;https://corax.com.cn/posts/ic1/straight_hu2bb85b700fd390a5351f87646ae2e02c_738545_480x0_resize_box_3.png 480w, https://corax.com.cn/posts/ic1/straight_hu2bb85b700fd390a5351f87646ae2e02c_738545_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;160&#34;
+		data-flex-basis=&#34;385px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;控制台线反转线&#34;&gt;控制台线/反转线&lt;/h4&gt;
+&lt;p&gt;$Console~Cable/Rollover~Cable$&lt;/p&gt;
+&lt;p&gt;一端是串行接口，一端是RJ45（Registered Jack 45，是用于将计算机连接到局域网的标准化接口，俗称水晶头，如上图所示），特点是数据传输错位，用于通过PC使用超级终端更改设备配置，比特率9600&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://corax.com.cn/posts/ic1/console.png&#34;
+	width=&#34;1278&#34;
+	height=&#34;663&#34;
+	srcset=&#34;https://corax.com.cn/posts/ic1/console_hu68cb21c0b7eda7d5e608f969dd4b43e6_245837_480x0_resize_box_3.png 480w, https://corax.com.cn/posts/ic1/console_hu68cb21c0b7eda7d5e608f969dd4b43e6_245837_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;192&#34;
+		data-flex-basis=&#34;462px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;交叉线&#34;&gt;交叉线&lt;/h4&gt;
+&lt;p&gt;交叉线是两端RJ45采用不同标准的UTP，用于连接PC和路由器以及相同设备之间的连接，例如交换机堆叠技术就使用交叉线连接两个20端口交换机使之成为一台共具有38个端口的交换机&lt;/p&gt;
+&lt;h2 id=&#34;传输介质与信号问题&#34;&gt;传输介质与信号问题&lt;/h2&gt;
+&lt;p&gt;在计算机网络中数据以物理信号的形式传输的过程中有着许多问题，例如：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;信号的传输需要时间，其中电缆的传输比光缆更快（因为光在光缆中传播需要经过多次反射）&lt;/li&gt;
+&lt;li&gt;传输过程中物理信号的能量会逐渐衰减，因此需要在途中添加中继器/交换机&lt;/li&gt;
+&lt;li&gt;同轴电缆如果发生物理扭曲，则会形成电阻进而积压电压，最终可能导致信号反射，因此需要在终端设备上消耗掉信号，阻止信号的反射&lt;/li&gt;
+&lt;li&gt;环境的噪音可能会使得信号出现错误（失真）&lt;/li&gt;
+&lt;li&gt;信号经过各节点需要经过节点的筛选处理，因此存在设备的时延问题&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;介质访问冲突问题&lt;/strong&gt;，当两个信号传输需要占用同一段介质时，就发生了冲突(collision)，冲突会导致终端设备认为该介质短时间内不可用，例如如果设备的网卡只接受-1和1之间的信号，而两个终端同时向中间介质发送了-1的信号，电平的叠加会使得这张网卡收到-2的信号，解决的办法是由OSI参考模型中更高层的设备来处理冲突问题。具体地说，局域网的组网需要满足&lt;strong&gt;5-4-3-2-1规则&lt;/strong&gt;（冲突域是指可能发生介质访问冲突问题的设备区域）：最多有&lt;strong&gt;5&lt;/strong&gt;段线路，&lt;strong&gt;4&lt;/strong&gt;个中继器/交换机/路由器，&lt;strong&gt;3&lt;/strong&gt;个放置设备的区域，&lt;strong&gt;2&lt;/strong&gt;个区域不能放置设备，组成共&lt;strong&gt;1&lt;/strong&gt;个冲突域&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://corax.com.cn/posts/ic1/domain.png&#34;
+	width=&#34;1048&#34;
+	height=&#34;501&#34;
+	srcset=&#34;https://corax.com.cn/posts/ic1/domain_huc2af99ee66068c6a880b6950487f4cfa_378982_480x0_resize_box_3.png 480w, https://corax.com.cn/posts/ic1/domain_huc2af99ee66068c6a880b6950487f4cfa_378982_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;209&#34;
+		data-flex-basis=&#34;502px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;数据通信基础&#34;&gt;数据通信基础&lt;/h2&gt;
+&lt;h3 id=&#34;数据通信的理论基础&#34;&gt;数据通信的理论基础&lt;/h3&gt;
+&lt;h4 id=&#34;基本术语&#34;&gt;基本术语&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;信号(signal)是数据在电气或电磁形式上的表现&lt;/li&gt;
+&lt;li&gt;模拟(analogous)信号是随时间变化而&lt;strong&gt;平稳变化&lt;/strong&gt;的连续波形式（例如无线电波）&lt;/li&gt;
+&lt;li&gt;数字(digital)信号是离散信号，可能包含有限的几个&lt;strong&gt;预定值&lt;/strong&gt;（例如电平的高低）&lt;/li&gt;
+&lt;li&gt;码元(code)是在使用时间域的波形表示数字信号时，代表不同离散数值的基本波形，即时间域内传输的一个单位&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;信号处理&#34;&gt;信号处理&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;模拟信号可以分为&lt;strong&gt;简单信号&lt;/strong&gt;和&lt;strong&gt;复合信号&lt;/strong&gt;。简单信号(正弦波)&lt;strong&gt;不能被分解为更简单的模拟信号&lt;/strong&gt;；复合信号可以被分解为多个正弦波，即任何复杂信号都可以通过&lt;strong&gt;傅里叶分析&lt;/strong&gt;被简单波组合拟合出来&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://corax.com.cn/posts/ic1/analogous.png&#34;
+	width=&#34;1075&#34;
+	height=&#34;661&#34;
+	srcset=&#34;https://corax.com.cn/posts/ic1/analogous_hu0ca175964bd54afd65c401d45d533cef_279921_480x0_resize_box_3.png 480w, https://corax.com.cn/posts/ic1/analogous_hu0ca175964bd54afd65c401d45d533cef_279921_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;162&#34;
+		data-flex-basis=&#34;390px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;数字信号一般是非周期性的，&lt;strong&gt;在传输介质上表现为方波（只有高低两个值）&lt;/strong&gt;，一个数字信号可以分解为&lt;strong&gt;无数个&lt;/strong&gt;被称为谐波的不同简单正弦波。在介质上发送数字信号时，本质是发送无穷的简单谐波，如果一些谐波没能成功通过介质传输，则在接收端产生&lt;strong&gt;信号畸变&lt;/strong&gt;，受制于介质本身（带宽受限、噪声干扰、能量损耗等），信号畸变难以完全避免&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://corax.com.cn/posts/ic1/digital.png&#34;
+	width=&#34;1773&#34;
+	height=&#34;673&#34;
+	srcset=&#34;https://corax.com.cn/posts/ic1/digital_hu827585a7efe8e320057d85be65baed81_244662_480x0_resize_box_3.png 480w, https://corax.com.cn/posts/ic1/digital_hu827585a7efe8e320057d85be65baed81_244662_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;263&#34;
+		data-flex-basis=&#34;632px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;信号畸变的堆叠导致信号的失真，&lt;strong&gt;失真的严重程度和码元传输速率和信号传输的距离成正比&lt;/strong&gt;，有的失真程度较轻信号尚可识别，但有的失真会导致数字信号无法识别&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://corax.com.cn/posts/ic1/lose.png&#34;
+	width=&#34;1715&#34;
+	height=&#34;741&#34;
+	srcset=&#34;https://corax.com.cn/posts/ic1/lose_hu9235fa9d81988e7048414664081d5287_563377_480x0_resize_box_3.png 480w, https://corax.com.cn/posts/ic1/lose_hu9235fa9d81988e7048414664081d5287_563377_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;231&#34;
+		data-flex-basis=&#34;555px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;理论上无噪声信道的最高传输速率：如果码元传输的速率超出信道的可承受的上限，就会出现&lt;strong&gt;码间串扰&lt;/strong&gt;的问题，导致接收端无法识别信号。1924年，奈奎斯特(Nyquist)指出了无噪声信道中传输比特率的上限为$C=Wlog_2L~bps$，其中W为信道的带宽（以Hz为单位），L表示数据信号电平的数量（如0到8V的电平的码元可携带3个bit），其对数值表示一个码元携带的比特数&lt;/li&gt;
+&lt;li&gt;噪声信道的最高传输速率：香农(Shannon)用信息论推导出带宽受限且有噪声信道的&lt;strong&gt;极限、无差错&lt;/strong&gt;信息传输速率为$C=Wlog_2(1+\frac{S}{N})$，其中S表示信道传输信号的平均功率，N表示信道内部的高斯噪声功率，S/N称为&lt;strong&gt;信噪比&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;香农公式的主要意义在于：只要信息传输速率远低于&lt;strong&gt;极限信息传输速率&lt;/strong&gt;，就一定有办法实现无差错的传输；即使信噪比和码元速率都不能再提高，也可以通过编码使码元携带更多比特来提高传输速率&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;波特率与比特率&#34;&gt;波特率与比特率&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;波特率/调制速率(baud)是指信号每秒钟变化的次数，或每秒钟波的个数&lt;/li&gt;
+&lt;li&gt;比特率(bit)是指每秒钟传送的二进制位数，波特率与比特率的关系取决于信号值与比特位的关系&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;数据通信技术&#34;&gt;数据通信技术&lt;/h3&gt;
+&lt;h4 id=&#34;数据通信系统基本结构&#34;&gt;数据通信系统基本结构&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;https://corax.com.cn/posts/ic1/system.png&#34;
+	width=&#34;1340&#34;
+	height=&#34;570&#34;
+	srcset=&#34;https://corax.com.cn/posts/ic1/system_hu1d28ada82cab5fe8c57321868f4c98aa_380716_480x0_resize_box_3.png 480w, https://corax.com.cn/posts/ic1/system_hu1d28ada82cab5fe8c57321868f4c98aa_380716_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;235&#34;
+		data-flex-basis=&#34;564px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;数字信号编码&#34;&gt;数字信号编码&lt;/h4&gt;
+&lt;p&gt;基带：基本频带，指传输变化前所占用的频带，是原始信号所固有的频带&lt;/p&gt;
+&lt;p&gt;基带传输：在传输时直接使用基带数字信号，即传输时不将输入数据转换为模拟信号（不调制），是&lt;strong&gt;最简单最基本的传输方式&lt;/strong&gt;，一般用低电平表示数据0，高电平表示数据1，但因为基带信号频率成分很宽，所以对传输线的要求较高且传输容易出错&lt;/p&gt;
+&lt;h4 id=&#34;线路编码&#34;&gt;线路编码&lt;/h4&gt;
+&lt;p&gt;$Line~Coding$，指的是在传输数据前将数字信号转换到模拟信号（调制）后的编码，常用的编码方式如下：&lt;/p&gt;
+&lt;h5 id=&#34;单极性编码&#34;&gt;单极性编码&lt;/h5&gt;
+&lt;p&gt;原理是通过网卡对电平进行编码，用0电平代表0，正电平表示1（因为没有负电平所以称为单极性）&lt;/p&gt;
+&lt;p&gt;问题在于为了分辨连续出现的0或1，发送与接收双方需要进行时钟同步；持续长时间的正电平积累容易损坏设备。因此单极性编码容易出现传输错误&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://corax.com.cn/posts/ic1/single.png&#34;
+	width=&#34;1074&#34;
+	height=&#34;247&#34;
+	srcset=&#34;https://corax.com.cn/posts/ic1/single_hu0e1e14931ffd9799ef9171313e9c3e1b_59016_480x0_resize_box_3.png 480w, https://corax.com.cn/posts/ic1/single_hu0e1e14931ffd9799ef9171313e9c3e1b_59016_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;434&#34;
+		data-flex-basis=&#34;1043px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h5 id=&#34;极化编码&#34;&gt;极化编码&lt;/h5&gt;
+&lt;p&gt;&lt;strong&gt;不归零电平编码&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;$NRZ(Non-Return~to~Zero)$，原理是用负电平表示0，正电平表示1（或相反）&lt;/p&gt;
+&lt;p&gt;问题与单极性编码相似，需要时钟同步，其做法旨在解决正电平的积累问题，但如果0和1长期连续出现仍将导致电平的积累&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://corax.com.cn/posts/ic1/nrz.png&#34;
+	width=&#34;1738&#34;
+	height=&#34;408&#34;
+	srcset=&#34;https://corax.com.cn/posts/ic1/nrz_hu2c7bc7a0702e24b5c3a40e20ace1d72e_145867_480x0_resize_box_3.png 480w, https://corax.com.cn/posts/ic1/nrz_hu2c7bc7a0702e24b5c3a40e20ace1d72e_145867_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;425&#34;
+		data-flex-basis=&#34;1022px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;不归零反相编码&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;改用正负电平的翻转表示1，电平不变化则表示0，时钟同步的问题并没有得到解决，但是连续1的出现不会出现电平的积累&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;归零电平编码&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;$RZ(Return~to~Zero)$，原理是用负电平表示0，正电平表示1，在两个比特位之间跳变到零电平&lt;/p&gt;
+&lt;p&gt;解决了时钟同步的问题（跳变到零电平就是同步信号），并且解决方式相对经济，不容易出错；但电平的积累问题并没有解决，且采用三种不同的电平，占用的带宽增加了&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://corax.com.cn/posts/ic1/rz.png&#34;
+	width=&#34;1589&#34;
+	height=&#34;212&#34;
+	srcset=&#34;https://corax.com.cn/posts/ic1/rz_hue1a1606d0c9a52a95b2e9b185b9fb12e_64026_480x0_resize_box_3.png 480w, https://corax.com.cn/posts/ic1/rz_hue1a1606d0c9a52a95b2e9b185b9fb12e_64026_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;749&#34;
+		data-flex-basis=&#34;1798px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;曼彻斯特编码&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;$\color{red}{Manchester}$，原理是每一位数据都是通过电平的跳变来表示，其中&lt;strong&gt;从低电平向高电平&lt;/strong&gt;跳变表示0，&lt;strong&gt;高电平向低电平&lt;/strong&gt;跳变表示1&lt;/p&gt;
+&lt;p&gt;好处在于通过跳变完成了时钟同步，不会存在电平积累的问题，并且只使用两个电平（占用带宽少），跳变更少，比RZ编码的效率更高&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://corax.com.cn/posts/ic1/manchester.png&#34;
+	width=&#34;580&#34;
+	height=&#34;166&#34;
+	srcset=&#34;https://corax.com.cn/posts/ic1/manchester_hu10423f6b163b2953ced28b635da65806_8227_480x0_resize_box_3.png 480w, https://corax.com.cn/posts/ic1/manchester_hu10423f6b163b2953ced28b635da65806_8227_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;349&#34;
+		data-flex-basis=&#34;838px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;值得指出的是，如果出现两个连续的0或者1，电平会在两个比特之间&lt;strong&gt;额外发生一次跳变&lt;/strong&gt;，为下一次跳变做准备，因此跳变的频率在这种情况下会突然变高，但这个过程并不会影响时钟的同步，因为时钟的同步只是在同步初始相位，而不是各个周期长度同步，周期的长度需要双方提前协商好&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;差分曼彻斯特编码&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;$\color{red}{Differential~Manchester}$，原理是通过每一位数据传输开始瞬间的跳变来表示数据，每一位数据传输的中间跳变来同步时钟，其中的数据位用&lt;strong&gt;发生跳变&lt;/strong&gt;来表示0，&lt;strong&gt;没有跳变&lt;/strong&gt;来表示1&lt;/p&gt;
+&lt;p&gt;好处在于相较于曼彻斯特编码，时钟同步的信息与数据相分离，便于识别与提取&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://corax.com.cn/posts/ic1/dm.jpg&#34;
+	width=&#34;312&#34;
+	height=&#34;211&#34;
+	srcset=&#34;https://corax.com.cn/posts/ic1/dm_huff2928889a8a3d02dab86182349797fe_14347_480x0_resize_q75_box.jpg 480w, https://corax.com.cn/posts/ic1/dm_huff2928889a8a3d02dab86182349797fe_14347_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;147&#34;
+		data-flex-basis=&#34;354px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h5 id=&#34;双极性编码&#34;&gt;双极性编码&lt;/h5&gt;
+&lt;p&gt;&lt;strong&gt;传号交替反转码&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;$AMI$&lt;/p&gt;
+&lt;p&gt;原理是与RZ码相同采用正、负、零三种电平，但正电平和负电平都表示1（由于&lt;strong&gt;两种极性的电平用来表示同一数据&lt;/strong&gt;，因而被称为双极性编码），但两者交替出现防止电平的积累&lt;/p&gt;
+&lt;p&gt;但问题在于对于连续的0仍然无法同步，连续的1则可以同步&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://corax.com.cn/posts/ic1/ami.png&#34;
+	width=&#34;1460&#34;
+	height=&#34;143&#34;
+	srcset=&#34;https://corax.com.cn/posts/ic1/ami_hudf8572e4a7718a01ff7b7f0506d5e2fa_29570_480x0_resize_box_3.png 480w, https://corax.com.cn/posts/ic1/ami_hudf8572e4a7718a01ff7b7f0506d5e2fa_29570_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;1020&#34;
+		data-flex-basis=&#34;2450px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;下面的两种编码不做要求&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;双极性8连0替换码(B8ZS)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3阶高密度双极性码(HDB3)&lt;/strong&gt;&lt;/p&gt;
+&lt;h4 id=&#34;多路复用&#34;&gt;多路复用&lt;/h4&gt;
+&lt;p&gt;由于一条传输线路的负载能力远超于一个用户传输信号所需要的能力，为了提高线路的利用率，常让多个信号公用一条物理线路，即通过复用器和分解器将&lt;strong&gt;一条物理链路划分为多条传输信道&lt;/strong&gt;&lt;/p&gt;
+&lt;h5 id=&#34;时分复用&#34;&gt;时分复用&lt;/h5&gt;
+&lt;p&gt;$Time~Division~Multiplexing,TDM$&lt;/p&gt;
+&lt;p&gt;原理是每一个用户周期性地占用线路一段时间，占用的这一段时间称为&lt;strong&gt;时分复用帧&lt;/strong&gt;，TDM信号也称为&lt;strong&gt;等时(isochronous)信号&lt;/strong&gt;，复用的用户在自己的时分复用帧内享有&lt;strong&gt;同样的频带宽度&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;问题在于当使用信道的权限移交至用户时用户可能并不需要发送数据（计算机数据的突发性质），而相应周期预订给用户的时分复用帧不能被其他用户占用，因此会造成线路资源的浪费&lt;/p&gt;
+&lt;h5 id=&#34;统计时分复用&#34;&gt;统计时分复用&lt;/h5&gt;
+&lt;p&gt;$Statistic~TDM，STDM$&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://corax.com.cn/posts/ic1/stdm.png&#34;
+	width=&#34;870&#34;
+	height=&#34;397&#34;
+	srcset=&#34;https://corax.com.cn/posts/ic1/stdm_hu2ca485dda5947c946a197666051585b3_65428_480x0_resize_box_3.png 480w, https://corax.com.cn/posts/ic1/stdm_hu2ca485dda5947c946a197666051585b3_65428_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;219&#34;
+		data-flex-basis=&#34;525px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;如图所示，统计时分复用将信道的时间划分成了多个STDM帧，然后根据用户的需求，在识别用户身份后给予用户占用相应STDM帧的一部分的权限，但是由于身份识别需要时间，资源仍然有一定程度的浪费（比TDM好得多）&lt;/p&gt;
+&lt;h5 id=&#34;频分复用&#34;&gt;频分复用&lt;/h5&gt;
+&lt;p&gt;$Frequency~Division~Multiplexing,FDM$&lt;/p&gt;
+&lt;p&gt;原理是将链路的某一段不冲突的频带分配给指定的用户，所有用户&lt;strong&gt;在同样的时间内占用不同的频率带宽资源，共享链路的带宽&lt;/strong&gt;&lt;/p&gt;
+&lt;h5 id=&#34;波分复用&#34;&gt;波分复用&lt;/h5&gt;
+&lt;p&gt;$Wavelength~Division~Multiplexing,WDM$&lt;/p&gt;
+&lt;p&gt;原理就是使用光作为介质而非微波的频分复用，多模光纤的每一路均可再进行波分复用&lt;/p&gt;
+&lt;h5 id=&#34;码分复用&#34;&gt;码分复用&lt;/h5&gt;
+&lt;p&gt;$Code~Division~Multiplexing,CDM$&lt;/p&gt;
+&lt;p&gt;码分多址$CDMA(Code~Division~Multiple~Access)$一般用于无线电波&lt;/p&gt;
+&lt;p&gt;各个用户使用经过特殊挑选的不同码型，非对应的传输双方能收到，但无法理解传输的信息内容，因此对于非对应的终端设备来说相当于白噪音&lt;/p&gt;
+&lt;h4 id=&#34;通信方式&#34;&gt;通信方式&lt;/h4&gt;
+&lt;h5 id=&#34;单工通信&#34;&gt;单工通信&lt;/h5&gt;
+&lt;p&gt;信号单向传输&lt;/p&gt;
+&lt;h5 id=&#34;半双工&#34;&gt;半双工&lt;/h5&gt;
+&lt;p&gt;信号可双向传输，但不同时&lt;/p&gt;
+&lt;h5 id=&#34;全双工&#34;&gt;全双工&lt;/h5&gt;
+&lt;p&gt;信号随时可双向传输&lt;/p&gt;
+&lt;h5 id=&#34;并行&#34;&gt;并行&lt;/h5&gt;
+&lt;p&gt;一次同时发送多位数据&lt;/p&gt;
+&lt;h5 id=&#34;串行&#34;&gt;串行&lt;/h5&gt;
+&lt;p&gt;多位数据拆分为多次发送&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>计算机网络及其参考模型</title>
         <link>https://corax.com.cn/posts/ic0/</link>
         <pubDate>Tue, 17 Jan 2023 00:00:00 +0000</pubDate>
