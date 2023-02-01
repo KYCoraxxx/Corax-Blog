@@ -6,7 +6,9 @@
 
     <section class="article-list">
         {{ range $index, $element := $pag.Pages }}
-            {{ partial "article-list/default" . }}
+            {{ if not .Params.isNote }}
+                {{ partial "article-list/default" . }}
+            {{ end }}
         {{ end }}
     </section>
 

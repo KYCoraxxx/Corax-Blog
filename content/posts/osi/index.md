@@ -9,6 +9,7 @@ image: cover.jpg
 tags: [ 互联网计算 ]
 readingTime: true
 hidemeta: true
+isNote: true
 hidden: false
 comments: true
 draft: false

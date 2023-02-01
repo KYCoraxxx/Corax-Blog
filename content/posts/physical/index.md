@@ -10,6 +10,7 @@ tags: [ 互联网计算 ]
 readingTime: true
 hidemeta: true
 hidden: false
+isNote: true
 comments: true
 draft: false
 ---
