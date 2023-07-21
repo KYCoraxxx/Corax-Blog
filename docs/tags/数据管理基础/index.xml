@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>数据管理基础 on Corax Blog</title>
+    <link>https://corax.com.cn/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%9F%BA%E7%A1%80/</link>
+    <description>Recent content in 数据管理基础 on Corax Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>John Doe - All rights reserved</copyright>
+    <lastBuildDate>Mon, 06 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://corax.com.cn/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%9F%BA%E7%A1%80/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>数据管理基础－－关系型数据库</title>
+      <link>https://corax.com.cn/note/database/relation/</link>
+      <pubDate>Mon, 06 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://corax.com.cn/note/database/relation/</guid>
+      <description>关系数据结构及其形式化定义 关系 关系模型的数据结构是单一的，仅包含关系这一数据结构。对于用户而言，关系模型中的数据的逻辑结构是一张扁平的二维表
+术语解释 域（domain）
+域是一组具有相同数据类型的值的集合
+笛卡尔积（cartesian product）
+给定一组域$D_1,D_2,\dots,D_n$，则这组域的笛卡尔积为$D_1\times D_2\times\dots\times D_n={(d_1,d_2,\dots,d_n)|d_i\sub D_i}$
+该集合中的每一个元素称为一个n元组(n-tuple)，简称元组(tuple)，元素中的每一个$d_i$称为一个分量(component)
+域允许的不同取值个数称为域的基数(cardinal number)，显然有笛卡尔积的基数为各个域的基数之积
+关系（relation）
+笛卡尔积的子集称为在域$D_1,D_2,\dots,D_n$上的关系，表示为$R(D_1,D_2,\dots,D_n)$，R表示关系的名字，n称为这个关系的目或度（degree），当目为1时称该关系为单元关系（unary relation），或一元关系；当目为2时称为二元关系（binary relation）；n目关系一定有n个属性（attribute，每个列的名称或说明）
+关系中的每个元素是关系中的元组，通常用t表示
+候选码（candidate key）
+如果某一属性组（可能包含多个属性）的值能唯一标识一个元组，且其子集不行，则将该属性组称为候选码
+主码（prime key）</description>
+    </item>
+    
+    <item>
+      <title>数据管理基础概论</title>
+      <link>https://corax.com.cn/note/database/outline/</link>
+      <pubDate>Sat, 04 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://corax.com.cn/note/database/outline/</guid>
+      <description>绪论 概念 数据
+数据是描述事物的符号记录
+语义
+语义是数据的含义，与数据密不可分
+数据库
+$Database, DB$
+数据库是长期储存在计算机内、有组织的、可共享的大量数据的集合。数据库中的数据按一定的数据模型组织、描述和储存，具有较小的冗余度(redundancy)，较高的数据独立性(data independency)和易扩展性(scalability)，可以为各种用户共享
+数据库管理系统
+$Database~Management~System,DBMS$
+数据库管理系统是计算机的基础软件，具有以下功能：
+数据定义功能，即提供数据定义语言(Data Definition Language, DDL)，用于定义数据库中数据对象的组成和结构 数据组织、存储和管理，重点是如何实现数据之间的联系 数据操纵功能，提供数据操纵语言(Data Manipulation Language, DML)，实现对数据库的基本操作 数据库的事务管理和运行管理 数据库的建立和维护功能，包括初始数据输入、转换，数据库的转储、恢复、重组织、性能监视、分析功能，通常由实用程序或管理工具完成 其他功能，包括与其他软件系统的通信，与另一个数据库管理系统或文件系统的数据转换，异构数据库之间的互访和互操作 数据库系统</description>
+    </item>
+    
+  </channel>
+</rss>

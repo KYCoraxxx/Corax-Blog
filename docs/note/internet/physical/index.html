@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="generator" content="Hugo 0.104.3" />
+	
+	<link rel="icon" href="/images/logo.png">
+	
+	<title>OSI参考模型第一层 物理层原理与技术 | Corax Blog</title>
+	
+	
+
+	<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://corax.com.cn/note/internet/physical/cover.jpg"/>
+<meta name="twitter:title" content="OSI参考模型第一层 物理层原理与技术"/>
+<meta name="twitter:description" content="互联网计算课程Part1物理层笔记"/>
+
+	<meta property="og:title" content="OSI参考模型第一层 物理层原理与技术" />
+<meta property="og:description" content="互联网计算课程Part1物理层笔记" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://corax.com.cn/note/internet/physical/" /><meta property="og:image" content="https://corax.com.cn/note/internet/physical/cover.jpg"/><meta property="article:section" content="Note" />
+<meta property="article:published_time" content="2023-01-19T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-01-19T00:00:00+00:00" />
+
+
+
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+	
+	<link rel="stylesheet" href="https://corax.com.cn/css/medium.ece05c3e0cb4c172303048d902f5c72734dac11b313a671c381a53648c811f4d.css" integrity="sha256-7OBcPgy0wXIwMEjZAvXHJzTawRsxOmccOBpTZIyBH00=">
+
+	
+	<link rel="stylesheet" href="https://corax.com.cn/css/additional.14f7dbd08a523bb7dd03b308a991480ea5d8d744f6229068023169de78b48922.css" integrity="sha256-FPfb0IpSO7fdA7MIqZFIDqXY10T2IpBoAjFp3ni0iSI=">
+
+	
+	
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+    <div class="container pr-0">
+        
+        <a class="navbar-brand" href="https://corax.com.cn//">
+
+            
+            <img src="/images/logo.png" alt="logo">
+            
+        </a>
+        
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        
+        <div class="collapse navbar-collapse" id="navbarMediumish">
+            
+            <ul class="navbar-nav ml-auto">
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/blog">Blog</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/">About Me</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/static/imprint">Imprint</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+    </div>
+</nav>
+
+
+        <div class="site-content">   
+            <div class="container">
+<div class="mainheading">
+    <h1 class="sitetitle">Corax Blog</h1>
+    <p class="lead">
+         the clean blog!
+    </p>
+</div><div class="main-content">
+        
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-md-2 pl-0"><div class="share sticky-top sticky-top-offset">
+    <p>Share</p>
+    <ul>
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://twitter.com/intent/tweet?text=OSI%e5%8f%82%e8%80%83%e6%a8%a1%e5%9e%8b%e7%ac%ac%e4%b8%80%e5%b1%82%20%e7%89%a9%e7%90%86%e5%b1%82%e5%8e%9f%e7%90%86%e4%b8%8e%e6%8a%80%e6%9c%af&url=https%3a%2f%2fcorax.com.cn%2fnote%2finternet%2fphysical%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=435');return false;">
+        <i class="fab fa-twitter"></i>
+        </a>
+        </li>
+        
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://facebook.com/sharer.php?u=https%3a%2f%2fcorax.com.cn%2fnote%2finternet%2fphysical%2f" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+        <i class="fab fa-facebook-f"></i>
+        </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://www.xing.com/spi/shares/new?url=https%3a%2f%2fcorax.com.cn%2fnote%2finternet%2fphysical%2f" onclick="window.open(this.href, 'xing-share', 'width=550,height=435');return false;">
+        <i class="fab fa-xing"></i>
+        </a>
+        </li>        
+    </ul>
+
+    
+        <div class="sep">
+        </div>				
+        <ul>
+            <li> 
+            <a  class="small smoothscroll" href="#disqus_thread"></a>
+            </li>
+        </ul>
+    
+</div>
+</div>
+                                
+                <div class="col-md-9 flex-first flex-md-unordered">
+                    <div class="mainheading">
+                        	
+                        
+                        
+                        
+                        <div class="row post-top-meta">
+                            <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0 md-nopad-right">
+                                <img class="author-thumb" src="/images/avator.jpg" alt="Corax">
+                            </div>
+                            <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left md-nopad-left">
+                                <a target="_blank" class="link-dark">Corax</a><br>
+                                <span class="author-description">
+                                    Creator of this blog.<br>
+                                    <i class="far fa-star"></i>
+                                    Jan 19, 2023
+                                    <i class="far fa-clock clock"></i>
+                                    1 min read
+                                </span>					
+                            </div>
+                        </div>			
+                        	
+                        
+                                                
+                        
+                        <h1 class="posttitle">OSI参考模型第一层 物理层原理与技术</h1> 
+                    </div>
+
+                    
+                    
+                    
+                        <img class="featured-image img-fluid" src="https://corax.com.cn/note/internet/physical/cover.jpg" alt="thumbnail for this post">
+                    
+                    
+
+                    
+                    <div class="article-post">
+                        <h2 id="网络类型">网络类型</h2>
+<h3 id="共享介质">共享介质</h3>
+<p>$Shared~Media(Multiple~Access)$，一般用于局域网，接入的主机数量不能过多，否则容易引发冲突，连接线通常使用双绞线(UTP居多)。例如局域网中的总线拓扑，其中的总线就是局域网内主机的共享介质</p>
+<p>特点是常用广播，非持续不断地使用介质，且介质传输数据时数据量相对集中于某些时段</p>
+<h3 id="点对点通信">点对点通信</h3>
+<p>$Point-to-point~Network$，一般用于广域网之间的连接，通信双方持续占用介质，不可以插入</p>
+<p>特点是控制简单，但是建设代价大（参考网状拓扑）</p>
+<h2 id="局域网传输介质">局域网传输介质</h2>
+<p>传输介质是用于传输数据的方式</p>
+<h3 id="信号种类">信号种类</h3>
+<p>传输数据过程的本质是用某种信号的两种或更多的不同易区分状态来完成与数据相关的特定信号编码</p>
+<p>常用的介质信号如下：</p>
+<ul>
+<li>电信号，分别用高电平和低电平表示两种不同状态</li>
+<li>光信号，用波长来反应不同的状态</li>
+<li>微波信号，可以通过振幅的大小、频率的高低、相位等来表示不同的状态</li>
+</ul>
+<h3 id="线缆种类">线缆种类</h3>
+<h4 id="屏蔽双绞线">屏蔽双绞线</h4>
+<p>$Shielded~Twisted~Pair,STP$</p>
+<p><img src="stp.png" alt=""></p>
+<p>特点：使用双层屏蔽，外层屏蔽减轻了外部磁场对电流的干扰，而加装内层屏蔽是为了削弱线缆内部电流的磁场干扰，因此通信线偏细，电阻高，性能好(不容易出错)，但造价高昂，带宽$1\sim10G$，通量$10\sim 100Mbps$，因电阻高而传输距离仅有100m，并且由于外层屏蔽需要接地，所以安装也相对复杂</p>
+<h4 id="半屏弊双绞线">半屏弊双绞线</h4>
+<p>我也不知英文全写是啥😅$ScTP$</p>
+<p>特点：相比STP，ScTP舍弃了内层的屏蔽，只保留了最外层的屏蔽，造价更低，电阻更小，但性能和STP差不多，安装时外层屏蔽仍然需要接地</p>
+<h4 id="无屏蔽双绞线">无屏蔽双绞线</h4>
+<p>$Unshielded~Twisted~Pair,UTP$</p>
+<p><img src="utp.png" alt=""></p>
+<p>特点：最常用的双绞线，舍弃了两层屏蔽，安装便捷，造价低廉，传输距离仍然在100m内，性能仍然和STP差不多，但在磁场干扰的情况下信号可能出错</p>
+<h4 id="同轴电缆">同轴电缆</h4>
+<p>$Coaxial$</p>
+<p><img src="coaxial.png" alt=""></p>
+<p>特点：分为粗缆和细缆，由绝缘层包裹铜导体，造价高于双绞线但不算太离谱，通量与双绞线几乎一致，但传输距离更远，可以达到500m，对于粗缆来说甚至可以达到1km</p>
+<h4 id="光缆光纤">光缆/光纤</h4>
+<p>$Fiber-Optic$</p>
+<p><img src="fiber-optic.png" alt=""></p>
+<p>特点：分为单模光纤(<strong>axial</strong>)和多模光纤，其中单模光纤只能发送单路信号，传输距离更长，能达到3km，一般用于广域网；而多模光纤可以同时发送多路信号(不同路的光信号沿不同角度入射)，传输距离相对更短，只能达到2km，一般用于局域网。在光缆中传输的数据信号不受电磁干扰，通量高于之前的所有线缆，但造价也最为高昂</p>
+<h4 id="无线通讯">无线通讯</h4>
+<ul>
+<li>激光，不需要介质传导，但是不能衍射(即不能绕过障碍物)</li>
+<li>红外线，同样不能衍射</li>
+<li>无线电波，通过基站和卫星等技术设施发送信号</li>
+</ul>
+<h2 id="以太网双绞线utp">以太网双绞线(UTP)</h2>
+<h3 id="通信标准">通信标准</h3>
+<p>计算机网络标准主要由五个组织制定，分别是</p>
+<ul>
+<li>$IEEE(Institution~of~Electrical~and~Electronics~Engineers)$</li>
+<li>$UL(Underwriters~Laboratories)$</li>
+<li>$ELA(Electronic~Industries~Alliance)$</li>
+<li>$TIA(Telecommunications~Industry~Association)$</li>
+<li>$ANSI(American~National~Standards~Institute)$</li>
+</ul>
+<p>其中ELA和TIA主要制定通信方面的标准</p>
+<p>UTP一共有八种分类，其中的<strong>三类线</strong>是 <strong>EIA/TIA568标准(最早的标准)</strong> 指定的电缆，传输频率为16MHz，最高传输速率为10Mbps，主要用于10BASE-T(10表示最高传输速率为10Mbps，BASE表示基带传输，T表示双绞线)；而<strong>五类线</strong>是最常用的以太网电缆，主要用于100/1000BASE-T</p>
+<h3 id="线缆分类">线缆分类</h3>
+<p>按照线缆的不同绕制方式和功能用途可以将线缆分为三类</p>
+<h4 id="传输协议">传输协议</h4>
+<p>由$TIA$组织制定了<strong>T568A</strong>和<strong>T568B</strong>两种标准，指定了双绞线的配线线序规范</p>
+<p><img src="t568.jpg" alt=""></p>
+<p>其中<code>T568A</code>标准颜色顺序为：绿白-绿-橙白-蓝-蓝白-橙-棕白-棕</p>
+<p>而<code>T568B</code>标准的颜色顺序为：橙白-橙-绿白-蓝-蓝白-绿-棕白-棕</p>
+<h4 id="直通线">直通线</h4>
+<p>$Straight~Cable$</p>
+<p>直通线是两端采用同一标准的UTP，用于连接PC与交换机、交换机与路由器（但由于现在具有自动反转技术，所以不需要特别区分）</p>
+<p><img src="straight.png" alt=""></p>
+<h4 id="控制台线反转线">控制台线/反转线</h4>
+<p>$Console~Cable/Rollover~Cable$</p>
+<p>一端是串行接口，一端是RJ45（Registered Jack 45，是用于将计算机连接到局域网的标准化接口，俗称水晶头，如上图所示），特点是数据传输错位，用于通过PC使用超级终端更改设备配置，比特率9600</p>
+<p><img src="console.png" alt=""></p>
+<h4 id="交叉线">交叉线</h4>
+<p>交叉线是两端RJ45采用不同标准的UTP，用于连接PC和路由器以及相同设备之间的连接，例如交换机堆叠技术就使用交叉线连接两个20端口交换机使之成为一台共具有38个端口的交换机</p>
+<h2 id="传输介质与信号问题">传输介质与信号问题</h2>
+<p>在计算机网络中数据以物理信号的形式传输的过程中有着许多问题，例如：</p>
+<ul>
+<li>信号的传输需要时间，其中电缆的传输比光缆更快（因为光在光缆中传播需要经过多次反射）</li>
+<li>传输过程中物理信号的能量会逐渐衰减，因此需要在途中添加中继器/交换机</li>
+<li>同轴电缆如果发生物理扭曲，则会形成电阻进而积压电压，最终可能导致信号反射，因此需要在终端设备上消耗掉信号，阻止信号的反射</li>
+<li>环境的噪音可能会使得信号出现错误（失真）</li>
+<li>信号经过各节点需要经过节点的筛选处理，因此存在设备的时延问题</li>
+<li><strong>介质访问冲突问题</strong>，当两个信号传输需要占用同一段介质时，就发生了冲突(collision)，冲突会导致终端设备认为该介质短时间内不可用，例如如果设备的网卡只接受-1和1之间的信号，而两个终端同时向中间介质发送了-1的信号，电平的叠加会使得这张网卡收到-2的信号，解决的办法是由OSI参考模型中更高层的设备来处理冲突问题。具体地说，局域网的组网需要满足<strong>5-4-3-2-1规则</strong>（冲突域是指可能发生介质访问冲突问题的设备区域）：最多有<strong>5</strong>段线路，<strong>4</strong>个中继器/交换机/路由器，<strong>3</strong>个放置设备的区域，<strong>2</strong>个区域不能放置设备，组成共<strong>1</strong>个冲突域</li>
+</ul>
+<p><img src="domain.png" alt=""></p>
+<h2 id="数据通信基础">数据通信基础</h2>
+<h3 id="数据通信的理论基础">数据通信的理论基础</h3>
+<h4 id="基本术语">基本术语</h4>
+<ul>
+<li>信号(signal)是数据在电气或电磁形式上的表现</li>
+<li>模拟(analogous)信号是随时间变化而<strong>平稳变化</strong>的连续波形式（例如无线电波）</li>
+<li>数字(digital)信号是离散信号，可能包含有限的几个<strong>预定值</strong>（例如电平的高低）</li>
+<li>码元(code)是在使用时间域的波形表示数字信号时，代表不同离散数值的基本波形，即时间域内传输的一个单位</li>
+</ul>
+<h4 id="信号处理">信号处理</h4>
+<ul>
+<li>模拟信号可以分为<strong>简单信号</strong>和<strong>复合信号</strong>。简单信号(正弦波)<strong>不能被分解为更简单的模拟信号</strong>；复合信号可以被分解为多个正弦波，即任何复杂信号都可以通过<strong>傅里叶分析</strong>被简单波组合拟合出来</li>
+</ul>
+<p><img src="analogous.png" alt=""></p>
+<ul>
+<li>数字信号一般是非周期性的，<strong>在传输介质上表现为方波（只有高低两个值）</strong>，一个数字信号可以分解为<strong>无数个</strong>被称为谐波的不同简单正弦波。在介质上发送数字信号时，本质是发送无穷的简单谐波，如果一些谐波没能成功通过介质传输，则在接收端产生<strong>信号畸变</strong>，受制于介质本身（带宽受限、噪声干扰、能量损耗等），信号畸变难以完全避免</li>
+</ul>
+<p><img src="digital.png" alt=""></p>
+<ul>
+<li>信号畸变的堆叠导致信号的失真，<strong>失真的严重程度和码元传输速率和信号传输的距离成正比</strong>，有的失真程度较轻信号尚可识别，但有的失真会导致数字信号无法识别</li>
+</ul>
+<p><img src="lose.png" alt=""></p>
+<ul>
+<li>理论上无噪声信道的最高传输速率：如果码元传输的速率超出信道的可承受的上限，就会出现<strong>码间串扰</strong>的问题，导致接收端无法识别信号。1924年，奈奎斯特(Nyquist)指出了无噪声信道中传输比特率的上限为$C=Wlog_2L~bps$，其中W为信道的带宽（以Hz为单位），L表示数据信号电平的数量（如0到8V的电平的码元可携带3个bit），其对数值表示一个码元携带的比特数</li>
+<li>噪声信道的最高传输速率：香农(Shannon)用信息论推导出带宽受限且有噪声信道的<strong>极限、无差错</strong>信息传输速率为$C=Wlog_2(1+\frac{S}{N})$，其中S表示信道传输信号的平均功率，N表示信道内部的高斯噪声功率，S/N称为<strong>信噪比</strong></li>
+<li>香农公式的主要意义在于：只要信息传输速率远低于<strong>极限信息传输速率</strong>，就一定有办法实现无差错的传输；即使信噪比和码元速率都不能再提高，也可以通过编码使码元携带更多比特来提高传输速率</li>
+</ul>
+<h4 id="波特率与比特率">波特率与比特率</h4>
+<ul>
+<li>波特率/调制速率(baud)是指信号每秒钟变化的次数，或每秒钟波的个数</li>
+<li>比特率(bit)是指每秒钟传送的二进制位数，波特率与比特率的关系取决于信号值与比特位的关系</li>
+</ul>
+<h3 id="数据通信技术">数据通信技术</h3>
+<h4 id="数据通信系统基本结构">数据通信系统基本结构</h4>
+<p><img src="system.png" alt=""></p>
+<h4 id="数字信号编码">数字信号编码</h4>
+<p>基带：基本频带，指传输变化前所占用的频带，是原始信号所固有的频带</p>
+<p>基带传输：在传输时直接使用基带数字信号，即传输时不将输入数据转换为模拟信号（不调制），是<strong>最简单最基本的传输方式</strong>，一般用低电平表示数据0，高电平表示数据1，但因为基带信号频率成分很宽，所以对传输线的要求较高且传输容易出错</p>
+<h4 id="线路编码">线路编码</h4>
+<p>$Line~Coding$，指的是在传输数据前将数字信号转换到模拟信号（调制）后的编码，常用的编码方式如下：</p>
+<h5 id="单极性编码">单极性编码</h5>
+<p>原理是通过网卡对电平进行编码，用0电平代表0，正电平表示1（因为没有负电平所以称为单极性）</p>
+<p>问题在于为了分辨连续出现的0或1，发送与接收双方需要进行时钟同步；持续长时间的正电平积累容易损坏设备。因此单极性编码容易出现传输错误</p>
+<p><img src="single.png" alt=""></p>
+<h5 id="极化编码">极化编码</h5>
+<p><strong>不归零电平编码</strong></p>
+<p>$NRZ(Non-Return~to~Zero)$，原理是用负电平表示0，正电平表示1（或相反）</p>
+<p>问题与单极性编码相似，需要时钟同步，其做法旨在解决正电平的积累问题，但如果0和1长期连续出现仍将导致电平的积累</p>
+<p><img src="nrz.png" alt=""></p>
+<p><strong>不归零反相编码</strong></p>
+<p>改用正负电平的翻转表示1，电平不变化则表示0，时钟同步的问题并没有得到解决，但是连续1的出现不会出现电平的积累</p>
+<p><strong>归零电平编码</strong></p>
+<p>$RZ(Return~to~Zero)$，原理是用负电平表示0，正电平表示1，在两个比特位之间跳变到零电平</p>
+<p>解决了时钟同步的问题（跳变到零电平就是同步信号），并且解决方式相对经济，不容易出错；但电平的积累问题并没有解决，且采用三种不同的电平，占用的带宽增加了</p>
+<p><img src="rz.png" alt=""></p>
+<p><strong>曼彻斯特编码</strong></p>
+<p>$\color{red}{Manchester}$，原理是每一位数据都是通过电平的跳变来表示，其中<strong>从低电平向高电平</strong>跳变表示0，<strong>高电平向低电平</strong>跳变表示1</p>
+<p>好处在于通过跳变完成了时钟同步，不会存在电平积累的问题，并且只使用两个电平（占用带宽少），跳变更少，比RZ编码的效率更高</p>
+<p><img src="manchester.png" alt=""></p>
+<p>值得指出的是，如果出现两个连续的0或者1，电平会在两个比特之间<strong>额外发生一次跳变</strong>，为下一次跳变做准备，因此跳变的频率在这种情况下会突然变高，但这个过程并不会影响时钟的同步，因为时钟的同步只是在同步初始相位，而不是各个周期长度同步，周期的长度需要双方提前协商好</p>
+<p><strong>差分曼彻斯特编码</strong></p>
+<p>$\color{red}{Differential~Manchester}$，原理是通过每一位数据传输开始瞬间的跳变来表示数据，每一位数据传输的中间跳变来同步时钟，其中的数据位用<strong>发生跳变</strong>来表示0，<strong>没有跳变</strong>来表示1</p>
+<p>好处在于相较于曼彻斯特编码，时钟同步的信息与数据相分离，便于识别与提取</p>
+<p><img src="dm.jpg" alt=""></p>
+<h5 id="双极性编码">双极性编码</h5>
+<p><strong>传号交替反转码</strong></p>
+<p>$AMI$</p>
+<p>原理是与RZ码相同采用正、负、零三种电平，但正电平和负电平都表示1（由于<strong>两种极性的电平用来表示同一数据</strong>，因而被称为双极性编码），但两者交替出现防止电平的积累</p>
+<p>但问题在于对于连续的0仍然无法同步，连续的1则可以同步</p>
+<p><img src="ami.png" alt=""></p>
+<p>下面的两种编码不做要求</p>
+<p><strong>双极性8连0替换码(B8ZS)</strong></p>
+<p><strong>3阶高密度双极性码(HDB3)</strong></p>
+<h4 id="多路复用">多路复用</h4>
+<p>由于一条传输线路的负载能力远超于一个用户传输信号所需要的能力，为了提高线路的利用率，常让多个信号公用一条物理线路，即通过复用器和分解器将<strong>一条物理链路划分为多条传输信道</strong></p>
+<h5 id="时分复用">时分复用</h5>
+<p>$Time~Division~Multiplexing,TDM$</p>
+<p>原理是每一个用户周期性地占用线路一段时间，占用的这一段时间称为<strong>时分复用帧</strong>，TDM信号也称为<strong>等时(isochronous)信号</strong>，复用的用户在自己的时分复用帧内享有<strong>同样的频带宽度</strong></p>
+<p>问题在于当使用信道的权限移交至用户时用户可能并不需要发送数据（计算机数据的突发性质），而相应周期预订给用户的时分复用帧不能被其他用户占用，因此会造成线路资源的浪费</p>
+<h5 id="统计时分复用">统计时分复用</h5>
+<p>$Statistic~TDM，STDM$</p>
+<p><img src="stdm.png" alt=""></p>
+<p>如图所示，统计时分复用将信道的时间划分成了多个STDM帧，然后根据用户的需求，在识别用户身份后给予用户占用相应STDM帧的一部分的权限，但是由于身份识别需要时间，资源仍然有一定程度的浪费（比TDM好得多）</p>
+<h5 id="频分复用">频分复用</h5>
+<p>$Frequency~Division~Multiplexing,FDM$</p>
+<p>原理是将链路的某一段不冲突的频带分配给指定的用户，所有用户<strong>在同样的时间内占用不同的频率带宽资源，共享链路的带宽</strong></p>
+<h5 id="波分复用">波分复用</h5>
+<p>$Wavelength~Division~Multiplexing,WDM$</p>
+<p>原理就是使用光作为介质而非微波的频分复用，多模光纤的每一路均可再进行波分复用</p>
+<h5 id="码分复用">码分复用</h5>
+<p>$Code~Division~Multiplexing,CDM$</p>
+<p>码分多址$CDMA(Code~Division~Multiple~Access)$一般用于无线电波</p>
+<p>各个用户使用经过特殊挑选的不同码型，非对应的传输双方能收到，但无法理解传输的信息内容，因此对于非对应的终端设备来说相当于白噪音</p>
+<h4 id="通信方式">通信方式</h4>
+<h5 id="单工通信">单工通信</h5>
+<p>信号单向传输</p>
+<h5 id="半双工">半双工</h5>
+<p>信号可双向传输，但不同时</p>
+<h5 id="全双工">全双工</h5>
+<p>信号随时可双向传输</p>
+<h5 id="并行">并行</h5>
+<p>一次同时发送多位数据</p>
+<h5 id="串行">串行</h5>
+<p>多位数据拆分为多次发送</p>
+
+                    </div>
+                    
+                    
+                    <div class="after-post-tags">
+                        <ul class="tags">
+                        
+                        <li>
+                        <a href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E8%AE%A1%E7%AE%97">互联网计算</a>
+                        </li>
+                        
+                        </ul>
+                    </div>
+                    
+                    
+                    
+                    <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+                    
+                        <a class="d-block col-md-6" href="https://corax.com.cn/note/internet/datalink/"> &laquo; OSI参考模型第二层 数据链路层原理与技术</a>
+                    
+                    
+                        <a class="d-block col-md-6 text-lg-right" href="https://corax.com.cn/note/internet/osi/">计算机网络及其参考模型 &raquo;</a>
+                    
+                    <div class="clearfix"></div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+<div class="container">
+    <div id="comments" class="row justify-content-center mb-5">
+        <div class="col-md-8">              
+                           
+        </div>
+    </div>
+</div>
+
+    </div>
+
+
+            </div>
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+			<div class="d-md-flex align-items-center justify-content-center h-100">
+				<h2 class="d-md-block d-none align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+			</div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+			
+			<a class="mt-1 mb-1" href="/tags/cpp">cpp</a>
+			
+			<a class="mt-1 mb-1" href="/tags/drink">drink</a>
+			
+			<a class="mt-1 mb-1" href="/tags/interesting">interesting</a>
+			
+			<a class="mt-1 mb-1" href="/tags/web%E5%BC%80%E5%8F%91">web开发</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E8%AE%A1%E7%AE%97">互联网计算</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F">分布式</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%9F%BA%E7%A1%80">数据管理基础</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95">数据结构与算法</a>
+			
+		</div>
+	</div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                &copy; Copyright John Doe - All rights reserved
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" rel="noopener" href="https://www.wowthemes.net">Mediumish Theme</a> by WowThemes.net
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+        </div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+<script src="https://corax.com.cn/js/mediumish.e4b90c58dfa15ac82caf2edfa01e5fd047e17bc15e6babe5c0e442a4407d0b25.js" integrity="sha256-5LkMWN&#43;hWsgsry7foB5f0Efhe8Fea6vlwORCpEB9CyU="></script>
+    </body>
+</html>

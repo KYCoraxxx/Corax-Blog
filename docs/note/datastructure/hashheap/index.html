@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="generator" content="Hugo 0.104.3" />
+	
+	<link rel="icon" href="/images/logo.png">
+	
+	<title>哈希与堆专题 | Corax Blog</title>
+	
+	
+
+	<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://corax.com.cn/note/datastructure/hashheap/cover.jpg"/>
+<meta name="twitter:title" content="哈希与堆专题"/>
+<meta name="twitter:description" content="数据结构与算法课程哈希与堆专题笔记"/>
+
+	<meta property="og:title" content="哈希与堆专题" />
+<meta property="og:description" content="数据结构与算法课程哈希与堆专题笔记" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://corax.com.cn/note/datastructure/hashheap/" /><meta property="og:image" content="https://corax.com.cn/note/datastructure/hashheap/cover.jpg"/><meta property="article:section" content="Note" />
+<meta property="article:published_time" content="2023-02-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-02-07T00:00:00+00:00" />
+
+
+
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+	
+	<link rel="stylesheet" href="https://corax.com.cn/css/medium.ece05c3e0cb4c172303048d902f5c72734dac11b313a671c381a53648c811f4d.css" integrity="sha256-7OBcPgy0wXIwMEjZAvXHJzTawRsxOmccOBpTZIyBH00=">
+
+	
+	<link rel="stylesheet" href="https://corax.com.cn/css/additional.14f7dbd08a523bb7dd03b308a991480ea5d8d744f6229068023169de78b48922.css" integrity="sha256-FPfb0IpSO7fdA7MIqZFIDqXY10T2IpBoAjFp3ni0iSI=">
+
+	
+	
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+    <div class="container pr-0">
+        
+        <a class="navbar-brand" href="https://corax.com.cn//">
+
+            
+            <img src="/images/logo.png" alt="logo">
+            
+        </a>
+        
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        
+        <div class="collapse navbar-collapse" id="navbarMediumish">
+            
+            <ul class="navbar-nav ml-auto">
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/blog">Blog</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/">About Me</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/static/imprint">Imprint</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+    </div>
+</nav>
+
+
+        <div class="site-content">   
+            <div class="container">
+<div class="mainheading">
+    <h1 class="sitetitle">Corax Blog</h1>
+    <p class="lead">
+         the clean blog!
+    </p>
+</div><div class="main-content">
+        
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-md-2 pl-0"><div class="share sticky-top sticky-top-offset">
+    <p>Share</p>
+    <ul>
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://twitter.com/intent/tweet?text=%e5%93%88%e5%b8%8c%e4%b8%8e%e5%a0%86%e4%b8%93%e9%a2%98&url=https%3a%2f%2fcorax.com.cn%2fnote%2fdatastructure%2fhashheap%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=435');return false;">
+        <i class="fab fa-twitter"></i>
+        </a>
+        </li>
+        
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://facebook.com/sharer.php?u=https%3a%2f%2fcorax.com.cn%2fnote%2fdatastructure%2fhashheap%2f" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+        <i class="fab fa-facebook-f"></i>
+        </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://www.xing.com/spi/shares/new?url=https%3a%2f%2fcorax.com.cn%2fnote%2fdatastructure%2fhashheap%2f" onclick="window.open(this.href, 'xing-share', 'width=550,height=435');return false;">
+        <i class="fab fa-xing"></i>
+        </a>
+        </li>        
+    </ul>
+
+    
+        <div class="sep">
+        </div>				
+        <ul>
+            <li> 
+            <a  class="small smoothscroll" href="#disqus_thread"></a>
+            </li>
+        </ul>
+    
+</div>
+</div>
+                                
+                <div class="col-md-9 flex-first flex-md-unordered">
+                    <div class="mainheading">
+                        	
+                        
+                        
+                        
+                        <div class="row post-top-meta">
+                            <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0 md-nopad-right">
+                                <img class="author-thumb" src="/images/avator.jpg" alt="Corax">
+                            </div>
+                            <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left md-nopad-left">
+                                <a target="_blank" class="link-dark">Corax</a><br>
+                                <span class="author-description">
+                                    Creator of this blog.<br>
+                                    <i class="far fa-star"></i>
+                                    Feb 7, 2023
+                                    <i class="far fa-clock clock"></i>
+                                    1 min read
+                                </span>					
+                            </div>
+                        </div>			
+                        	
+                        
+                                                
+                        
+                        <h1 class="posttitle">哈希与堆专题</h1> 
+                    </div>
+
+                    
+                    
+                    
+                        <img class="featured-image img-fluid" src="https://corax.com.cn/note/datastructure/hashheap/cover.jpg" alt="thumbnail for this post">
+                    
+                    
+
+                    
+                    <div class="article-post">
+                        <h2 id="哈希散列表">哈希/散列表</h2>
+<h3 id="负载因子">负载因子</h3>
+<p>$Load~Factor$，也称为冲突因子，记为α，有$\alpha=\frac{数据个数}{空闲个数}$，若α&gt;1，则发生碰撞的概率高，常数复杂度不可达；若α&lt;1，则发生碰撞的概率相对较低，有可能达到常数复杂度</p>
+<h3 id="哈希函数">哈希函数</h3>
+<p>$Hash~Function$，也称为散列函数，用于从给定的数据映射到一个代表地址的数值</p>
+<h4 id="取余法">取余法</h4>
+<p>$H(Key)=Key\mod M$，其中M是在基本区长度内的最大质数，尽可能降低冲突概率</p>
+<h4 id="平方取中法">平方取中法</h4>
+<p>$H(Key)=Key^2$十进制数字表示的中间部分，其长度取决于存储数据的哈希表的大小</p>
+<h4 id="乘法杂凑函数">乘法杂凑函数</h4>
+<p>$H(Key)=\lfloor M*((\phi*Key)\mod 1)\rfloor$，其中M为最大单元的下标，φ一般取为小于1的无理数，mod 1表示只保留小数部分</p>
+<h3 id="冲突处理">冲突处理</h3>
+<h4 id="挂载单链表">挂载单链表</h4>
+<p>将发生冲突的值以链表的形式挂载在同一地址的哈希表下，但是一般很少用这种方式，因为整个散列表空间很大，如果将申请的空间弃置不用而为链表申请额外空间是对内存资源的浪费</p>
+<h4 id="开放地址法">开放地址法</h4>
+<p>$Open~Addressing$，做法是向散列表后续的空间探测，直到发现空位置就将它存入其中，存入过程的探测时间和查找过程的探测时间成正比；当散列表中的某个数据需要删去时并不真正删掉它，而只是标记它被删去，被标记删去的数据可以被后来的数据替代，在查找过程中如果探测到空位置就认为需要查找的数据不在散列表中；如果存入某个数据后散列表中的数据条目数量大于设定值，即负载因子大于设定值，则需要扩大散列表的容量，重新进行散列(rehash)，该过程会将已经散列好的数据也重新散列，因此会带来较大的时间开销</p>
+<p>平均搜索长度指的是假设各个数据被查找的概率相等，用查找每个数据需要的探测次数计算平均值</p>
+<p><strong>线性探测法(Linear Probing)</strong></p>
+<p>依次探测下一个位置，到最大值则从0继续。容易出现堆积问题(Clustering Problem)，即如果有一批数据的散列值很接近，就会导致对应内存空间的散列表被全部占满，只要再次出现散列值在其附近的数据就一定会引发冲突，继续在该空间插入数据的代价会很大</p>
+<p><strong>二次探测法(Quadratic Probing)</strong></p>
+<p>记当前数据的哈希值为$d$，若位置d的散列表已经被其他数据占用，则依次探测$d+1,d+2^2,d+3^2,\dots$即使用二次函数进行跳跃</p>
+<p><strong>双哈希(Double Hashing)</strong></p>
+<p>使用两个散列函数，先计算$Hash_1(Key)=d$，若不冲突则直接存入，否则就计算$Hash_2(Key)=c$，然后依次探测$d+c,d+2c,d+3c,\dots$</p>
+<h2 id="堆优先队列">堆/优先队列</h2>
+<h3 id="定义">定义</h3>
+<p>可以分为大根堆和小根堆，特点分别是每个节点的键值大于等于（小于等于）它所有子节点的键值的完全二叉树，常用数组进行模拟</p>
+<h3 id="插入操作">插入操作</h3>
+<p>直接插入在数组的末尾，然后进行上律，即不断与自己的父节点$num[index/2]$比较，对于大根堆来说，如果其键值大于父节点的键值，则交换父节点与其键值，小根堆同理，直到不需要交换为止</p>
+<h3 id="删除操作">删除操作</h3>
+<p>堆上一般只能删除树根，在删除树根后，就用数组末尾的元素替代树根，然后进行依次下律，即不断与自己的两个子节点比较，对于大根堆来说，选择子节点中键值比自己的键值大的最大值进行交换，小根堆同理，直到不需要交换为止</p>
+<h3 id="堆的初始化">堆的初始化</h3>
+<h4 id="直接更改原有数组">直接更改原有数组</h4>
+<p>直接更改原数组的初始化又可以分为两种，分别是上律初始化和下律初始化。对于上律初始化，从第二层节点开始，依次进行上律；而对于下律初始化，则是从倒数第二层节点开始，依次进行下律。由于最高层的节点往往远远多于第一层节点，所以下律初始化的效率一般高于上律初始化</p>
+<h4 id="依次插入">依次插入</h4>
+<p>依次取出原数组中的元素，对其应用插入操作</p>
+<h3 id="应用">应用</h3>
+<h4 id="堆排序">堆排序</h4>
+<p>初始化一个大根或小根堆后，不断应用删除操作，并将删除的节点按次序记录在排序结果的数组中，时间复杂度$O(nlog_2n)$，是<strong>不稳定排序</strong>，即不能保证相同大小的元素在排序结果数组中按原有次序出现</p>
+<h4 id="求第k大小元素">求第K大/小元素</h4>
+<p>使用堆操作只需要应用K或N-K次删除操作，在时间复杂度上表现良好</p>
+<h2 id="并查集优化">并查集优化</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">find</span>(<span style="color:#66d9ef">int</span> x){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(up[x] <span style="color:#f92672">==</span> x)<span style="color:#66d9ef">return</span> x;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> up[x] <span style="color:#f92672">=</span> find(up[x]);
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//每次查找就用结果更新up数组以减少下次查询的次数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div>
+                    </div>
+                    
+                    
+                    <div class="after-post-tags">
+                        <ul class="tags">
+                        
+                        <li>
+                        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95">数据结构与算法</a>
+                        </li>
+                        
+                        </ul>
+                    </div>
+                    
+                    
+                    
+                    <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+                    
+                        <a class="d-block col-md-6" href="https://corax.com.cn/note/datastructure/graph/"> &laquo; 图论专题</a>
+                    
+                    
+                        <a class="d-block col-md-6 text-lg-right" href="https://corax.com.cn/note/datastructure/tree/">树专题 &raquo;</a>
+                    
+                    <div class="clearfix"></div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+<div class="container">
+    <div id="comments" class="row justify-content-center mb-5">
+        <div class="col-md-8">              
+                           
+        </div>
+    </div>
+</div>
+
+    </div>
+
+
+            </div>
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+			<div class="d-md-flex align-items-center justify-content-center h-100">
+				<h2 class="d-md-block d-none align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+			</div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+			
+			<a class="mt-1 mb-1" href="/tags/cpp">cpp</a>
+			
+			<a class="mt-1 mb-1" href="/tags/drink">drink</a>
+			
+			<a class="mt-1 mb-1" href="/tags/interesting">interesting</a>
+			
+			<a class="mt-1 mb-1" href="/tags/web%E5%BC%80%E5%8F%91">web开发</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E8%AE%A1%E7%AE%97">互联网计算</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F">分布式</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%9F%BA%E7%A1%80">数据管理基础</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95">数据结构与算法</a>
+			
+		</div>
+	</div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                &copy; Copyright John Doe - All rights reserved
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" rel="noopener" href="https://www.wowthemes.net">Mediumish Theme</a> by WowThemes.net
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+        </div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+<script src="https://corax.com.cn/js/mediumish.e4b90c58dfa15ac82caf2edfa01e5fd047e17bc15e6babe5c0e442a4407d0b25.js" integrity="sha256-5LkMWN&#43;hWsgsry7foB5f0Efhe8Fea6vlwORCpEB9CyU="></script>
+    </body>
+</html>

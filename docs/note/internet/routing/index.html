@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="generator" content="Hugo 0.104.3" />
+	
+	<link rel="icon" href="/images/logo.png">
+	
+	<title>路由与路由器专题 | Corax Blog</title>
+	
+	
+
+	<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://corax.com.cn/note/internet/routing/cover.jpg"/>
+<meta name="twitter:title" content="路由与路由器专题"/>
+<meta name="twitter:description" content="互联网计算课程路由与路由器专题笔记"/>
+
+	<meta property="og:title" content="路由与路由器专题" />
+<meta property="og:description" content="互联网计算课程路由与路由器专题笔记" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://corax.com.cn/note/internet/routing/" /><meta property="og:image" content="https://corax.com.cn/note/internet/routing/cover.jpg"/><meta property="article:section" content="Note" />
+<meta property="article:published_time" content="2023-02-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-02-01T00:00:00+00:00" />
+
+
+
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+	
+	<link rel="stylesheet" href="https://corax.com.cn/css/medium.ece05c3e0cb4c172303048d902f5c72734dac11b313a671c381a53648c811f4d.css" integrity="sha256-7OBcPgy0wXIwMEjZAvXHJzTawRsxOmccOBpTZIyBH00=">
+
+	
+	<link rel="stylesheet" href="https://corax.com.cn/css/additional.14f7dbd08a523bb7dd03b308a991480ea5d8d744f6229068023169de78b48922.css" integrity="sha256-FPfb0IpSO7fdA7MIqZFIDqXY10T2IpBoAjFp3ni0iSI=">
+
+	
+	
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+    <div class="container pr-0">
+        
+        <a class="navbar-brand" href="https://corax.com.cn//">
+
+            
+            <img src="/images/logo.png" alt="logo">
+            
+        </a>
+        
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        
+        <div class="collapse navbar-collapse" id="navbarMediumish">
+            
+            <ul class="navbar-nav ml-auto">
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/blog">Blog</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/">About Me</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/static/imprint">Imprint</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+    </div>
+</nav>
+
+
+        <div class="site-content">   
+            <div class="container">
+<div class="mainheading">
+    <h1 class="sitetitle">Corax Blog</h1>
+    <p class="lead">
+         the clean blog!
+    </p>
+</div><div class="main-content">
+        
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-md-2 pl-0"><div class="share sticky-top sticky-top-offset">
+    <p>Share</p>
+    <ul>
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://twitter.com/intent/tweet?text=%e8%b7%af%e7%94%b1%e4%b8%8e%e8%b7%af%e7%94%b1%e5%99%a8%e4%b8%93%e9%a2%98&url=https%3a%2f%2fcorax.com.cn%2fnote%2finternet%2frouting%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=435');return false;">
+        <i class="fab fa-twitter"></i>
+        </a>
+        </li>
+        
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://facebook.com/sharer.php?u=https%3a%2f%2fcorax.com.cn%2fnote%2finternet%2frouting%2f" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+        <i class="fab fa-facebook-f"></i>
+        </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://www.xing.com/spi/shares/new?url=https%3a%2f%2fcorax.com.cn%2fnote%2finternet%2frouting%2f" onclick="window.open(this.href, 'xing-share', 'width=550,height=435');return false;">
+        <i class="fab fa-xing"></i>
+        </a>
+        </li>        
+    </ul>
+
+    
+        <div class="sep">
+        </div>				
+        <ul>
+            <li> 
+            <a  class="small smoothscroll" href="#disqus_thread"></a>
+            </li>
+        </ul>
+    
+</div>
+</div>
+                                
+                <div class="col-md-9 flex-first flex-md-unordered">
+                    <div class="mainheading">
+                        	
+                        
+                        
+                        
+                        <div class="row post-top-meta">
+                            <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0 md-nopad-right">
+                                <img class="author-thumb" src="/images/avator.jpg" alt="Corax">
+                            </div>
+                            <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left md-nopad-left">
+                                <a target="_blank" class="link-dark">Corax</a><br>
+                                <span class="author-description">
+                                    Creator of this blog.<br>
+                                    <i class="far fa-star"></i>
+                                    Feb 1, 2023
+                                    <i class="far fa-clock clock"></i>
+                                    1 min read
+                                </span>					
+                            </div>
+                        </div>			
+                        	
+                        
+                                                
+                        
+                        <h1 class="posttitle">路由与路由器专题</h1> 
+                    </div>
+
+                    
+                    
+                    
+                        <img class="featured-image img-fluid" src="https://corax.com.cn/note/internet/routing/cover.jpg" alt="thumbnail for this post">
+                    
+                    
+
+                    
+                    <div class="article-post">
+                        <h2 id="路由器基础知识">路由器基础知识</h2>
+<h3 id="ram">RAM</h3>
+<p>$Random~Access~Memory$</p>
+<p>其中存储的内容会在断电或重启后丢失，一般用于临时存储路由器配置文件，具体地说，其存储的数据内容有：</p>
+<ul>
+<li>路由表(Routing Tables)</li>
+<li>ARP高速缓存(ARP Cache)</li>
+<li>快速交换缓存(Fast Switching Cache)</li>
+<li>报文缓存(Packet Buffering)</li>
+<li>报文保持队列(Packet Hold Queues)</li>
+</ul>
+<h3 id="nvram">NVRAM</h3>
+<p>$Non-Volatile~RAM$</p>
+<p>其中存储的内容在断电或重启后不会丢失，一般用于存储备份或启动初始化时的配置文件</p>
+<h3 id="flash">Flash</h3>
+<p>本质是通过电子可擦除可编程只读内存(Electronically Erasable Programmable Read-Only Memory, EEPROM)实现的，用于存储思科网络操作系统(Cisco Internet Operating System, Cisco IOS)，不需要取出闪存芯片也可以实现软件更新，可以存储多个版本的IOS备选，断电数据保留</p>
+<h3 id="rom">ROM</h3>
+<p>$Read-Only~Memory$</p>
+<p>存储供电自测(Power On Self Test, POST)内容，加载Cisco IOS的初始化程序已经操作系统软件</p>
+<h3 id="接口">接口</h3>
+<p>$Interface$</p>
+<p>接入路由器和连出路由器的通道，安装在主板或者单独的模块上</p>
+<h2 id="路由器系统启动步骤">路由器系统启动步骤</h2>
+<p>整体上来看，路由器系统的启动分为三步，分别是：</p>
+<ul>
+<li>运行供电自测POST检查硬件</li>
+<li>检查CPU，内存和网络接口端口的基本操作是否正常</li>
+<li>软件初始化</li>
+</ul>
+<p>其中软件初始化可以分为以下五步</p>
+<ul>
+<li>ROM中的通用初始化加载程序在CPU上执行</li>
+<li>配置寄存器中存储操作系统的部分激活</li>
+<li>操作系统镜像被加载</li>
+<li>NVRAM中的配置文件加载进入主存并开始执行</li>
+<li>如果NVRAM没有有效的配置文件，就执行问题驱动初始配置例程，也称为设置模式(setup mode)</li>
+</ul>
+<h2 id="路由过程">路由过程</h2>
+<h3 id="路由转发方式">路由转发方式</h3>
+<p>一般来说，路由器从一条数据链路转发报文到另一条数据链路主要使用两个基本功能，分别是<strong>路径选择(Path Determination)<strong>和</strong>交换(Switching)</strong></p>
+<p>后者使路由器能从一个接口接收报文，并从另一个接口将其发送；而前者使路由器能够选择最合适的接口来发送报文</p>
+<p>路由器通过报文地址的网段部分(network portion)进行路径选择，决定下一跳将其转发给哪一台路由器；离目的地址最近的路由器通过报文地址的主机ID（节点）部分(node portion)来将其发送到正确的主机</p>
+<h3 id="静态路由">静态路由</h3>
+<p>使用管理员手动输入的配置运作路由协议，由于动态路由会梳理出整个网络的结构，出于安全性考虑，网络的一部分常用静态路由进行配置。当一段网络只有一个入口时，使用静态路由即可满足需求，因为其变化相对较少，管理员易于管理，这样的网络部分称为<strong>末端网络(stub network)</strong></p>
+<p><strong>可管理距离(Administrative Distance)</strong></p>
+<p>指的是路由信息源的可信程度，为0~255的数值，数值越高，可信程度越低，因此静态路由的可管理距离一般很低（默认取值为1）</p>
+<h3 id="动态路由">动态路由</h3>
+<p>使用可以自动适应网络拓扑与拥塞程度变化的路由协议，可以为数据传输导向尽量避免网络拥塞</p>
+<p>动态路由的运作依赖于路由器间交换信息的主动路由协议，以及两个基本的路由功能：路由表维护(maintenance of a routing table)和路由信息分发(distribution of knowledge to other routers)</p>
+<h4 id="收敛">收敛</h4>
+<p>当网络拓扑发生变化后，处于同一网络拓扑中的路由器需要交换信息以适应变化，持续到所有路由器的路由信息同步为止，如果网络中路由表的信息不再发生变化则称为收敛(Convergence)，此同步过程会中断路由的运作，收敛时间受到采用的主动路由协议的影响</p>
+<h4 id="主动路由协议分类">主动路由协议分类</h4>
+<p><strong>距离矢量协议(Distance-Vector Protocol)</strong></p>
+<p>不允许路由器掌握整个网络的拓扑信息，其算法也称为Bellman-Ford算法，原理是在路由器之间传递路由表的拷贝</p>
+<p>其主要的问题是<strong>路由环路问题</strong></p>
+<p><img src="circle.png" alt=""></p>
+<p>在图中如果PC4的连接突然断开，则AR5更新路由表信息后就会将其拷贝发送给AR4和AR1，但由于此时AR2的路由表信息尚未更新，如果此时它向AR4发出路由表的拷贝信息（PC4经过2跳可达），则AR4的路由表信息就会被更新为PC4经过3跳可达；接下来AR1的PC4不可达信息传递给AR2，AR5的信息被更新为PC4经过4跳可达；再下一步AR1的信息更新为PC4经过5跳可达；再下一步AR2的信息更新为PC4经过6跳可达，一直重复循环，导致网络一直无法收敛，这个问题被称为<strong>计数到无穷(count to infinity)问题</strong></p>
+<p>第一种解决的方法是定义最大跳数(define a maximum)，即定义跳数大于15则认为不可达，由此引发的新策略称为<strong>路由毒化(route poisoning)</strong>，做法是当连接断开时不再将其从路由表中删去，而是将其跳数设置为16表示不可达，然后依次发送路由毒化的信息，同时不再接收与之相关的路由信息，当与之相连的路由器的下一台路由器发现该断开连接的网段已经不可达之后就向这台路由器发送一条反向毒化(poison reverse)信息确保整个网络内关于相关网段的路由都已修改为不可达，避免不可收敛</p>
+<p>第二种解决的方法是<strong>水平分割(Split Horizon)</strong>，做法是如果路由表中的某条信息是由某个端口学习到的，就不再从这个端口发送与这个网段相关的更新的路由表信息，避免反复更新导致的不可收敛</p>
+<p>第三种解决的方法是<strong>挂机计时器(Hold-on Timer)</strong>，做法是如果路由器收到路由表中某个网段不可访问的信息，就将它标记为不可访问，并启动计时器，在计时器时间内，如果收到与原路由一致或更好的路由信息就将其重新标记为可访问，如果更差则忽略，超过计时器的时间则将其彻底标记为不可达，计时器的时间原长于信息在整个网络中传播的时间，使网络连接断开的信息有充足的时间在整个网络中传播</p>
+<p><strong>链路状态协议(Link-State Protocol)</strong></p>
+<p>需要用数据库维护复杂的拓扑信息，使用的算法为最短路优先算法(Shortest Path First, SPF)，借助链路状态公告(Link-state Advertisements, LSAs)，拓扑数据库，最短路算法构成的SPF树（每个路由器以自己为根节点）来建出<strong>一张通用的</strong>整个网络中路径与端口的路由表，其建树步骤如下：</p>
+<ul>
+<li>路由器之间交换链路状态公告(exchange LSAs)，每台路由器先于相邻的路由器节点交换</li>
+<li>每台路由器平行地构建一个记录了网络中所有LSA信息的拓扑结构数据库(construct a topological database)</li>
+<li>最短路算法计算网络的可达性(The SPF algorithm computes network reachability)</li>
+<li>路由器列出最佳路径以及通向网络中所有目的地的各自端口，记录在路由表中</li>
+</ul>
+<p>链路状态协议的使用有两个注意点，第一是路由器的处理和内存要求，对整个网络拓扑的梳理，计算与存储是比距离矢量协议更消耗处理器算力和主存的内存的；第二是网络的带宽要求，在建树阶段每个路由器都向网络中发送自己的LSA广播，对链路有一定的带宽要求</p>
+<p>问题在于链路状态更新不同步，具体来说，以上面的图片为例</p>
+<p><img src="circle.png" alt=""></p>
+<p>如果AR5与AR4之间的链路突然故障，则AR4与AR5都会发出链路状态改变的信息，由于距离的问题，AR2和AR1会同时收到这条消息，这是如果这段链路突然恢复，则AR4与AR5就会同时发送链路恢复的信息，有可能会导致AR2同时收到来自AR4的链路恢复信息和来自AR1的链路故障信息，解决的办法将在主动路由协议的专题中提到</p>
+<p><strong>DVP与LSP的比较</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Distance-Vector Protocol</th>
+<th style="text-align:center">Link-State Protocol</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">对于网络拓扑的了解仅限于邻居</td>
+<td style="text-align:center">掌握整个网络拓扑的通用结构</td>
+</tr>
+<tr>
+<td style="text-align:center">从路由器到路由器累加距离向量</td>
+<td style="text-align:center">计算出到其他所有路由器的最短路</td>
+</tr>
+<tr>
+<td style="text-align:center">频繁定期的交换路由表，收敛慢</td>
+<td style="text-align:center">只在事件(状态发生改变)触发时更新，收敛快</td>
+</tr>
+<tr>
+<td style="text-align:center">交换路由表的拷贝</td>
+<td style="text-align:center">交换链路状态的改变情况</td>
+</tr>
+</tbody>
+</table>
+<p><strong>混合协议(Hybrid Protocols)</strong></p>
+<p>兼具DVP和LSP的特性，例如OSI的$Intermediate~System-to-Intermediate~System,IS-IS$和Cisco的$Enhanced~Interior~Gateway~Routing~Protocol,EIGRP$</p>
+<h4 id="主动路由协议典例">主动路由协议典例</h4>
+<ul>
+<li>$RIP(DVP)$</li>
+<li>$IGRP(Cisco&rsquo;s~DVP)$</li>
+<li>$OSPF(LSP)$</li>
+<li>$EIGRP$</li>
+</ul>
+<h4 id="主动路由协议首要目标">主动路由协议首要目标</h4>
+<ul>
+<li>最佳路由(Optimal Route)</li>
+<li>效率高(Efficiency)，即使用最少的带宽和路由器处理资源</li>
+<li>快速收敛(Rapid Convergence)</li>
+<li>灵活性(Flexibility)，能够应对多种情况</li>
+</ul>
+<h3 id="默认路由">默认路由</h3>
+<p>$Default~Route$</p>
+<p>默认路由可以进一步缩短路由表的长度，其功能是当报文发向路由表中不存在的网段时就将其发往默认路由指向的网段</p>
+
+                    </div>
+                    
+                    
+                    <div class="after-post-tags">
+                        <ul class="tags">
+                        
+                        <li>
+                        <a href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E8%AE%A1%E7%AE%97">互联网计算</a>
+                        </li>
+                        
+                        </ul>
+                    </div>
+                    
+                    
+                    
+                    <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+                    
+                        <a class="d-block col-md-6" href="https://corax.com.cn/note/internet/security/"> &laquo; 网络安全专题</a>
+                    
+                    
+                        <a class="d-block col-md-6 text-lg-right" href="https://corax.com.cn/note/internet/dhcp/">DHCP专题 &raquo;</a>
+                    
+                    <div class="clearfix"></div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+<div class="container">
+    <div id="comments" class="row justify-content-center mb-5">
+        <div class="col-md-8">              
+                           
+        </div>
+    </div>
+</div>
+
+    </div>
+
+
+            </div>
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+			<div class="d-md-flex align-items-center justify-content-center h-100">
+				<h2 class="d-md-block d-none align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+			</div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+			
+			<a class="mt-1 mb-1" href="/tags/cpp">cpp</a>
+			
+			<a class="mt-1 mb-1" href="/tags/drink">drink</a>
+			
+			<a class="mt-1 mb-1" href="/tags/interesting">interesting</a>
+			
+			<a class="mt-1 mb-1" href="/tags/web%E5%BC%80%E5%8F%91">web开发</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E8%AE%A1%E7%AE%97">互联网计算</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F">分布式</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%9F%BA%E7%A1%80">数据管理基础</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95">数据结构与算法</a>
+			
+		</div>
+	</div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                &copy; Copyright John Doe - All rights reserved
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" rel="noopener" href="https://www.wowthemes.net">Mediumish Theme</a> by WowThemes.net
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+        </div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+<script src="https://corax.com.cn/js/mediumish.e4b90c58dfa15ac82caf2edfa01e5fd047e17bc15e6babe5c0e442a4407d0b25.js" integrity="sha256-5LkMWN&#43;hWsgsry7foB5f0Efhe8Fea6vlwORCpEB9CyU="></script>
+    </body>
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="generator" content="Hugo 0.104.3" />
+	
+	<link rel="icon" href="/images/logo.png">
+	
+	<title>DHCP专题 | Corax Blog</title>
+	
+	
+
+	<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://corax.com.cn/note/internet/dhcp/cover.jpg"/>
+<meta name="twitter:title" content="DHCP专题"/>
+<meta name="twitter:description" content="互联网计算课程DHCP专题笔记"/>
+
+	<meta property="og:title" content="DHCP专题" />
+<meta property="og:description" content="互联网计算课程DHCP专题笔记" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://corax.com.cn/note/internet/dhcp/" /><meta property="og:image" content="https://corax.com.cn/note/internet/dhcp/cover.jpg"/><meta property="article:section" content="Note" />
+<meta property="article:published_time" content="2023-01-31T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-01-31T00:00:00+00:00" />
+
+
+
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+	
+	<link rel="stylesheet" href="https://corax.com.cn/css/medium.ece05c3e0cb4c172303048d902f5c72734dac11b313a671c381a53648c811f4d.css" integrity="sha256-7OBcPgy0wXIwMEjZAvXHJzTawRsxOmccOBpTZIyBH00=">
+
+	
+	<link rel="stylesheet" href="https://corax.com.cn/css/additional.14f7dbd08a523bb7dd03b308a991480ea5d8d744f6229068023169de78b48922.css" integrity="sha256-FPfb0IpSO7fdA7MIqZFIDqXY10T2IpBoAjFp3ni0iSI=">
+
+	
+	
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+    <div class="container pr-0">
+        
+        <a class="navbar-brand" href="https://corax.com.cn//">
+
+            
+            <img src="/images/logo.png" alt="logo">
+            
+        </a>
+        
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        
+        <div class="collapse navbar-collapse" id="navbarMediumish">
+            
+            <ul class="navbar-nav ml-auto">
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/blog">Blog</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/">About Me</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/static/imprint">Imprint</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+    </div>
+</nav>
+
+
+        <div class="site-content">   
+            <div class="container">
+<div class="mainheading">
+    <h1 class="sitetitle">Corax Blog</h1>
+    <p class="lead">
+         the clean blog!
+    </p>
+</div><div class="main-content">
+        
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-md-2 pl-0"><div class="share sticky-top sticky-top-offset">
+    <p>Share</p>
+    <ul>
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://twitter.com/intent/tweet?text=DHCP%e4%b8%93%e9%a2%98&url=https%3a%2f%2fcorax.com.cn%2fnote%2finternet%2fdhcp%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=435');return false;">
+        <i class="fab fa-twitter"></i>
+        </a>
+        </li>
+        
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://facebook.com/sharer.php?u=https%3a%2f%2fcorax.com.cn%2fnote%2finternet%2fdhcp%2f" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+        <i class="fab fa-facebook-f"></i>
+        </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://www.xing.com/spi/shares/new?url=https%3a%2f%2fcorax.com.cn%2fnote%2finternet%2fdhcp%2f" onclick="window.open(this.href, 'xing-share', 'width=550,height=435');return false;">
+        <i class="fab fa-xing"></i>
+        </a>
+        </li>        
+    </ul>
+
+    
+        <div class="sep">
+        </div>				
+        <ul>
+            <li> 
+            <a  class="small smoothscroll" href="#disqus_thread"></a>
+            </li>
+        </ul>
+    
+</div>
+</div>
+                                
+                <div class="col-md-9 flex-first flex-md-unordered">
+                    <div class="mainheading">
+                        	
+                        
+                        
+                        
+                        <div class="row post-top-meta">
+                            <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0 md-nopad-right">
+                                <img class="author-thumb" src="/images/avator.jpg" alt="Corax">
+                            </div>
+                            <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left md-nopad-left">
+                                <a target="_blank" class="link-dark">Corax</a><br>
+                                <span class="author-description">
+                                    Creator of this blog.<br>
+                                    <i class="far fa-star"></i>
+                                    Jan 31, 2023
+                                    <i class="far fa-clock clock"></i>
+                                    1 min read
+                                </span>					
+                            </div>
+                        </div>			
+                        	
+                        
+                                                
+                        
+                        <h1 class="posttitle">DHCP专题</h1> 
+                    </div>
+
+                    
+                    
+                    
+                        <img class="featured-image img-fluid" src="https://corax.com.cn/note/internet/dhcp/cover.jpg" alt="thumbnail for this post">
+                    
+                    
+
+                    
+                    <div class="article-post">
+                        <h2 id="dhcp原理">DHCP原理</h2>
+<h3 id="dhcp概述">DHCP概述</h3>
+<p>$Dynamic~Host~Configuration~Protocol$</p>
+<p>主机上网之前必须具备IP地址，但是将紧缺的IP地址资源固定地分配给主机相当低效，DHCP（动态用户配置协议）可以动态高效地分配IP地址，但是它只能工作在局域网，通过UDP来实现</p>
+<h3 id="dhcp工作过程">DHCP工作过程</h3>
+<ul>
+<li>DHCP服务器启动DHCP进程，并保持侦听状态（只要启动DHCP进程就可以作为DHCP服务器）</li>
+<li>客户端启动之后，广播DHCP Discover报文，寻找DHCP服务器</li>
+<li>服务器收到Discover报文后就<strong>广播回复</strong>DHCP Offer报文，应答自己划分的IP地址，网关，服务器IP地址等，由于此时客户端还没有IP地址，所以只能广播回复</li>
+<li>客户端通过自己的机制决定使用的IP地址（可能收到多个服务器的Offer报文，一般选择最先应答Offer报文的服务器）之后，广播DHCP Request报文应答自己选择的IP地址</li>
+<li>收到Request报文的服务端如果发现客户端使用的是自己的IP地址，就<strong>广播应答</strong>DHCP ACK报文，并开始提供服务，如果出错就广播DHCP NAK表示否定确认</li>
+<li>DHCP服务器提供服务的时段称为主机IP的租期，在租期中，客户端可以<strong>点对点</strong>向服务器发送DHCP Request表示续租，待DHCP服务器应答ACK消息后就更新自己的配置，如果客户端长时间不续租，服务器就自动释放租约</li>
+<li>如果客户端不再需要使用服务器分配的IP地址，就会主动点对点发送DHCP Release报文释放被绑定的租约</li>
+</ul>
+<p>可以注意的是，由于在获取IP地址期间客户端并没有IP地址，所以DHCP的报文有自己特殊的结构，但具体内容课程不做要求，可做了解</p>
+<p><img src="dhcp.png" alt=""></p>
+<h3 id="dhcp报文类型">DHCP报文类型</h3>
+<ul>
+<li>DHCP Discover表示寻找服务器</li>
+<li>DHCP Offer表示提供IP地址</li>
+<li>DHCP Request表示客户端续约</li>
+<li>DHCP ACK表示确认</li>
+<li>DHCP NAK表示服务器撤销之前分配的IP地址</li>
+<li>DHCP Release表示释放IP地址租约</li>
+<li>DHCP Decline表示客户端发现IP地址不能使用</li>
+<li>DHCP Inform</li>
+</ul>
+<h2 id="dhcp欺骗与防范">DHCP欺骗与防范</h2>
+<h3 id="原理">原理</h3>
+<p>由于任何启动DHCP进程的主机都可称为DHCP服务器，因此未授权的DHCP服务器应答客户端，分配未授权的网络参数给客户端导致客户端受到欺骗。属于内部安全问题的隐式攻击。</p>
+<p>在实际的DHCP网络中，一般会使用DHCP中继（即服务器的物理距离较远），导致了作为邻居的非授权DHCP服务器一般会更先给予DHCP Offer报文的应答，导致了DHCP欺骗更容易完成</p>
+<h3 id="危害">危害</h3>
+<p>如果DHCP伪装者将自己的IP地址作为网关参数分配给客户端，就会导致客户端的所有报文都会先经过伪装者，才转发给真正的网关；发送给客户端的数据都会先经过伪装者，才转发给客户端，即客户端数据被窃听，由于整个过程数据并未损失，所以这种欺骗较难防范</p>
+<h3 id="防范措施">防范措施</h3>
+<p>在交换机上启用DHCP Snooping功能即可，该技术通过建立并维护DHCP Snooping绑定表过滤不被信任的DHCP信息，管理者需要将授权的DHCP服务器所连接的端口配置为信任端口（默认不信任），这样经过其他端口传输的DHCP信息都会被丢弃掉，保证了DHCP服务器的安全性</p>
+
+                    </div>
+                    
+                    
+                    <div class="after-post-tags">
+                        <ul class="tags">
+                        
+                        <li>
+                        <a href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E8%AE%A1%E7%AE%97">互联网计算</a>
+                        </li>
+                        
+                        </ul>
+                    </div>
+                    
+                    
+                    
+                    <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+                    
+                        <a class="d-block col-md-6" href="https://corax.com.cn/note/internet/routing/"> &laquo; 路由与路由器专题</a>
+                    
+                    
+                        <a class="d-block col-md-6 text-lg-right" href="https://corax.com.cn/note/internet/application/">OSI参考模型第五至七层 应用层次原理与技术 &raquo;</a>
+                    
+                    <div class="clearfix"></div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+<div class="container">
+    <div id="comments" class="row justify-content-center mb-5">
+        <div class="col-md-8">              
+                           
+        </div>
+    </div>
+</div>
+
+    </div>
+
+
+            </div>
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+			<div class="d-md-flex align-items-center justify-content-center h-100">
+				<h2 class="d-md-block d-none align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+			</div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+			
+			<a class="mt-1 mb-1" href="/tags/cpp">cpp</a>
+			
+			<a class="mt-1 mb-1" href="/tags/drink">drink</a>
+			
+			<a class="mt-1 mb-1" href="/tags/interesting">interesting</a>
+			
+			<a class="mt-1 mb-1" href="/tags/web%E5%BC%80%E5%8F%91">web开发</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E8%AE%A1%E7%AE%97">互联网计算</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F">分布式</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%9F%BA%E7%A1%80">数据管理基础</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95">数据结构与算法</a>
+			
+		</div>
+	</div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                &copy; Copyright John Doe - All rights reserved
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" rel="noopener" href="https://www.wowthemes.net">Mediumish Theme</a> by WowThemes.net
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+        </div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+<script src="https://corax.com.cn/js/mediumish.e4b90c58dfa15ac82caf2edfa01e5fd047e17bc15e6babe5c0e442a4407d0b25.js" integrity="sha256-5LkMWN&#43;hWsgsry7foB5f0Efhe8Fea6vlwORCpEB9CyU="></script>
+    </body>
+</html>

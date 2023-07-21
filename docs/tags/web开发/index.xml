@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Web开发 on Corax Blog</title>
+    <link>https://corax.com.cn/tags/web%E5%BC%80%E5%8F%91/</link>
+    <description>Recent content in Web开发 on Corax Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>John Doe - All rights reserved</copyright>
+    <lastBuildDate>Sun, 30 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://corax.com.cn/tags/web%E5%BC%80%E5%8F%91/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用HUGO快速搭建静态网站</title>
+      <link>https://corax.com.cn/other/hugo/</link>
+      <pubDate>Sun, 30 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://corax.com.cn/other/hugo/</guid>
+      <description>基础环境配置 我是环境高手，不需要指南一步步引导，快把链接端上来罢！
+于是建站小白丢给了你一个链接🛏
+安装Chocolatey🍫 与Linux的安装包管理机制apt，npm，yum类似，同样也有开发者为Windows操作系统制作了安装包管理机制，它的名字就是chocolatey，这里已经给出了链接，请自行访问它的官网
+Chocolatey安装好后会自动为你配置系统环境变量，所以可以开箱即用
+不过它并不智能的点在于它的默认安装路径位于C盘下，建议自行搜索如何更改其默认安装路径，不过HUGO本体并不大，如果你的C盘不是很吃紧也无所谓
+和Linux同样类似的是，Windows的安装包管理机制也不只它一个，如果你不想用这个可爱😄的package manager也可以换成别的😔
+安装HUGO🦊 在任意目录下以管理员身份打开PowerShell，用类似Linux下的package manager的命令安装hugo即可
+choco install hugo -confirm choco install hugo-extended -confirm 上面的两条命令执行结束之后，HUGO和它的扩展版就安装完毕了，🍫会为它配置好环境变量，所以也是可以开箱即用的
+注意HUGO的extended version是必需的，因为解析SCSS需要用到它的功能
+在PowerShell中输入命令
+hugo version 可以查看安装的HUGO版本，需要注意到版本号的后面应该跟有+extended</description>
+    </item>
+    
+  </channel>
+</rss>

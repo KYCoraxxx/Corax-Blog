@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>工具 on Corax Blog</title>
+    <link>https://corax.com.cn/categories/%E5%B7%A5%E5%85%B7/</link>
+    <description>Recent content in 工具 on Corax Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>John Doe - All rights reserved</copyright>
+    <lastBuildDate>Sun, 30 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://corax.com.cn/categories/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用HUGO快速搭建静态网站</title>
+      <link>https://corax.com.cn/other/hugo/</link>
+      <pubDate>Sun, 30 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://corax.com.cn/other/hugo/</guid>
+      <description>基础环境配置 我是环境高手，不需要指南一步步引导，快把链接端上来罢！
+于是建站小白丢给了你一个链接🛏
+安装Chocolatey🍫 与Linux的安装包管理机制apt，npm，yum类似，同样也有开发者为Windows操作系统制作了安装包管理机制，它的名字就是chocolatey，这里已经给出了链接，请自行访问它的官网
+Chocolatey安装好后会自动为你配置系统环境变量，所以可以开箱即用
+不过它并不智能的点在于它的默认安装路径位于C盘下，建议自行搜索如何更改其默认安装路径，不过HUGO本体并不大，如果你的C盘不是很吃紧也无所谓
+和Linux同样类似的是，Windows的安装包管理机制也不只它一个，如果你不想用这个可爱😄的package manager也可以换成别的😔
+安装HUGO🦊 在任意目录下以管理员身份打开PowerShell，用类似Linux下的package manager的命令安装hugo即可
+choco install hugo -confirm choco install hugo-extended -confirm 上面的两条命令执行结束之后，HUGO和它的扩展版就安装完毕了，🍫会为它配置好环境变量，所以也是可以开箱即用的
+注意HUGO的extended version是必需的，因为解析SCSS需要用到它的功能
+在PowerShell中输入命令
+hugo version 可以查看安装的HUGO版本，需要注意到版本号的后面应该跟有+extended</description>
+    </item>
+    
+    <item>
+      <title>Github的使用注意事项</title>
+      <link>https://corax.com.cn/other/github/</link>
+      <pubDate>Fri, 28 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://corax.com.cn/other/github/</guid>
+      <description>Github简介 Github是一个面向开源及私有软件项目的代码托管平台，仅支持Git作为唯一的版本库格式
+主要优点在于其分布式版本控制，克隆(clone)的库可以独立使用，任意两个库都可以进行合并(merge)
+本页面主要讲解新手在使用分布式版本控制系统进行合作时需要注意的事项
+GitHub基本操作 首先介绍github的基本操作，包括clone, add, commit, push, pull, status, checkout, merge, stash
+点击链接可以进入b站观看详细的github操作视频
+克隆 克隆是将自己拥有权限的代码仓库复制到本地的操作
+主要的克隆方式有两类，一类是使用IDE内嵌的Git组件进行克隆，另一类则是通过命令行进行克隆
+这里只讲解通过命令行进行克隆的操作，IDE内嵌Git组件的使用请自行STFW
+git clone &amp;lt;url&amp;gt; 使用这条命令即可克隆github上的远程仓库，url链接在仓库的Code按钮中获取，如下图所示
+使用HTTPS协议时可以直接克隆public仓库，但一般受限于网络原因容易Timeout
+使用SSH协议进行克隆时需要先配置好本地的SSH-Key，具体方法可以参见上面的视频链接</description>
+    </item>
+    
+  </channel>
+</rss>

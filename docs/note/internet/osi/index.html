@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="generator" content="Hugo 0.104.3" />
+	
+	<link rel="icon" href="/images/logo.png">
+	
+	<title>计算机网络及其参考模型 | Corax Blog</title>
+	
+	
+
+	<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://corax.com.cn/note/internet/osi/cover.jpg"/>
+<meta name="twitter:title" content="计算机网络及其参考模型"/>
+<meta name="twitter:description" content="互联网计算课程Part0概述笔记"/>
+
+	<meta property="og:title" content="计算机网络及其参考模型" />
+<meta property="og:description" content="互联网计算课程Part0概述笔记" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://corax.com.cn/note/internet/osi/" /><meta property="og:image" content="https://corax.com.cn/note/internet/osi/cover.jpg"/><meta property="article:section" content="Note" />
+<meta property="article:published_time" content="2023-01-17T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-01-17T00:00:00+00:00" />
+
+
+
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+	
+	<link rel="stylesheet" href="https://corax.com.cn/css/medium.ece05c3e0cb4c172303048d902f5c72734dac11b313a671c381a53648c811f4d.css" integrity="sha256-7OBcPgy0wXIwMEjZAvXHJzTawRsxOmccOBpTZIyBH00=">
+
+	
+	<link rel="stylesheet" href="https://corax.com.cn/css/additional.14f7dbd08a523bb7dd03b308a991480ea5d8d744f6229068023169de78b48922.css" integrity="sha256-FPfb0IpSO7fdA7MIqZFIDqXY10T2IpBoAjFp3ni0iSI=">
+
+	
+	
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+    <div class="container pr-0">
+        
+        <a class="navbar-brand" href="https://corax.com.cn//">
+
+            
+            <img src="/images/logo.png" alt="logo">
+            
+        </a>
+        
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        
+        <div class="collapse navbar-collapse" id="navbarMediumish">
+            
+            <ul class="navbar-nav ml-auto">
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/blog">Blog</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/">About Me</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/static/imprint">Imprint</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+    </div>
+</nav>
+
+
+        <div class="site-content">   
+            <div class="container">
+<div class="mainheading">
+    <h1 class="sitetitle">Corax Blog</h1>
+    <p class="lead">
+         the clean blog!
+    </p>
+</div><div class="main-content">
+        
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-md-2 pl-0"><div class="share sticky-top sticky-top-offset">
+    <p>Share</p>
+    <ul>
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://twitter.com/intent/tweet?text=%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%bd%91%e7%bb%9c%e5%8f%8a%e5%85%b6%e5%8f%82%e8%80%83%e6%a8%a1%e5%9e%8b&url=https%3a%2f%2fcorax.com.cn%2fnote%2finternet%2fosi%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=435');return false;">
+        <i class="fab fa-twitter"></i>
+        </a>
+        </li>
+        
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://facebook.com/sharer.php?u=https%3a%2f%2fcorax.com.cn%2fnote%2finternet%2fosi%2f" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+        <i class="fab fa-facebook-f"></i>
+        </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://www.xing.com/spi/shares/new?url=https%3a%2f%2fcorax.com.cn%2fnote%2finternet%2fosi%2f" onclick="window.open(this.href, 'xing-share', 'width=550,height=435');return false;">
+        <i class="fab fa-xing"></i>
+        </a>
+        </li>        
+    </ul>
+
+    
+        <div class="sep">
+        </div>				
+        <ul>
+            <li> 
+            <a  class="small smoothscroll" href="#disqus_thread"></a>
+            </li>
+        </ul>
+    
+</div>
+</div>
+                                
+                <div class="col-md-9 flex-first flex-md-unordered">
+                    <div class="mainheading">
+                        	
+                        
+                        
+                        
+                        <div class="row post-top-meta">
+                            <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0 md-nopad-right">
+                                <img class="author-thumb" src="/images/avator.jpg" alt="Corax">
+                            </div>
+                            <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left md-nopad-left">
+                                <a target="_blank" class="link-dark">Corax</a><br>
+                                <span class="author-description">
+                                    Creator of this blog.<br>
+                                    <i class="far fa-star"></i>
+                                    Jan 17, 2023
+                                    <i class="far fa-clock clock"></i>
+                                    1 min read
+                                </span>					
+                            </div>
+                        </div>			
+                        	
+                        
+                                                
+                        
+                        <h1 class="posttitle">计算机网络及其参考模型</h1> 
+                    </div>
+
+                    
+                    
+                    
+                        <img class="featured-image img-fluid" src="https://corax.com.cn/note/internet/osi/cover.jpg" alt="thumbnail for this post">
+                    
+                    
+
+                    
+                    <div class="article-post">
+                        <h2 id="概述">概述</h2>
+<p>网络是一个相互连接的系统，其终端可以包括物体，仪器和人；如果仪器特指计算机，则发展为计算机网络，传输01位串的数据，可以共享任何资源。计算机网络中的每一个设备都可以称为<strong>节点</strong>，节点之间的连接则是通过<strong>链路</strong>来完成</p>
+<h3 id="局域网lan-local-area-network-">局域网LAN( Local Area Network )</h3>
+<ul>
+<li>在本地运作，覆盖相对较小的区域</li>
+<li>多用户同时复用同一链路介质，与其常用广播通信的性质对应（Multi-user Access）</li>
+<li>局部统一管理，网络性能好，网速快，出错率低</li>
+</ul>
+<h3 id="广域网wan-wide-area-network-">广域网WAN( Wide Area Network )</h3>
+<ul>
+<li>在更广泛的区域内运作</li>
+<li>通过串行链路，光学链路接入</li>
+<li>一般网速较慢，出错率不易控制</li>
+</ul>
+<h3 id="局域网设备">局域网设备</h3>
+<h4 id="集线器">集线器</h4>
+<p>Hub，<strong>第一层设备</strong>，也称为多端口中继器(Multi-port repeater)，可以连接多个PC并中继信号</p>
+<h4 id="网桥">网桥</h4>
+<p>Bridge，<strong>第二层设备</strong>，基于上网设备的<strong>MAC地址</strong>进行局域网的分段处理</p>
+<h4 id="交换机">交换机</h4>
+<p>Switch，<strong>第二层设备</strong>（有的现代交换机也具备第三层的设备的功能），也称为多端口网桥(Multi-port bridge)，基于集成电路实现，每个端口都能提供充分的带宽(bandwidth)</p>
+<h4 id="路由器">路由器</h4>
+<p>Router，<strong>第三层设备</strong>，基于逻辑的IP地址划分选择路径并转发报文</p>
+<h3 id="广域网设备">广域网设备</h3>
+<h4 id="路由器-1">路由器</h4>
+<p>Router，功能与LAN中的路由器相似，但路径选择的功能更加复杂</p>
+<h4 id="调制解调器">调制解调器</h4>
+<p>Model，<strong>终端设备</strong>，具有<strong>通道服务单元(CSU)<strong>和</strong>数据服务单元(DSU)</strong>，进行模拟信道到数字信道的转换</p>
+<h3 id="局域网服务与广域网服务">局域网服务与广域网服务</h3>
+<ul>
+<li>局域网服务较为单一，但也是最知名的服务：<strong>以太网服务(Ethernet)</strong></li>
+<li>广域网则具有多种服务方式，例如Modem，ISDN，DSL等，本科阶段不做深究</li>
+</ul>
+<h3 id="因特网internet概述与isp分层模型">因特网(Internet)概述与ISP分层模型</h3>
+<p>因特网是<strong>最大的开放互联计算机网络</strong>，全球各地的用户通过因特网服务提供商 <strong>(Internet Service Providers, ISP)</strong> 接入到因特网</p>
+<p><img src="ISP.png" alt=""></p>
+<p>其中第一层<code>ISP</code>也被称为核心层，负责远距离连通；<code>NAP</code>是核心层与第二层<code>ISP</code>的接入点</p>
+<p>ISP分层模型可以让大量流量<strong>本地化</strong>，减少核心层的压力</p>
+<h3 id="数据与数据包">数据与数据包</h3>
+<p>数据在计算机网络中以01序列的形式进行传输，但01序列不是数据，序列加上<strong>数据解析标准</strong>才成为数据</p>
+<p>数据包从物理上来看是便于连接双方相互理解组织起来的传输数据的媒介，是一种<strong>数据结构</strong>；从逻辑上来看则是传输数据被拆分成多个更小，更易传输的<strong>数据单元</strong></p>
+<p>在不同的层次下因其传输标准不同，数据包有不同的存在形式，例如在网络层下为包(packets)，链路层下为帧(frames)，将数据封装成这样的数据包的好处如下：</p>
+<ul>
+<li>利于分时片处理报文</li>
+<li>分组传输以此降低失误时的损失</li>
+<li>每组数据可以选择最优路径单独传输</li>
+</ul>
+<h3 id="协议protocol">协议(Protocol)</h3>
+<p>协议是计算机网络通讯与传输的保障，通信双方使用同一协议即可实现正常通信</p>
+<h3 id="源与目的source--destination">源与目的(Source &amp; Destination)</h3>
+<p>出于网络的弱连接性（线路不具有专用性）考虑，报文中需要附带源与目的地址</p>
+<h3 id="传输介质media">传输介质(Media)</h3>
+<p>例如同轴电缆（分为粗缆和细缆），双绞线，光缆，空气与无线电波等</p>
+<h3 id="带宽bandwidth">带宽(Bandwidth)</h3>
+<p>指传输介质的通信速度<strong>上限</strong>，单位是$bits/second(bps)$，是Byte做单位时的八倍</p>
+<h3 id="通量throughput">通量(Throughput)</h3>
+<p>传输介质的实际通信速度，一般来说小于带宽</p>
+<h2 id="osi参考模型">OSI参考模型</h2>
+<h3 id="概述-1">概述</h3>
+<p><code>OSI(Open System Interconnection)</code>参考模型是由<code>ISO</code>(国际标准化组织)提出，用于描述信息和数据如何在计算机之间传输的互联网模型，是一个分层模型，各层次完成各自特定的任务</p>
+<h3 id="分层模型">分层模型</h3>
+<p><img src="OSI.png" alt=""></p>
+<p>第一层为<strong>物理层(Physical)</strong>，解决二进制数据传输问题。关键词是信号与介质，规范了各种介质的规格和可传输信号以及接收终端的属性</p>
+<p>第二层为<strong>数据链路层(Data Link)</strong>，解决介质访问问题。关键词是帧和介质访问控制，主要对数据格式、访问介质进行控制管理从而保证正确传输</p>
+<p>第三层为<strong>网络层(Network)</strong>，解决路径选择问题。关键词是路径选择、路由与定位，主要进行基于路径选择建立两个节点之间的连接</p>
+<p>第四层为<strong>传输层(Transport)</strong>，解决终端到终端的通讯问题。关键词是可靠性、流控制和错误检测，主要进行数据的分段传输，传输流量控制以及确保数据无差错</p>
+<p>第五层为<strong>会话层(Session)</strong>，解决进程通讯时用户间的交流问题。关键词是会话，主要进行建立、管理和终止会话进程，并支持其上层的功能内容</p>
+<p>第六层为<strong>表示层(Presentation)</strong>，解决通讯过程中表示标准的问题。关键词是数据一致表示，主要进行统一会话双方的数据格式规范</p>
+<p>第七层为<strong>应用层(Application)</strong>，解决用户交互接口的问题。关键词是浏览器，主要进行会话内容的呈现</p>
+<h3 id="分层的作用">分层的作用</h3>
+<ul>
+<li>降低复杂度（简化教学）</li>
+<li>利于分层接口的标准化处理</li>
+<li>促进工程模块化</li>
+<li>确保技术互联</li>
+<li>加速技术进步</li>
+</ul>
+<h3 id="对等通信peer-to-peer-communication">对等通信(Peer-to-peer Communication)</h3>
+<p>指的是在OSI参考模型中，两台终端设备之间只能在同等层次上进行通信交互，邻接层之间的交互通信只能在同一台终端设备上完成</p>
+<p><img src="PtP.png" alt=""></p>
+<h3 id="应用层次application-layers">应用层次(Application layers)</h3>
+<p>由于OSI参考模型的<strong>上三层</strong>（会话层、表示层与应用层）一起处理用户接口，数据格式化以及应用的接入，所以它们也合称<strong>应用层次</strong></p>
+<h3 id="数据流层data-flow-layers">数据流层(Data flow layers)</h3>
+<p>而OSI参考模型的<strong>下四层</strong>（物理层、数据链路层、网络层与传输层）合作控制计算机网络中信息的物理传输，所以它们合称<strong>数据流层</strong></p>
+<h2 id="tcpip参考模型">TCP/IP参考模型</h2>
+<h3 id="分层模型-1">分层模型</h3>
+<p>TCP/IP参考模型与OSI参考模型有很强的对应关系，但它是只有四层的参考模型</p>
+<p><img src="TCPIP.png" alt=""></p>
+<p>如图所示，TCP/IP参考模型中的<strong>网络接口层</strong>对应于OSI参考模型中的下两层，即物理层与数据链路层</p>
+<p><strong>网络层</strong>和<strong>传输层</strong>分别对应于OSI参考模型的第三层和第四层，即网络层和传输层</p>
+<p><strong>应用层</strong>对应于OSI参考模型的<strong>应用层次</strong>，即上三层</p>
+<p>这四层的功能也对应于它们所包含的OSI参考模型中各层次的对应功能</p>
+<h3 id="各层协议">各层协议</h3>
+<p><img src="protocol.png" alt=""><strong>$\color{red}{TCP/IP参考模型与OSI模型比较}$</strong></p>
+<p>相似点：</p>
+<ul>
+<li>都是分层模型</li>
+<li>都有应用层、传输层和网络层</li>
+<li>都是基于报文进行交换</li>
+</ul>
+<p>不同点：</p>
+<ul>
+<li>TCP/IP参考模型更简洁，层数更少</li>
+<li>TCP/IP参考模型随因特网的发展而诞生的标准，它因其协议而知名并被广泛应用</li>
+<li>一般网络并非完全按照OSI协议建造的，但OSI模型仍然被视为理论模型基础</li>
+</ul>
+<h2 id="网络技术">网络技术</h2>
+<h3 id="网络拓扑">网络拓扑</h3>
+<p>分为物理层面和逻辑层面，物理层面指的是在外观上链路的连接形状与方式，而逻辑层面定义了主机访问传输介质的方式</p>
+<h4 id="总线拓扑bus">总线拓扑(Bus)</h4>
+<p>物理层面上，每一台主机都连接在一根总线上，每两台主机之间均可进行通信，但总线故障会导致无法通信</p>
+<p>逻辑层面上，一般不对总线拓扑做介质访问控制，并且其上的通信方式多为广播，因此两个节点如果同时向总线发送信号一定会引起冲突</p>
+<p><img src="bus.png" alt=""></p>
+<h4 id="环形拓扑ring">环形拓扑(Ring)</h4>
+<p>物理层面上，通信信号只能沿同一方向传递，否则则会引起冲突，如果一根线出现故障则整个网络瘫痪</p>
+<p>逻辑层面上，同一时间只能有一个节点发出信号（拓扑内主机发送信号需要令牌权限）</p>
+<p><img src="ring.png" alt=""></p>
+<h4 id="双环拓扑dual-ring">双环拓扑(Dual Ring)</h4>
+<p>相较于环形拓扑只是多了一条备用线路，提供灵活性和可靠性，功能特点与环形拓扑基本一致</p>
+<p>一般来说只在外环链路故障时才使用内环链路</p>
+<p><img src="dualring.png" alt=""></p>
+<h4 id="星型拓扑star">星型拓扑(Star)</h4>
+<p>物理层面上，所有节点通过中心节点连接转发通信，因此对于中心节点的负载较大，并且如果中心节点出现故障则会导致网络瘫痪</p>
+<p>逻辑层面上，所有的报文信息都会经过中心节点，可以由中心节点进行控制</p>
+<p><img src="star.png" alt=""></p>
+<p>有的星型拓扑会延申出下级中心节点，称为<strong>扩展星型拓扑</strong>，这样在下一级内的通讯就可以由下级中心节点转发，降低中心节点负载，并且不至于因中心节点的故障导致整个网络瘫痪</p>
+<h4 id="层次结构树形拓扑tree">层次结构/树形拓扑(Tree)</h4>
+<p>物理层面上，树形拓扑有明确的分层，可以看作只向一个方向延申的扩展星型拓扑</p>
+<p>逻辑层面上，可以看出其报文是具有层次的传递转发，类似于审批与汇总的流程</p>
+<p><img src="tree.png" alt=""></p>
+<h4 id="网状拓扑mesh">网状拓扑(Mesh)</h4>
+<p>物理层面上，每一台主机之间均有链路连接，因此连通性最可靠，最不容易瘫痪，也是成本最高的拓扑，但被Internet的核心层采用</p>
+<p>逻辑层面上，最优路径的选择策略需要良好的设计</p>
+<p><img src="mesh.png" alt=""></p>
+<h4 id="蜂窝拓扑cellular">蜂窝拓扑(Cellular)</h4>
+<p>物理层面上，是适用于无线组网的一种拓扑结构，只能和相邻的节点进行通信，否则则需要转发，且效率较低</p>
+<p>逻辑层面上，节点之间有时可以直接通信，有时只能依靠相邻节点转发，依赖于介质的稳定性</p>
+<p><img src="cellular.png" alt=""></p>
+<h2 id="网络设备">网络设备</h2>
+<p>这里只列举前面没提到的网络设备或其部分特点</p>
+<h3 id="网卡nic">网卡(NIC)</h3>
+<p>Network Interface Controller，也被称为网络适配器，简称网卡，位于OSI参考模型的第二层数据链路层</p>
+<p>功能是与掌握本机IP地址的CPU、存储器进行并行通信（某个时间周期内可能有多路信号）</p>
+<p>并且结合自己唯一的mac地址将获得的数据封装成帧，或将收到的帧解封装，以此与局域网进行串行通信</p>
+<h3 id="中继器repeater">中继器(Repeater)</h3>
+<p>属于OSI参考模型中第一层物理层的设备，功能是识别并放大信号，防止信号在远距离传输过程中失真</p>
+<p><strong>与集线器的区别：</strong></p>
+<ul>
+<li>中继器使用的端口不同，不能进行任何信号过滤</li>
+<li>由于其速度较低而逐渐被淘汰</li>
+</ul>
+<h3 id="网桥bridge">网桥(Bridge)</h3>
+<p>属于OSI参考模型中第二层数据链路层的设备，<strong>只有两个端口</strong>，功能是根据mac地址将网段分段，形成mac table并进行两个网段之间的帧转发，从逻辑上来说，其功能是<strong>隔离一个局域网内的冲突域</strong>，从而减少对介质访问时发生的冲突</p>
+<h3 id="交换机switch">交换机(Switch)</h3>
+<p>属于OSI参考模型中第二层数据链路层的设备，有很多个端口，可以将其视为集线器和网桥的结合体，为每个端口都配置mac table，可以将一个网段划分为很多冲突域，<strong>在逻辑和物理上都是星型拓扑</strong>，作为中心节点，它只在识别到信号之后依靠背部总线在两个目的端口之间建立可以提供充分带宽的临时通道</p>
+<h3 id="数据包封装">数据包封装</h3>
+<p>位于OSI参考模型中高层的设备能够通过硬件识别来自低层设备的信号，但低层设备无法识别高层设备的信号</p>
+<p>值得指出的是，主机工作在OSI参考模型的所有层次，下三层的信号依靠网卡来识别、封装与解封装</p>
+<p><img src="encapsulation.png" alt=""></p>
+
+                    </div>
+                    
+                    
+                    <div class="after-post-tags">
+                        <ul class="tags">
+                        
+                        <li>
+                        <a href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E8%AE%A1%E7%AE%97">互联网计算</a>
+                        </li>
+                        
+                        </ul>
+                    </div>
+                    
+                    
+                    
+                    <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+                    
+                        <a class="d-block col-md-6" href="https://corax.com.cn/note/internet/physical/"> &laquo; OSI参考模型第一层 物理层原理与技术</a>
+                    
+                    
+                    <div class="clearfix"></div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+<div class="container">
+    <div id="comments" class="row justify-content-center mb-5">
+        <div class="col-md-8">              
+                           
+        </div>
+    </div>
+</div>
+
+    </div>
+
+
+            </div>
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+			<div class="d-md-flex align-items-center justify-content-center h-100">
+				<h2 class="d-md-block d-none align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+			</div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+			
+			<a class="mt-1 mb-1" href="/tags/cpp">cpp</a>
+			
+			<a class="mt-1 mb-1" href="/tags/drink">drink</a>
+			
+			<a class="mt-1 mb-1" href="/tags/interesting">interesting</a>
+			
+			<a class="mt-1 mb-1" href="/tags/web%E5%BC%80%E5%8F%91">web开发</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E8%AE%A1%E7%AE%97">互联网计算</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F">分布式</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%9F%BA%E7%A1%80">数据管理基础</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95">数据结构与算法</a>
+			
+		</div>
+	</div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                &copy; Copyright John Doe - All rights reserved
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" rel="noopener" href="https://www.wowthemes.net">Mediumish Theme</a> by WowThemes.net
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+        </div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+<script src="https://corax.com.cn/js/mediumish.e4b90c58dfa15ac82caf2edfa01e5fd047e17bc15e6babe5c0e442a4407d0b25.js" integrity="sha256-5LkMWN&#43;hWsgsry7foB5f0Efhe8Fea6vlwORCpEB9CyU="></script>
+    </body>
+</html>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="generator" content="Hugo 0.104.3" />
+	
+	<link rel="icon" href="/images/logo.png">
+	
+	<title>OSI参考模型第五至七层 应用层次原理与技术 | Corax Blog</title>
+	
+	
+
+	<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://corax.com.cn/note/internet/application/cover.jpg"/>
+<meta name="twitter:title" content="OSI参考模型第五至七层 应用层次原理与技术"/>
+<meta name="twitter:description" content="互联网计算课程Part5应用层次笔记"/>
+
+	<meta property="og:title" content="OSI参考模型第五至七层 应用层次原理与技术" />
+<meta property="og:description" content="互联网计算课程Part5应用层次笔记" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://corax.com.cn/note/internet/application/" /><meta property="og:image" content="https://corax.com.cn/note/internet/application/cover.jpg"/><meta property="article:section" content="Note" />
+<meta property="article:published_time" content="2023-01-31T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-01-31T00:00:00+00:00" />
+
+
+
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+	
+	<link rel="stylesheet" href="https://corax.com.cn/css/medium.ece05c3e0cb4c172303048d902f5c72734dac11b313a671c381a53648c811f4d.css" integrity="sha256-7OBcPgy0wXIwMEjZAvXHJzTawRsxOmccOBpTZIyBH00=">
+
+	
+	<link rel="stylesheet" href="https://corax.com.cn/css/additional.14f7dbd08a523bb7dd03b308a991480ea5d8d744f6229068023169de78b48922.css" integrity="sha256-FPfb0IpSO7fdA7MIqZFIDqXY10T2IpBoAjFp3ni0iSI=">
+
+	
+	
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+    <div class="container pr-0">
+        
+        <a class="navbar-brand" href="https://corax.com.cn//">
+
+            
+            <img src="/images/logo.png" alt="logo">
+            
+        </a>
+        
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        
+        <div class="collapse navbar-collapse" id="navbarMediumish">
+            
+            <ul class="navbar-nav ml-auto">
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/blog">Blog</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/">About Me</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/static/imprint">Imprint</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+    </div>
+</nav>
+
+
+        <div class="site-content">   
+            <div class="container">
+<div class="mainheading">
+    <h1 class="sitetitle">Corax Blog</h1>
+    <p class="lead">
+         the clean blog!
+    </p>
+</div><div class="main-content">
+        
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-md-2 pl-0"><div class="share sticky-top sticky-top-offset">
+    <p>Share</p>
+    <ul>
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://twitter.com/intent/tweet?text=OSI%e5%8f%82%e8%80%83%e6%a8%a1%e5%9e%8b%e7%ac%ac%e4%ba%94%e8%87%b3%e4%b8%83%e5%b1%82%20%e5%ba%94%e7%94%a8%e5%b1%82%e6%ac%a1%e5%8e%9f%e7%90%86%e4%b8%8e%e6%8a%80%e6%9c%af&url=https%3a%2f%2fcorax.com.cn%2fnote%2finternet%2fapplication%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=435');return false;">
+        <i class="fab fa-twitter"></i>
+        </a>
+        </li>
+        
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://facebook.com/sharer.php?u=https%3a%2f%2fcorax.com.cn%2fnote%2finternet%2fapplication%2f" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+        <i class="fab fa-facebook-f"></i>
+        </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://www.xing.com/spi/shares/new?url=https%3a%2f%2fcorax.com.cn%2fnote%2finternet%2fapplication%2f" onclick="window.open(this.href, 'xing-share', 'width=550,height=435');return false;">
+        <i class="fab fa-xing"></i>
+        </a>
+        </li>        
+    </ul>
+
+    
+        <div class="sep">
+        </div>				
+        <ul>
+            <li> 
+            <a  class="small smoothscroll" href="#disqus_thread"></a>
+            </li>
+        </ul>
+    
+</div>
+</div>
+                                
+                <div class="col-md-9 flex-first flex-md-unordered">
+                    <div class="mainheading">
+                        	
+                        
+                        
+                        
+                        <div class="row post-top-meta">
+                            <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0 md-nopad-right">
+                                <img class="author-thumb" src="/images/avator.jpg" alt="Corax">
+                            </div>
+                            <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left md-nopad-left">
+                                <a target="_blank" class="link-dark">Corax</a><br>
+                                <span class="author-description">
+                                    Creator of this blog.<br>
+                                    <i class="far fa-star"></i>
+                                    Jan 31, 2023
+                                    <i class="far fa-clock clock"></i>
+                                    1 min read
+                                </span>					
+                            </div>
+                        </div>			
+                        	
+                        
+                                                
+                        
+                        <h1 class="posttitle">OSI参考模型第五至七层 应用层次原理与技术</h1> 
+                    </div>
+
+                    
+                    
+                    
+                        <img class="featured-image img-fluid" src="https://corax.com.cn/note/internet/application/cover.jpg" alt="thumbnail for this post">
+                    
+                    
+
+                    
+                    <div class="article-post">
+                        <h2 id="第五层会话层session">第五层会话层(Session)</h2>
+<h3 id="任务与功能">任务与功能</h3>
+<ul>
+<li>从网络进程到应用程序的转换</li>
+<li>数据的呈现</li>
+<li>主机间交流，包括会话的建立，管理（包含会话类型，即全双工或半双工）与终止</li>
+</ul>
+<h3 id="检查点checkpoint">检查点(Checkpoint)</h3>
+<p>检查点是用于将一整个会话分成数个部分的节点，会话层逐段管理其状态，每一段称为对话(dialog)，对话分离就是对整个会话依次初始化，管理和终止，典型的例子如掉线一段时间之内可以重连</p>
+<h3 id="典型应用">典型应用</h3>
+<ul>
+<li>Network File System(NFS)</li>
+<li>Structured Query Language(SQL)</li>
+<li>Remote-Procedure Call(RPC)</li>
+<li>Apple Talk Session Protocol(ASP)</li>
+<li>DNA Session Control Protocol(SCP)</li>
+</ul>
+<p>现在的很多进程已经很少严格按照session进行操作，但是分检查点的控制逻辑仍然被大量使用</p>
+<h2 id="第六层表示层presentation">第六层表示层(Presentation)</h2>
+<h3 id="任务与功能-1">任务与功能</h3>
+<ul>
+<li>数据格式化(Data Formatting)</li>
+<li>数据压缩(Data Compression)</li>
+<li>数据加密(Data Encryption)</li>
+</ul>
+<p>总体上表示层的功能是将数据以接收方主机能理解的方式呈现出来</p>
+<h3 id="数据格式化">数据格式化</h3>
+<p>表示层提供了两种不同的数据编码类型之间的转换，例如同样的01数据串，表示层可以按照Extended Binary Coded Decimal Interchange Code(EBCDIC)或者American Standard Code for Information Interchange(ASCII)来理解它的内容</p>
+<h4 id="图像数据格式">图像数据格式</h4>
+<p>因特网常用的图像数据格式有Graphic Interchange Format(GIF)和Joint Photographic Experts Group(JPEG)，只要具备GIF和JPEG的阅读器的主机就可以正常浏览相关数据</p>
+<h4 id="多媒体文件格式">多媒体文件格式</h4>
+<p>多媒体文件是储存声音，音乐和视频的文件，这些文件可以完全预下载后再播放，也可以一边下载一边播放，后者被称为数据流音频(Streaming Audio)</p>
+<h3 id="数据压缩与加密">数据压缩与加密</h3>
+<p>数据加密在传输过程中保护信息</p>
+<p>数据压缩则无损或一定程度损失地减少传输的数据规模</p>
+<h2 id="第七层应用层application">第七层应用层(Application)</h2>
+<h3 id="任务与功能-2">任务与功能</h3>
+<p>作为OSI参考模型中距离用户最近的层次，应用层的主体功能是支持应用的会话模块。更具体地说，应用层的功能是</p>
+<ul>
+<li>识别会话双方，并建立双方会话的可用性</li>
+<li>保持协作的应用的同步</li>
+<li>为出错后恢复的进程建立协议</li>
+<li>控制数据正确完整</li>
+</ul>
+<h3 id="典型协议">典型协议</h3>
+<h4 id="http">HTTP</h4>
+<p>HTTP是面向事务的客户服务器协议，HTTP 1.0协议是<strong>无状态</strong>的(stateless，即不维护与客户端的连接，不记录用户的操作)，基于TCP进行操作，但本身是无连接的，一段时间没有操作之后会话就会自动断开</p>
+<p>等待HTTP请求的进程称为<strong>HTTP daemon</strong>，缩写为HTTPD，常绑定于80端口，其在收到用户的请求后就将用户需要的问题件返回给用户</p>
+<p>报文中主要的方法有GET和POST，前者用于读取统一资源定位符(URL)标识的信息，后者用于给服务器添加信息</p>
+<h4 id="ftp">FTP</h4>
+<p>是早期主流的面向连接协议，同样基于TCP进行操作，是实现一对多连接的典范</p>
+<p>FTP会先在21端口绑定一个控制连接进程，当收到客户进程的连接请求后，就启动一个从属进程(Fork)，并将其绑定于另一个未被占用的端口上，这样21端口的侦听进程就能和所有的与客户进程保持连接的进程并发执行</p>
+<h4 id="tftp">TFTP</h4>
+<p>与FTP类似，但TFTP协议基于UDP进行操作，是不面向连接的服务，但实现简单</p>
+<p><strong>状态码约定</strong></p>
+<p>在网络传输的过程中常可见三位数字的状态码，其中2开头的状态码表示成功，3开头表示尚未完成，4开头表示出错，5开头表示网络错误</p>
+<h4 id="telnet">Telnet</h4>
+<p>Telnet是用于通过网络连接远程配置路由器/交换机配置的程序，但由于上述两种设备的键盘布局与远程配置的主机布局不同，Telnet在传输的过程中会将内容按照NVT编码进行转换</p>
+<h4 id="smtppop3">SMTP&amp;POP3</h4>
+<p>$Simple~Mail~Transfer~Protocol$</p>
+<p>$Post~Office~Protocol~version~3$</p>
+<p>用户通过SMTP协议将邮件内容发送到@后指定的电子邮件服务器，委托邮件服务器进行转发，<strong>邮件服务器之间的通信同样使用SMTP协议</strong>，最后的邮件服务器转发给接收方主机时才使用POP3协议</p>
+<p><strong>MIME与SMTP的关系</strong></p>
+<p>SMTP传输过程中支持的编码格式仅有ASCII码（因为相对于二进制文件来说，ASCII码相对安全，不会出现攻击性代码），而用户传输的内容当中的编码格式并不一定是ASCII码格式，因此发件方在将邮件交付给SMTP之前需要经过MIME将编码格式转换为ASCII码</p>
+<p>MIME是一种扩展编码，会增加邮件内容的字节量，加入的内容含有: MIME-Version(协议版本)，Content-Description(说明是否为图像、音频或视频)，Content-ID(邮件的唯一标识符)，Content-Transfer-Encoding(说明邮件编码方式)，Content-Type(说明邮件主体数据类型和子类型)</p>
+<p>HTTP和SMTP是被最广泛认可的传输标准</p>
+<h4 id="snmp">SNMP</h4>
+<p>$The~Simple~Network~Management~Protocol$</p>
+<p>该协议用于促进网络设备间管理信息的交换，常见于云服务器平台</p>
+<h4 id="dns">DNS</h4>
+<p>$Domain~Name~System$</p>
+<p>该协议用于在IP地址和域名（特殊字符串）之间建立一对一映射</p>
+<p><strong>网络加速原理(其中之一)</strong></p>
+<p>DNS解析过程是需要消耗时间的，如果在主机的域名与IP的映射表中加入目的IP，就可以跳过域名解析过程，从而达到加速目的</p>
+<p><strong>Domain Name</strong></p>
+<p>域名是一串特定的字符串，字符串可分为数个子串，子串间用<code>.</code>进行分割，位于左边的域名被包含在右边的域名之内（子域名），位于最右侧的域名称为顶级域名(Top Level Domain, TLD)，例如<code>.cn</code>和<code>.com</code>，左侧的子域名依次称为二级域名，三级域名</p>
+<p>顶级域名只要通过申请就可以使用</p>
+<p><strong>Domain Name Server</strong></p>
+<p><img src="dns.png" alt=""></p>
+<p>域名服务器同样按照域名的分级形成树状的分层管理布局，国际管理组织只需要管理根服务器即可，顶级域名交由各自管理，每个服务器只需要清楚自己的下级域名即可</p>
+<p>在提供域名解析服务时，如果目标域名在自己的子域名中，则可以直接返回对应映射的IP，否则就寻找负责相应域名的服务器，具体过程如下：</p>
+<ul>
+<li>首先查询自己的上级服务器，如果上级服务器缓存了相关映射则直接返回，否则就递归查询直到最近的根服务器</li>
+<li>如果根服务器记录了相关映射则返回，否则返回负责管理相关映射的服务器地址</li>
+<li>上级服务器查询负责的服务器得到答案，然后返回并将映射记录在缓存中备查</li>
+</ul>
+<h3 id="应用层通信分类">应用层通信分类</h3>
+<p>所有的应用层通信都可以分为两类，分别是：</p>
+<ul>
+<li>通过URL定位文件，连接后直接将相关文件传输给客户端，一段时间不传输数据后就断开连接，例如HTTP协议</li>
+<li>面向连接通信，如果需要断开连接需要输入显式命令，例如FTP和Telnet</li>
+</ul>
+
+                    </div>
+                    
+                    
+                    <div class="after-post-tags">
+                        <ul class="tags">
+                        
+                        <li>
+                        <a href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E8%AE%A1%E7%AE%97">互联网计算</a>
+                        </li>
+                        
+                        </ul>
+                    </div>
+                    
+                    
+                    
+                    <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+                    
+                        <a class="d-block col-md-6" href="https://corax.com.cn/note/internet/dhcp/"> &laquo; DHCP专题</a>
+                    
+                    
+                        <a class="d-block col-md-6 text-lg-right" href="https://corax.com.cn/note/internet/transport/">OSI参考模型第四层 传输层原理与技术 &raquo;</a>
+                    
+                    <div class="clearfix"></div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+<div class="container">
+    <div id="comments" class="row justify-content-center mb-5">
+        <div class="col-md-8">              
+                           
+        </div>
+    </div>
+</div>
+
+    </div>
+
+
+            </div>
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+			<div class="d-md-flex align-items-center justify-content-center h-100">
+				<h2 class="d-md-block d-none align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+			</div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+			
+			<a class="mt-1 mb-1" href="/tags/cpp">cpp</a>
+			
+			<a class="mt-1 mb-1" href="/tags/drink">drink</a>
+			
+			<a class="mt-1 mb-1" href="/tags/interesting">interesting</a>
+			
+			<a class="mt-1 mb-1" href="/tags/web%E5%BC%80%E5%8F%91">web开发</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E8%AE%A1%E7%AE%97">互联网计算</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F">分布式</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%9F%BA%E7%A1%80">数据管理基础</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95">数据结构与算法</a>
+			
+		</div>
+	</div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                &copy; Copyright John Doe - All rights reserved
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" rel="noopener" href="https://www.wowthemes.net">Mediumish Theme</a> by WowThemes.net
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+        </div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+<script src="https://corax.com.cn/js/mediumish.e4b90c58dfa15ac82caf2edfa01e5fd047e17bc15e6babe5c0e442a4407d0b25.js" integrity="sha256-5LkMWN&#43;hWsgsry7foB5f0Efhe8Fea6vlwORCpEB9CyU="></script>
+    </body>
+</html>

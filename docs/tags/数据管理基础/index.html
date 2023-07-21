@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="generator" content="Hugo 0.104.3" />
+	
+	<link rel="icon" href="/images/logo.png">
+	
+	<title>数据管理基础 | Corax Blog</title>
+	
+	
+
+	<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="数据管理基础"/>
+<meta name="twitter:description" content="the clean blog!"/>
+
+	<meta property="og:title" content="数据管理基础" />
+<meta property="og:description" content="the clean blog!" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://corax.com.cn/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%9F%BA%E7%A1%80/" />
+
+
+
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+	
+	<link rel="stylesheet" href="https://corax.com.cn/css/medium.ece05c3e0cb4c172303048d902f5c72734dac11b313a671c381a53648c811f4d.css" integrity="sha256-7OBcPgy0wXIwMEjZAvXHJzTawRsxOmccOBpTZIyBH00=">
+
+	
+	<link rel="stylesheet" href="https://corax.com.cn/css/additional.14f7dbd08a523bb7dd03b308a991480ea5d8d744f6229068023169de78b48922.css" integrity="sha256-FPfb0IpSO7fdA7MIqZFIDqXY10T2IpBoAjFp3ni0iSI=">
+
+	
+	
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+    <div class="container pr-0">
+        
+        <a class="navbar-brand" href="https://corax.com.cn//">
+
+            
+            <img src="/images/logo.png" alt="logo">
+            
+        </a>
+        
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        
+        <div class="collapse navbar-collapse" id="navbarMediumish">
+            
+            <ul class="navbar-nav ml-auto">
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/blog">Blog</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/">About Me</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/static/imprint">Imprint</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+    </div>
+</nav>
+
+
+        <div class="site-content">   
+            <div class="container">
+<div class="mainheading">
+    <h1 class="sitetitle">Corax Blog</h1>
+    <p class="lead">
+         the clean blog!
+    </p>
+</div><div class="main-content">
+        
+        <section class="recent-posts">            
+            <div class="section-title">                
+                <h2><span>All Posts</span></h2>                
+            </div>            
+            <div class="row listrecent">
+                
+                
+<div class="col-lg-4 col-md-6 mb-30px card-group">
+    <div class="card h-100">
+        <div class="maxthumb">
+            <a href="https://corax.com.cn/note/database/relation/">
+                
+                
+                    <img class="img-fluid" src="https://corax.com.cn/note/database/relation/cover.jpg" alt="A thumbnail image">
+                                
+            </a>
+        </div>
+        <div class="card-body">
+            <h2 class="card-title"><a class="text-dark" href="https://corax.com.cn/note/database/relation/">数据管理基础－－关系型数据库</a></h2>
+            <h4 class="card-text">关系数据结构及其形式化定义 关系 关系模型的数据结构是单一的，仅包含关系这一数据结构。对于用户而言，关系模型中的数据的逻辑结构是一张扁平的二维表
+术语解释 域（domain）
+域是一组具有相同数据类型的值的集合
+笛卡尔积（cartesian product）
+给定一组域$D_1,D_2,\dots,D_n$，则这组域的笛卡尔积为$D_1\times D_2\times\dots\times D_n={(d_1,d_2,\dots,d_n)|d_i\sub D_i}$
+该集合中的每一个元素称为一个n元组(n-tuple)，简称元组(tuple)，元素中的每一个$d_i$称为一个分量(component)
+域允许的不同取值个数称为域的基数(cardinal number)，显然有笛卡尔积的基数为各个域的基数之积
+关系（relation）
+笛卡尔积的子集称为在域$D_1,D_2,\dots,D_n$上的关系，表示为$R(D_1,D_2,\dots,D_n)$，R表示关系的名字，n称为这个关系的目或度（degree），当目为1时称该关系为单元关系（unary relation），或一元关系；当目为2时称为二元关系（binary relation）；n目关系一定有n个属性（attribute，每个列的名称或说明）
+关系中的每个元素是关系中的元组，通常用t表示
+候选码（candidate key）
+如果某一属性组（可能包含多个属性）的值能唯一标识一个元组，且其子集不行，则将该属性组称为候选码
+主码（prime key）</h4>            
+        </div>
+        <div class="card-footer bg-white">
+            <div class="wrapfooter">
+                
+                
+                
+                <span class="post-date">Mar 6, 2023 - 1 min read </span>
+                <span class="post-read-more"><a href="https://corax.com.cn/note/database/relation/" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-lg-4 col-md-6 mb-30px card-group">
+    <div class="card h-100">
+        <div class="maxthumb">
+            <a href="https://corax.com.cn/note/database/outline/">
+                
+                
+                    <img class="img-fluid" src="https://corax.com.cn/note/database/outline/cover.jpg" alt="A thumbnail image">
+                                
+            </a>
+        </div>
+        <div class="card-body">
+            <h2 class="card-title"><a class="text-dark" href="https://corax.com.cn/note/database/outline/">数据管理基础概论</a></h2>
+            <h4 class="card-text">绪论 概念 数据
+数据是描述事物的符号记录
+语义
+语义是数据的含义，与数据密不可分
+数据库
+$Database, DB$
+数据库是长期储存在计算机内、有组织的、可共享的大量数据的集合。数据库中的数据按一定的数据模型组织、描述和储存，具有较小的冗余度(redundancy)，较高的数据独立性(data independency)和易扩展性(scalability)，可以为各种用户共享
+数据库管理系统
+$Database~Management~System,DBMS$
+数据库管理系统是计算机的基础软件，具有以下功能：
+数据定义功能，即提供数据定义语言(Data Definition Language, DDL)，用于定义数据库中数据对象的组成和结构 数据组织、存储和管理，重点是如何实现数据之间的联系 数据操纵功能，提供数据操纵语言(Data Manipulation Language, DML)，实现对数据库的基本操作 数据库的事务管理和运行管理 数据库的建立和维护功能，包括初始数据输入、转换，数据库的转储、恢复、重组织、性能监视、分析功能，通常由实用程序或管理工具完成 其他功能，包括与其他软件系统的通信，与另一个数据库管理系统或文件系统的数据转换，异构数据库之间的互访和互操作 数据库系统</h4>            
+        </div>
+        <div class="card-footer bg-white">
+            <div class="wrapfooter">
+                
+                
+                
+                <span class="post-date">Mar 4, 2023 - 1 min read </span>
+                <span class="post-read-more"><a href="https://corax.com.cn/note/database/outline/" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+            </div>
+        </section>
+<div class="bottompagination">
+  <div class="pointerup"><i class="fa fa-caret-up"></i></div>
+  <div class="navigation" role="navigation">
+    
+  </div>
+</div></div>
+
+
+            </div>
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+			<div class="d-md-flex align-items-center justify-content-center h-100">
+				<h2 class="d-md-block d-none align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+			</div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+			
+			<a class="mt-1 mb-1" href="/tags/cpp">cpp</a>
+			
+			<a class="mt-1 mb-1" href="/tags/drink">drink</a>
+			
+			<a class="mt-1 mb-1" href="/tags/interesting">interesting</a>
+			
+			<a class="mt-1 mb-1" href="/tags/web%E5%BC%80%E5%8F%91">web开发</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E8%AE%A1%E7%AE%97">互联网计算</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F">分布式</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%9F%BA%E7%A1%80">数据管理基础</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95">数据结构与算法</a>
+			
+		</div>
+	</div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                &copy; Copyright John Doe - All rights reserved
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" rel="noopener" href="https://www.wowthemes.net">Mediumish Theme</a> by WowThemes.net
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+        </div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+<script src="https://corax.com.cn/js/mediumish.e4b90c58dfa15ac82caf2edfa01e5fd047e17bc15e6babe5c0e442a4407d0b25.js" integrity="sha256-5LkMWN&#43;hWsgsry7foB5f0Efhe8Fea6vlwORCpEB9CyU="></script>
+    </body>
+</html>

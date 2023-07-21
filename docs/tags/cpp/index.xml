@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cpp on Corax Blog</title>
+    <link>https://corax.com.cn/tags/cpp/</link>
+    <description>Recent content in Cpp on Corax Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>John Doe - All rights reserved</copyright>
+    <lastBuildDate>Thu, 09 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://corax.com.cn/tags/cpp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cpp高级程序设计</title>
+      <link>https://corax.com.cn/note/cpp/</link>
+      <pubDate>Thu, 09 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://corax.com.cn/note/cpp/</guid>
+      <description>导论 语言 语言是在一定的符号集合中按一定的规则组织起来的符号串集合，由语法(Syntax)、语义(Semantics)和语用(Pragmatics)构成
+第一个编程语言是Fortran
+编程范式 命令式编程 结构化编程/面向过程编程(Procedural)
+例如C语言，基于过程化调用的概念
+面向对象编程(Object-Oriented)
+基于现实场景的交互模型
+描述式编程 只描述需求，不需要清楚其中的执行过程
+函数式编程(Functional)
+程序的结果仅由参数决定，不受运行环境影响，即函数不能有副作用，具有利于并发的优势
+逻辑式编程(Logical)
+根据规则和事实进行推理
+结构化程序设计 自顶向下，逐步求精
+包含顺序，分支与循环三种结构，由数据结构与算法组成
+数据 由名、值、地址、类型、性质组成
+地址
+全局变量存储在静态变量区；局部变量存储在栈区；使用new和malloc分配的变量则存储在堆区
+类型
+类型定义了取值集合（溢出问题需要自行处理）以及与同类型数据之间的计算（包含算术、逻辑与输入输出运算），可自定义ADT抽象数据类型；类型系统可以分为强类型系统（运算必须在规则体制下进行）和弱类型系统（运算只要能理解即可）以及静态系统（在编译时确定数据类型, Compiler）和动态系统（在运行时才能确定数据类型，实现了多态, Linker）</description>
+    </item>
+    
+  </channel>
+</rss>

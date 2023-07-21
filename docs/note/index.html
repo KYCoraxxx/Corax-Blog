@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="generator" content="Hugo 0.104.3" />
+	
+	<link rel="icon" href="/images/logo.png">
+	
+	<title>Notes | Corax Blog</title>
+	
+	
+
+	<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Notes"/>
+<meta name="twitter:description" content="the clean blog!"/>
+
+	<meta property="og:title" content="Notes" />
+<meta property="og:description" content="the clean blog!" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://corax.com.cn/note/" />
+
+
+
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+	
+	<link rel="stylesheet" href="https://corax.com.cn/css/medium.ece05c3e0cb4c172303048d902f5c72734dac11b313a671c381a53648c811f4d.css" integrity="sha256-7OBcPgy0wXIwMEjZAvXHJzTawRsxOmccOBpTZIyBH00=">
+
+	
+	<link rel="stylesheet" href="https://corax.com.cn/css/additional.14f7dbd08a523bb7dd03b308a991480ea5d8d744f6229068023169de78b48922.css" integrity="sha256-FPfb0IpSO7fdA7MIqZFIDqXY10T2IpBoAjFp3ni0iSI=">
+
+	
+	
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+    <div class="container pr-0">
+        
+        <a class="navbar-brand" href="https://corax.com.cn//">
+
+            
+            <img src="/images/logo.png" alt="logo">
+            
+        </a>
+        
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        
+        <div class="collapse navbar-collapse" id="navbarMediumish">
+            
+            <ul class="navbar-nav ml-auto">
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/blog">Blog</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/">About Me</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/static/imprint">Imprint</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+    </div>
+</nav>
+
+
+        <div class="site-content">   
+            <div class="container">
+<div class="mainheading">
+    <h1 class="sitetitle">Corax Blog</h1>
+    <p class="lead">
+         the clean blog!
+    </p>
+</div><div class="main-content">
+        
+        <section class="recent-posts">            
+            <div class="section-title">                
+                <h2><span>All Posts</span></h2>                
+            </div>            
+            <div class="row listrecent">
+                
+                
+<div class="col-lg-4 col-md-6 mb-30px card-group">
+    <div class="card h-100">
+        <div class="maxthumb">
+            <a href="https://corax.com.cn/note/database/relation/">
+                
+                
+                    <img class="img-fluid" src="https://corax.com.cn/note/database/relation/cover.jpg" alt="A thumbnail image">
+                                
+            </a>
+        </div>
+        <div class="card-body">
+            <h2 class="card-title"><a class="text-dark" href="https://corax.com.cn/note/database/relation/">数据管理基础－－关系型数据库</a></h2>
+            <h4 class="card-text">关系数据结构及其形式化定义 关系 关系模型的数据结构是单一的，仅包含关系这一数据结构。对于用户而言，关系模型中的数据的逻辑结构是一张扁平的二维表
+术语解释 域（domain）
+域是一组具有相同数据类型的值的集合
+笛卡尔积（cartesian product）
+给定一组域$D_1,D_2,\dots,D_n$，则这组域的笛卡尔积为$D_1\times D_2\times\dots\times D_n={(d_1,d_2,\dots,d_n)|d_i\sub D_i}$
+该集合中的每一个元素称为一个n元组(n-tuple)，简称元组(tuple)，元素中的每一个$d_i$称为一个分量(component)
+域允许的不同取值个数称为域的基数(cardinal number)，显然有笛卡尔积的基数为各个域的基数之积
+关系（relation）
+笛卡尔积的子集称为在域$D_1,D_2,\dots,D_n$上的关系，表示为$R(D_1,D_2,\dots,D_n)$，R表示关系的名字，n称为这个关系的目或度（degree），当目为1时称该关系为单元关系（unary relation），或一元关系；当目为2时称为二元关系（binary relation）；n目关系一定有n个属性（attribute，每个列的名称或说明）
+关系中的每个元素是关系中的元组，通常用t表示
+候选码（candidate key）
+如果某一属性组（可能包含多个属性）的值能唯一标识一个元组，且其子集不行，则将该属性组称为候选码
+主码（prime key）</h4>            
+        </div>
+        <div class="card-footer bg-white">
+            <div class="wrapfooter">
+                
+                
+                
+                <span class="post-date">Mar 6, 2023 - 1 min read </span>
+                <span class="post-read-more"><a href="https://corax.com.cn/note/database/relation/" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-lg-4 col-md-6 mb-30px card-group">
+    <div class="card h-100">
+        <div class="maxthumb">
+            <a href="https://corax.com.cn/note/database/outline/">
+                
+                
+                    <img class="img-fluid" src="https://corax.com.cn/note/database/outline/cover.jpg" alt="A thumbnail image">
+                                
+            </a>
+        </div>
+        <div class="card-body">
+            <h2 class="card-title"><a class="text-dark" href="https://corax.com.cn/note/database/outline/">数据管理基础概论</a></h2>
+            <h4 class="card-text">绪论 概念 数据
+数据是描述事物的符号记录
+语义
+语义是数据的含义，与数据密不可分
+数据库
+$Database, DB$
+数据库是长期储存在计算机内、有组织的、可共享的大量数据的集合。数据库中的数据按一定的数据模型组织、描述和储存，具有较小的冗余度(redundancy)，较高的数据独立性(data independency)和易扩展性(scalability)，可以为各种用户共享
+数据库管理系统
+$Database~Management~System,DBMS$
+数据库管理系统是计算机的基础软件，具有以下功能：
+数据定义功能，即提供数据定义语言(Data Definition Language, DDL)，用于定义数据库中数据对象的组成和结构 数据组织、存储和管理，重点是如何实现数据之间的联系 数据操纵功能，提供数据操纵语言(Data Manipulation Language, DML)，实现对数据库的基本操作 数据库的事务管理和运行管理 数据库的建立和维护功能，包括初始数据输入、转换，数据库的转储、恢复、重组织、性能监视、分析功能，通常由实用程序或管理工具完成 其他功能，包括与其他软件系统的通信，与另一个数据库管理系统或文件系统的数据转换，异构数据库之间的互访和互操作 数据库系统</h4>            
+        </div>
+        <div class="card-footer bg-white">
+            <div class="wrapfooter">
+                
+                
+                
+                <span class="post-date">Mar 4, 2023 - 1 min read </span>
+                <span class="post-read-more"><a href="https://corax.com.cn/note/database/outline/" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-lg-4 col-md-6 mb-30px card-group">
+    <div class="card h-100">
+        <div class="maxthumb">
+            <a href="https://corax.com.cn/note/datastructure/sort/">
+                
+                
+                    <img class="img-fluid" src="https://corax.com.cn/note/datastructure/sort/cover.jpg" alt="A thumbnail image">
+                                
+            </a>
+        </div>
+        <div class="card-body">
+            <h2 class="card-title"><a class="text-dark" href="https://corax.com.cn/note/datastructure/sort/">排序与表达式专题</a></h2>
+            <h4 class="card-text">内排序 对内存中的n个对象进行排序，不需要借助外存
+插入排序 $Insert~Sorting$
+直接插入排序 算法思想
+将需要排序的数组分为排好序和未排序的两部分，每次从未排序部分中取出首元素插入到排好序的部分中（需要包含将部分数组整体后移的过程）
+代码示例
+int pos; //数组从0开始标号 for(int i = 1; i &lt; n; i++){ //需要插入a[i] int t = a[i]; //找出插入位置的同时移动数组 for(pos = i - 1; pos &gt; 0 &amp;&amp; a[pos] &gt; a[i]; pos--) a[pos] = a[pos - 1]; a[pos] = t; } 过程示例</h4>            
+        </div>
+        <div class="card-footer bg-white">
+            <div class="wrapfooter">
+                
+                
+                
+                <span class="post-date">Feb 15, 2023 - 4 min read </span>
+                <span class="post-read-more"><a href="https://corax.com.cn/note/datastructure/sort/" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-lg-4 col-md-6 mb-30px card-group">
+    <div class="card h-100">
+        <div class="maxthumb">
+            <a href="https://corax.com.cn/note/cpp/">
+                
+                
+                    <img class="img-fluid" src="https://corax.com.cn/note/cpp/cover.jpg" alt="A thumbnail image">
+                                
+            </a>
+        </div>
+        <div class="card-body">
+            <h2 class="card-title"><a class="text-dark" href="https://corax.com.cn/note/cpp/">Cpp高级程序设计</a></h2>
+            <h4 class="card-text">导论 语言 语言是在一定的符号集合中按一定的规则组织起来的符号串集合，由语法(Syntax)、语义(Semantics)和语用(Pragmatics)构成
+第一个编程语言是Fortran
+编程范式 命令式编程 结构化编程/面向过程编程(Procedural)
+例如C语言，基于过程化调用的概念
+面向对象编程(Object-Oriented)
+基于现实场景的交互模型
+描述式编程 只描述需求，不需要清楚其中的执行过程
+函数式编程(Functional)
+程序的结果仅由参数决定，不受运行环境影响，即函数不能有副作用，具有利于并发的优势
+逻辑式编程(Logical)
+根据规则和事实进行推理
+结构化程序设计 自顶向下，逐步求精
+包含顺序，分支与循环三种结构，由数据结构与算法组成
+数据 由名、值、地址、类型、性质组成
+地址
+全局变量存储在静态变量区；局部变量存储在栈区；使用new和malloc分配的变量则存储在堆区
+类型
+类型定义了取值集合（溢出问题需要自行处理）以及与同类型数据之间的计算（包含算术、逻辑与输入输出运算），可自定义ADT抽象数据类型；类型系统可以分为强类型系统（运算必须在规则体制下进行）和弱类型系统（运算只要能理解即可）以及静态系统（在编译时确定数据类型, Compiler）和动态系统（在运行时才能确定数据类型，实现了多态, Linker）</h4>            
+        </div>
+        <div class="card-footer bg-white">
+            <div class="wrapfooter">
+                
+                
+                
+                <span class="post-date">Feb 9, 2023 - 10 min read </span>
+                <span class="post-read-more"><a href="https://corax.com.cn/note/cpp/" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-lg-4 col-md-6 mb-30px card-group">
+    <div class="card h-100">
+        <div class="maxthumb">
+            <a href="https://corax.com.cn/note/datastructure/graph/">
+                
+                
+                    <img class="img-fluid" src="https://corax.com.cn/note/datastructure/graph/cover.jpg" alt="A thumbnail image">
+                                
+            </a>
+        </div>
+        <div class="card-body">
+            <h2 class="card-title"><a class="text-dark" href="https://corax.com.cn/note/datastructure/graph/">图论专题</a></h2>
+            <h4 class="card-text">概念与定义 图(Graph) 图是由点集$V(vertex)$和边集$E(edge)$组成的数据结构，其中可以分为无向图和有向图
+完全图(Complete Graph) 对于有$n$个节点的无向图，如果它的边集大小为$\frac{n*(n-1)}{2}$，即每两个节点之间都有连边，则称其为完全图
+度数(degree) 节点的度数（degree，记为$TD(v)$）就是与之相连的边的条数
+特别的，对于有向图(digraph)而言，节点的入度（in-degree，记为$ID(v)$）是指向它的边的条数，出度（out-degree，记为$OD(v)$）是由它指出的边的条数，显然有$TD(v)=ID(v)+OD(v)$
+子图(Subgraph) 点集是原点集子集，边集是原边集子集，且边集中的节点都在点集中的图
+路径(Path) 一个满足前一个节点到后一个节点有连边的节点序列
+简单路径和简单环路 简单路径中不包含重复顶点；简单环路除了首尾节点重复，其它均满足简单路径的要求
+连通图和连通分量 对于无向图而言，如果任意两个节点之间都有路径可达，则将其称为连通图；非连通图的极大连通子图称为连通分量
+强连通图和强连通分量 对于有向图而言，如果任意两个节点之间（既包含从a到b，也包含从b到a）均有路径可达，则将其称为强连通图；非强连通图的极大强连通子图称为强连通分量
+网络 网络是指带权图或带权有向图
+生成树 生成树是一张图的极小连通子图，有且仅有n个顶点和n-1条边
+图的表示方法 邻接矩阵(Adjacency Matrix) 01矩阵，第i行和第j列置1表示从i到j有一条边，否则没有，无向图的邻接矩阵对称</h4>            
+        </div>
+        <div class="card-footer bg-white">
+            <div class="wrapfooter">
+                
+                
+                
+                <span class="post-date">Feb 8, 2023 - 1 min read </span>
+                <span class="post-read-more"><a href="https://corax.com.cn/note/datastructure/graph/" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-lg-4 col-md-6 mb-30px card-group">
+    <div class="card h-100">
+        <div class="maxthumb">
+            <a href="https://corax.com.cn/note/datastructure/hashheap/">
+                
+                
+                    <img class="img-fluid" src="https://corax.com.cn/note/datastructure/hashheap/cover.jpg" alt="A thumbnail image">
+                                
+            </a>
+        </div>
+        <div class="card-body">
+            <h2 class="card-title"><a class="text-dark" href="https://corax.com.cn/note/datastructure/hashheap/">哈希与堆专题</a></h2>
+            <h4 class="card-text">哈希/散列表 负载因子 $Load~Factor$，也称为冲突因子，记为α，有$\alpha=\frac{数据个数}{空闲个数}$，若α&gt;1，则发生碰撞的概率高，常数复杂度不可达；若α&lt;1，则发生碰撞的概率相对较低，有可能达到常数复杂度
+哈希函数 $Hash~Function$，也称为散列函数，用于从给定的数据映射到一个代表地址的数值
+取余法 $H(Key)=Key\mod M$，其中M是在基本区长度内的最大质数，尽可能降低冲突概率
+平方取中法 $H(Key)=Key^2$十进制数字表示的中间部分，其长度取决于存储数据的哈希表的大小
+乘法杂凑函数 $H(Key)=\lfloor M*((\phi*Key)\mod 1)\rfloor$，其中M为最大单元的下标，φ一般取为小于1的无理数，mod 1表示只保留小数部分
+冲突处理 挂载单链表 将发生冲突的值以链表的形式挂载在同一地址的哈希表下，但是一般很少用这种方式，因为整个散列表空间很大，如果将申请的空间弃置不用而为链表申请额外空间是对内存资源的浪费
+开放地址法 $Open~Addressing$，做法是向散列表后续的空间探测，直到发现空位置就将它存入其中，存入过程的探测时间和查找过程的探测时间成正比；当散列表中的某个数据需要删去时并不真正删掉它，而只是标记它被删去，被标记删去的数据可以被后来的数据替代，在查找过程中如果探测到空位置就认为需要查找的数据不在散列表中；如果存入某个数据后散列表中的数据条目数量大于设定值，即负载因子大于设定值，则需要扩大散列表的容量，重新进行散列(rehash)，该过程会将已经散列好的数据也重新散列，因此会带来较大的时间开销
+平均搜索长度指的是假设各个数据被查找的概率相等，用查找每个数据需要的探测次数计算平均值
+线性探测法(Linear Probing)
+依次探测下一个位置，到最大值则从0继续。容易出现堆积问题(Clustering Problem)，即如果有一批数据的散列值很接近，就会导致对应内存空间的散列表被全部占满，只要再次出现散列值在其附近的数据就一定会引发冲突，继续在该空间插入数据的代价会很大</h4>            
+        </div>
+        <div class="card-footer bg-white">
+            <div class="wrapfooter">
+                
+                
+                
+                <span class="post-date">Feb 7, 2023 - 1 min read </span>
+                <span class="post-read-more"><a href="https://corax.com.cn/note/datastructure/hashheap/" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+            </div>
+        </section>
+<div class="bottompagination">
+  <div class="pointerup"><i class="fa fa-caret-up"></i></div>
+  <div class="navigation" role="navigation">
+    
+      <div class="pagination">
+        
+          <span>&laquo; Prev</span>
+        
+
+        <span class="ml-1 mr-1">1</span>
+
+        
+          <a class="ml-1 mr-1" href="/note/page/2/">2</a>
+          <a class="ml-1 mr-1" href="/note/page/2/">Next &raquo;</a>
+        
+      </div>
+    
+  </div>
+</div></div>
+
+
+            </div>
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+			<div class="d-md-flex align-items-center justify-content-center h-100">
+				<h2 class="d-md-block d-none align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+			</div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+			
+			<a class="mt-1 mb-1" href="/tags/cpp">cpp</a>
+			
+			<a class="mt-1 mb-1" href="/tags/drink">drink</a>
+			
+			<a class="mt-1 mb-1" href="/tags/interesting">interesting</a>
+			
+			<a class="mt-1 mb-1" href="/tags/web%E5%BC%80%E5%8F%91">web开发</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E8%AE%A1%E7%AE%97">互联网计算</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F">分布式</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%9F%BA%E7%A1%80">数据管理基础</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95">数据结构与算法</a>
+			
+		</div>
+	</div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                &copy; Copyright John Doe - All rights reserved
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" rel="noopener" href="https://www.wowthemes.net">Mediumish Theme</a> by WowThemes.net
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+        </div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+<script src="https://corax.com.cn/js/mediumish.e4b90c58dfa15ac82caf2edfa01e5fd047e17bc15e6babe5c0e442a4407d0b25.js" integrity="sha256-5LkMWN&#43;hWsgsry7foB5f0Efhe8Fea6vlwORCpEB9CyU="></script>
+    </body>
+</html>

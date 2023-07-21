@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="generator" content="Hugo 0.104.3" />
+	
+	<link rel="icon" href="/images/logo.png">
+	
+	<title>局域网交换与虚拟局域网专题 | Corax Blog</title>
+	
+	
+
+	<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://corax.com.cn/note/internet/vlan/cover.jpg"/>
+<meta name="twitter:title" content="局域网交换与虚拟局域网专题"/>
+<meta name="twitter:description" content="互联网计算课程局域网交换与虚拟局域网专题笔记"/>
+
+	<meta property="og:title" content="局域网交换与虚拟局域网专题" />
+<meta property="og:description" content="互联网计算课程局域网交换与虚拟局域网专题笔记" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://corax.com.cn/note/internet/vlan/" /><meta property="og:image" content="https://corax.com.cn/note/internet/vlan/cover.jpg"/><meta property="article:section" content="Note" />
+<meta property="article:published_time" content="2023-02-03T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-02-03T00:00:00+00:00" />
+
+
+
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+	
+	<link rel="stylesheet" href="https://corax.com.cn/css/medium.ece05c3e0cb4c172303048d902f5c72734dac11b313a671c381a53648c811f4d.css" integrity="sha256-7OBcPgy0wXIwMEjZAvXHJzTawRsxOmccOBpTZIyBH00=">
+
+	
+	<link rel="stylesheet" href="https://corax.com.cn/css/additional.14f7dbd08a523bb7dd03b308a991480ea5d8d744f6229068023169de78b48922.css" integrity="sha256-FPfb0IpSO7fdA7MIqZFIDqXY10T2IpBoAjFp3ni0iSI=">
+
+	
+	
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+    <div class="container pr-0">
+        
+        <a class="navbar-brand" href="https://corax.com.cn//">
+
+            
+            <img src="/images/logo.png" alt="logo">
+            
+        </a>
+        
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        
+        <div class="collapse navbar-collapse" id="navbarMediumish">
+            
+            <ul class="navbar-nav ml-auto">
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/blog">Blog</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/">About Me</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/static/imprint">Imprint</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+    </div>
+</nav>
+
+
+        <div class="site-content">   
+            <div class="container">
+<div class="mainheading">
+    <h1 class="sitetitle">Corax Blog</h1>
+    <p class="lead">
+         the clean blog!
+    </p>
+</div><div class="main-content">
+        
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-md-2 pl-0"><div class="share sticky-top sticky-top-offset">
+    <p>Share</p>
+    <ul>
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://twitter.com/intent/tweet?text=%e5%b1%80%e5%9f%9f%e7%bd%91%e4%ba%a4%e6%8d%a2%e4%b8%8e%e8%99%9a%e6%8b%9f%e5%b1%80%e5%9f%9f%e7%bd%91%e4%b8%93%e9%a2%98&url=https%3a%2f%2fcorax.com.cn%2fnote%2finternet%2fvlan%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=435');return false;">
+        <i class="fab fa-twitter"></i>
+        </a>
+        </li>
+        
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://facebook.com/sharer.php?u=https%3a%2f%2fcorax.com.cn%2fnote%2finternet%2fvlan%2f" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+        <i class="fab fa-facebook-f"></i>
+        </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://www.xing.com/spi/shares/new?url=https%3a%2f%2fcorax.com.cn%2fnote%2finternet%2fvlan%2f" onclick="window.open(this.href, 'xing-share', 'width=550,height=435');return false;">
+        <i class="fab fa-xing"></i>
+        </a>
+        </li>        
+    </ul>
+
+    
+        <div class="sep">
+        </div>				
+        <ul>
+            <li> 
+            <a  class="small smoothscroll" href="#disqus_thread"></a>
+            </li>
+        </ul>
+    
+</div>
+</div>
+                                
+                <div class="col-md-9 flex-first flex-md-unordered">
+                    <div class="mainheading">
+                        	
+                        
+                        
+                        
+                        <div class="row post-top-meta">
+                            <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0 md-nopad-right">
+                                <img class="author-thumb" src="/images/avator.jpg" alt="Corax">
+                            </div>
+                            <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left md-nopad-left">
+                                <a target="_blank" class="link-dark">Corax</a><br>
+                                <span class="author-description">
+                                    Creator of this blog.<br>
+                                    <i class="far fa-star"></i>
+                                    Feb 3, 2023
+                                    <i class="far fa-clock clock"></i>
+                                    1 min read
+                                </span>					
+                            </div>
+                        </div>			
+                        	
+                        
+                                                
+                        
+                        <h1 class="posttitle">局域网交换与虚拟局域网专题</h1> 
+                    </div>
+
+                    
+                    
+                    
+                        <img class="featured-image img-fluid" src="https://corax.com.cn/note/internet/vlan/cover.jpg" alt="thumbnail for this post">
+                    
+                    
+
+                    
+                    <div class="article-post">
+                        <h2 id="局域网交换">局域网交换</h2>
+<h3 id="交换机操作">交换机操作</h3>
+<p>交换机主要执行两种功能，分别是基于MAC地址建立并维护交换表(Switching Table)以及将数据帧从接口转发出去到达目的地(Switching Frames)</p>
+<p>其中需要注意的是交换机在通电后（一般通电即开机）才开始记录学习MAC地址，同时因为数据帧的源地址不可能是广播地址，所以交换机学习不到广播地址；交换机在转发数据帧时如果MAC table中没有相关记录，则会向所有端口泛洪</p>
+<h3 id="对称交换">对称交换</h3>
+<p>$Symmetric~Switching$</p>
+<p>对称交换在具有相同带宽的端口之间提供交换连接，但可能会引起瓶颈问题(bottlenecks)，因为对服务器的访问流量会显著大于其他端口的流量</p>
+<h3 id="非对称交换">非对称交换</h3>
+<p>$Asymmetric~Switching$</p>
+<p>非对称交换则可以在带宽不同的端口之间提供交换连接，因此连接服务器的端口的带宽一般显著大于其他端口的带宽，但需要交换机具备内存缓冲(memory buffering)的机制</p>
+<h3 id="内存缓冲">内存缓冲</h3>
+<p>$Memory~Buffering$</p>
+<p>内存缓存是交换机中用来临时存储需要转发的数据直到其能够被正确转发的内存区域，其中又可以分为两类内存缓冲</p>
+<p><strong>基于端口(Port-based)的内存缓冲</strong></p>
+<p>每一个端口都有单独的内存缓冲队列，可能会因为目的端口的繁忙导致数据帧的传输延迟</p>
+<p><strong>共享内存(shared memory buffering)</strong></p>
+<p>为所有端口通用的内存缓冲，允许数据帧从一个端口RX（receive），然后从另一个端口TX（transmit），中途不需要进入另一个等待队列</p>
+<h3 id="交换方法">交换方法</h3>
+<p><strong>存储并转发(Store-and-Forward)</strong></p>
+<p>交换机接收整个数据帧，校验无问题后才转发</p>
+<p><strong>直接转发(Cut-through)</strong></p>
+<p>不经过校验直接转发数据帧，可以减少网络时延(latency)，其中又可以分两部分，分别是快速转发(Fast Forward)和免碎片化转发(Fragment Free)，前者需要检查的只是目的MAC地址是否有误，后者需要检查帧是否碎片化，方法是检查前64字节确认是否为碰撞碎片</p>
+<h3 id="交换机分类">交换机分类</h3>
+<p><strong>第二层交换机</strong></p>
+<p>指位于OSI参考模型第二层的交换机，只有一个MAC地址，属于常规的交换机</p>
+<p><strong>第三层交换机</strong>
+指位于OSI参考模型第三层的交换机，每个端口都配置了独立的MAC地址，同时具有虚拟接口(virtual interface)，能够完成VLAN间的路由选择，但没有路由学习能力，但是它基于硬件实现，性能远远优于路由器的软件实现</p>
+<p><strong>第四层交换机</strong></p>
+<p>为交换机附加了解析端口号以确定相应服务内容的功能，体现出SDN(Software Definite Network，指抛弃路由器，由软件控制加上交换机进行组网)的趋势</p>
+<p><strong>多层交换机</strong></p>
+<p>兼具上述三层交换机的功能</p>
+<h2 id="生成树协议stp">生成树协议STP</h2>
+<p>$Spanning-Tree~Protocol$，注意与屏蔽双绞线的缩写进行区分</p>
+<h3 id="桥接环路">桥接环路</h3>
+<p>$Bridging~Loops$</p>
+<p>网络中的环路可能因<strong>故意的</strong>保留冗余链路或<strong>不小心</strong>导致的配置错误引起，其中对后者来说广播环路(broadcast loops)以及桥表损坏(bridge-table corruption)会导致相当严重的错误</p>
+<p><img src="emo.png" alt=""></p>
+<h4 id="冗余导致环路">冗余导致环路</h4>
+<p><img src="redu.png" alt=""></p>
+<p>网络链路的冗余如果形成了环路会导致性能的严重损失，对于第二层的链路结构来说，由于数据帧并不携带TTL限制其跳数，因此如果某个帧的传输形成环路会导致严重的问题，它会一直在链路中循环直到某个交换机关机或链路故障。例如在上图中，如果C突然关机，然后A与B的MAC地址表中将其信息删去，这时E发送了一条需要由C来转发的帧，由于A与B的MAC table中均无相关记录，因此进行泛洪寻找其地址，然后至少会导致A与B之间的环路持续传递该单播泛洪帧</p>
+<h3 id="stp概述">STP概述</h3>
+<h4 id="功能">功能</h4>
+<p>由于树上不存在回路，利用STP协议可以做到允许链路中冗余路径的出现而又避免环路问题对网络性能的影响</p>
+<p>其做法是计算出一棵稳定的生成树网络拓扑（注意STP在网络拓扑中仅生成一棵树，而OSPF中每个路由器都生成一棵以自己为根的树），不在该树状拓扑中的链路处于阻塞状态，在阻塞状态链路上收到的数据帧会被直接丢弃</p>
+<p>用于构建STP树的帧称为生成树帧**(Spanning-tree Frames)<strong>，也称为</strong>网桥协议数据单元(Bridge Protocol Data Units, BPDUs)**</p>
+<h4 id="决定序列">决定序列</h4>
+<p>$Decision~Sequence$</p>
+<ul>
+<li>决定生成树的根，选择BID(Bridge Identification)最小的作为树根，也即最低的MAC地址</li>
+<li>决定各个交换机到树根的哪条路径代价最低</li>
+<li>决定对链路负责的发送方（每条链路有两个交换机），选择BID最小的作为发送方</li>
+<li>决定具体选择哪条路径，如果一台交换机上有多条等效路径，则选择端口号最低的（对于第三层交换机来说）</li>
+</ul>
+<h4 id="术语基础">术语基础</h4>
+<p><strong>BPDUs</strong></p>
+<p>用来在交换机与交换机之间传递链路信息，帮助构建网络的生成树拓扑的数据单元，主要内容包含Root BID，Root Path Cost（表示当前距离根网桥的路径代价，代价越低越好），Sender BID（表示发送该BPDU的交换机ID）和Port ID（表示发送该交换机发送该BPDU使用的端口号），其余内容还包括协议ID，版本，消息类型，标志，消息老化时间，最大老化时间，Hello时间和转发延迟</p>
+<p><strong>BID</strong></p>
+<p>长度为8字节，高2个字节表示优先级，取值在0到65535之间，默认为32768，数值越小越优先，可以且一般以十进制形式来表示；低6个字节为交换机的MAC地址，通常以十六进制形式表示</p>
+<p><strong>Root War</strong></p>
+<p>所有交换机通过先比较优先级数值最小，再比较BID最低的原则选举一个根桥，这个过程通常称为root war</p>
+<p><strong>Path Cost</strong></p>
+<p>用于计算路径代价的数值，与链路带宽有关，常用值如下表所示</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">带宽</th>
+<th style="text-align:center">STP Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">4Mbps</td>
+<td style="text-align:center">250</td>
+</tr>
+<tr>
+<td style="text-align:center">10Mbps</td>
+<td style="text-align:center">100</td>
+</tr>
+<tr>
+<td style="text-align:center">16Mbps</td>
+<td style="text-align:center">62</td>
+</tr>
+<tr>
+<td style="text-align:center">45Mbps</td>
+<td style="text-align:center">39</td>
+</tr>
+<tr>
+<td style="text-align:center">100Mbps</td>
+<td style="text-align:center">19</td>
+</tr>
+<tr>
+<td style="text-align:center">155Mbps</td>
+<td style="text-align:center">14</td>
+</tr>
+<tr>
+<td style="text-align:center">622Mbps</td>
+<td style="text-align:center">6</td>
+</tr>
+<tr>
+<td style="text-align:center">1Gbps</td>
+<td style="text-align:center">4</td>
+</tr>
+<tr>
+<td style="text-align:center">10Gbps</td>
+<td style="text-align:center">2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>STP States</strong></p>
+<p>STP State是通过设置在端口上的配置政策决定，并由STP基于传输网络模式和潜在环路进行修改维护的端口状态</p>
+<ul>
+<li>Blocking，不转发数据帧，但是接收BPDUs</li>
+<li>Listening，不转发数据帧，但是侦听数据帧</li>
+<li>Learning，不转发数据帧，只学习MAC地址</li>
+<li>Forwarding，转发数据帧，并且学习地址</li>
+<li>Disabled，不转发数据帧，不接收BPDUs</li>
+</ul>
+<h4 id="初始化stp收敛过程">初始化STP收敛过程</h4>
+<p><strong>决定根桥</strong></p>
+<p>各个交换机发送BPDUs将自己声明为根桥，并检查所有端口接收和发送的BPDUs，对于所有接收的BPDU，如果它的发送者的优先级或者BID比当前端口所记录的更低，就将对应的发送者设为根桥，替换旧值</p>
+<p><strong>选择根路径(Root Path)</strong></p>
+<p>每一个非根桥必须要选举出一条根路径，一个网桥的根路径是距离根桥最近的端口，STP cost的计数是从根桥发出BPDU，每通过一个端口就增量计数，而非预先知晓的</p>
+<p><strong>选举指定端口(Designated Port)</strong></p>
+<p>每一段链路都有一个指定端口，负责发送与接收该段链路与根桥之间的网络信息，选举的方式是选出当前链路上的两个端口中距离根桥更近的一方，如果相同则比较BID；具备指定端口的网桥称为该段链路的指定网桥(Designated Bridge)，所有的网桥都会将非指定端口以及非根端口置于Blocking状态，<strong>因此网桥上的所有活跃端口均为指定端口或根端口，根桥上的所有端口均为指定端口</strong></p>
+<h2 id="虚拟局域网vlan">虚拟局域网VLAN</h2>
+<h3 id="概述">概述</h3>
+<p>在传统局域网中，用户在物理意义上基于接入的不同集线器（交换机）被分组，路由器将局域网分段并提供广播防火墙</p>
+<p>而在虚拟局域网中，管理者可以将用户基于逻辑地根据用途，部门或应用来分类，通过软件完成配置</p>
+<h4 id="两者区别">两者区别</h4>
+<p>虚拟局域网工作在OSI参考模型的第二层和<strong>第三层</strong>，能够控制网络的广播域，允许管理者进行赋权并提供更好的网络安全性</p>
+<p><img src="lan.png" alt="传统局域网"></p>
+<p><img src="vlan.png" alt="虚拟局域网"></p>
+<h4 id="虚拟局域网ieee-8021q">虚拟局域网(IEEE 802.1q)</h4>
+<p>虚拟局域网可以无视物理上的链路段差异，将网络设备进行逻辑上的划分，并在其上创建一个单独的广播域，也即广播帧只会在具有相同的VLAN ID的设备之间传输；但是跨VLAN的传输由于已经跨网段，所以需要通过路由器进行转发，抑或是通过第三层交换机的虚拟接口进行转发</p>
+<h3 id="vlan结构">VLAN结构</h3>
+<p>由于配置了VLAN后，帧的传输需要带上VLAN ID的标记，因此跨VLAN通信需要支持主干链路(backbone or trunk)，主干链路允许携带不同VLAN ID的数据帧通过它进行传输，通常需要更高的带宽，一般使用交叉线</p>
+<h4 id="数据帧的转发与过滤">数据帧的转发与过滤</h4>
+<p>交换机在决定对数据帧的转发(Forwarding)还是过滤(Filtering)时依赖于两个技术：
+<strong>数据帧过滤(Frame Filtering)</strong>，检查每个数据帧的MAC地址或者第三层协议类型，交换机中有一个存储着MAC地址与VLAN ID的映射关系表，各个交换机之间会共享这个映射信息</p>
+<p><strong>数据帧标记(Frame Tagging)</strong>，在VLAN的数据帧在主干链路上传播之前在它的首部添加一个标签，这个标签只能被支持并开启了VLAN的交换机或者路由器进行识别，当数据帧离开主干链路时，交换机会将该标签去除以防影响目的主机的理解，该技术工作在第二层，并且对交换机处理能力的要求很低</p>
+<h4 id="数据帧标记标准">数据帧标记标准</h4>
+<p><strong>IEEE802.1Q</strong>，由IEEE制定的数据帧标签标准，可以通过这个标签识别它所属的VLAN</p>
+<p><strong>Inter-Switch Link(ISL)</strong>，Cisco的标准，它在数据帧的首部添加了26字节的标识信息以及在其末尾添加了4字节的CRC校验码</p>
+<h3 id="vlan静态配置">VLAN静态配置</h3>
+<p>VLAN的配置需要满足的要求是在同一广播域的端口需要配置相同的VLAN，在不同广播域的端口必须配置不同的VLAN，由管理员手动配置，更安全可控</p>
+<p>其中VLAN 1一般是交换机出厂时默认的虚拟局域网，所有端口都置于VLAN 1下</p>
+<h4 id="以端口为中心的vlan">以端口为中心的VLAN</h4>
+<p>$Port-Centric~VLANs$</p>
+<p>在同一VLAN中的所有的节点最终都连向路由器的同一接口，利于让管理更简单，报文安全性更高，不会泄露到另一VLAN</p>
+<h4 id="接入连接">接入连接</h4>
+<p>$Access~Link$</p>
+<p>指的是只传输同一VLAN的数据帧的与交换机相连的链路，当前的VLAN被称为当前端口的本地虚拟局域网(native VLAN)，所有与这个接口相连的设备并不知道这个虚拟局域网的存在</p>
+<h4 id="主干连接">主干连接</h4>
+<p>$Trunk~Link$</p>
+<p>指的是支持携带不同VLAN标签的数据帧进行传输的链路，原则上必须使用交叉线，但现目前有许多交换机支持自动反转技术，一般用于交换机之间或交换机与路由器在快速以太网或千兆以太网端口上的连接，利于在实现虚拟局域网时节省端口数</p>
+<p>主干连接和它两端的端口不属于任何虚拟局域网，但它有拥有本地虚拟局域网，即当其跨VLAN传输故障时它所使用的VLAN ID</p>
+<h3 id="虚拟局域网间路由">虚拟局域网间路由</h3>
+<p>按照以端口为中心的VLAN思想，每一个虚拟局域网都需要连接到路由器一个单独的端口，但路由器的端口资源通常相当宝贵，为了节约端口数量，支持虚拟局域网的路由器引入的新的机制，即子接口(Subinterface)</p>
+<p>路由器端口在指定其数据帧标记的封装标准后即可为它划分子接口，用IP地址作为区分来为每个子接口配置其属于的VLAN，虽然存在带宽争用，但配置简单且节约了路由器端口数量，这种配置方式也称为<strong>单臂路由(Router-on-a-Stick)</strong></p>
+
+                    </div>
+                    
+                    
+                    <div class="after-post-tags">
+                        <ul class="tags">
+                        
+                        <li>
+                        <a href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E8%AE%A1%E7%AE%97">互联网计算</a>
+                        </li>
+                        
+                        </ul>
+                    </div>
+                    
+                    
+                    
+                    <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+                    
+                        <a class="d-block col-md-6" href="https://corax.com.cn/note/internet/wan/"> &laquo; 广域网专题</a>
+                    
+                    
+                        <a class="d-block col-md-6 text-lg-right" href="https://corax.com.cn/note/internet/routing-protocol/">主动路由协议专题 &raquo;</a>
+                    
+                    <div class="clearfix"></div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+<div class="container">
+    <div id="comments" class="row justify-content-center mb-5">
+        <div class="col-md-8">              
+                           
+        </div>
+    </div>
+</div>
+
+    </div>
+
+
+            </div>
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+			<div class="d-md-flex align-items-center justify-content-center h-100">
+				<h2 class="d-md-block d-none align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+			</div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+			
+			<a class="mt-1 mb-1" href="/tags/cpp">cpp</a>
+			
+			<a class="mt-1 mb-1" href="/tags/drink">drink</a>
+			
+			<a class="mt-1 mb-1" href="/tags/interesting">interesting</a>
+			
+			<a class="mt-1 mb-1" href="/tags/web%E5%BC%80%E5%8F%91">web开发</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E8%AE%A1%E7%AE%97">互联网计算</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F">分布式</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%9F%BA%E7%A1%80">数据管理基础</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95">数据结构与算法</a>
+			
+		</div>
+	</div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                &copy; Copyright John Doe - All rights reserved
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" rel="noopener" href="https://www.wowthemes.net">Mediumish Theme</a> by WowThemes.net
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+        </div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+<script src="https://corax.com.cn/js/mediumish.e4b90c58dfa15ac82caf2edfa01e5fd047e17bc15e6babe5c0e442a4407d0b25.js" integrity="sha256-5LkMWN&#43;hWsgsry7foB5f0Efhe8Fea6vlwORCpEB9CyU="></script>
+    </body>
+</html>

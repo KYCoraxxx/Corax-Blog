@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TA on Corax Blog</title>
+    <link>https://corax.com.cn/ta/</link>
+    <description>Recent content in TA on Corax Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>John Doe - All rights reserved</copyright>
+    <lastBuildDate>Mon, 09 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://corax.com.cn/ta/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CPL2022网络编程与多线程教程</title>
+      <link>https://corax.com.cn/ta/socket/</link>
+      <pubDate>Mon, 09 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://corax.com.cn/ta/socket/</guid>
+      <description>本教程面向CPL2022期末大作业，简单介绍利用WINAPI进行网络编程的环境配置和基础使用，同时还会附带一些简单的多线程内容
+环境配置 通用配置 C语言利用WINAPI进行网络编程时的环境配置比较简单，首先需要引入头文件
+#include &amp;lt;winsock2.h&amp;gt; #include &amp;lt;windows.h&amp;gt; #include &amp;lt;ws2tcpip.h&amp;gt; //注意不要改变上述include的顺序，否则编译可能出warning int main(){ return 0; } 接下来，为了编译器能够成功链接到这两个库，只需要在C盘中找到ws2_32.dll文件，将它复制到项目文件夹下
+然后就可以在终端输入以下命令进行编译了
+#需要先cd到项目目录下 gcc filename.c -o filename.exe -lws2_32 #filename处输入你的源代码文件名 CLion配置 如果想要使用CLion运行你的代码，就需要自己编辑CMakeList，在其中加入两句：</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="generator" content="Hugo 0.104.3" />
+	
+	<link rel="icon" href="/images/logo.png">
+	
+	<title>Notes | Corax Blog</title>
+	
+	
+
+	<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Notes"/>
+<meta name="twitter:description" content="the clean blog!"/>
+
+	<meta property="og:title" content="Notes" />
+<meta property="og:description" content="the clean blog!" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://corax.com.cn/note/" />
+
+
+
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+	
+	<link rel="stylesheet" href="https://corax.com.cn/css/medium.ece05c3e0cb4c172303048d902f5c72734dac11b313a671c381a53648c811f4d.css" integrity="sha256-7OBcPgy0wXIwMEjZAvXHJzTawRsxOmccOBpTZIyBH00=">
+
+	
+	<link rel="stylesheet" href="https://corax.com.cn/css/additional.14f7dbd08a523bb7dd03b308a991480ea5d8d744f6229068023169de78b48922.css" integrity="sha256-FPfb0IpSO7fdA7MIqZFIDqXY10T2IpBoAjFp3ni0iSI=">
+
+	
+	
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+    <div class="container pr-0">
+        
+        <a class="navbar-brand" href="https://corax.com.cn//">
+
+            
+            <img src="/images/logo.png" alt="logo">
+            
+        </a>
+        
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        
+        <div class="collapse navbar-collapse" id="navbarMediumish">
+            
+            <ul class="navbar-nav ml-auto">
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/blog">Blog</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/">About Me</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/static/imprint">Imprint</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+    </div>
+</nav>
+
+
+        <div class="site-content">   
+            <div class="container">
+<div class="mainheading">
+    <h1 class="sitetitle">Corax Blog</h1>
+    <p class="lead">
+         the clean blog!
+    </p>
+</div><div class="main-content">
+        
+        <section class="recent-posts">            
+            <div class="section-title">                
+                <h2><span>All Posts</span></h2>                
+            </div>            
+            <div class="row listrecent">
+                
+                
+<div class="col-lg-4 col-md-6 mb-30px card-group">
+    <div class="card h-100">
+        <div class="maxthumb">
+            <a href="https://corax.com.cn/note/internet/dhcp/">
+                
+                
+                    <img class="img-fluid" src="https://corax.com.cn/note/internet/dhcp/cover.jpg" alt="A thumbnail image">
+                                
+            </a>
+        </div>
+        <div class="card-body">
+            <h2 class="card-title"><a class="text-dark" href="https://corax.com.cn/note/internet/dhcp/">DHCP专题</a></h2>
+            <h4 class="card-text">DHCP原理 DHCP概述 $Dynamic~Host~Configuration~Protocol$
+主机上网之前必须具备IP地址，但是将紧缺的IP地址资源固定地分配给主机相当低效，DHCP（动态用户配置协议）可以动态高效地分配IP地址，但是它只能工作在局域网，通过UDP来实现
+DHCP工作过程 DHCP服务器启动DHCP进程，并保持侦听状态（只要启动DHCP进程就可以作为DHCP服务器） 客户端启动之后，广播DHCP Discover报文，寻找DHCP服务器 服务器收到Discover报文后就广播回复DHCP Offer报文，应答自己划分的IP地址，网关，服务器IP地址等，由于此时客户端还没有IP地址，所以只能广播回复 客户端通过自己的机制决定使用的IP地址（可能收到多个服务器的Offer报文，一般选择最先应答Offer报文的服务器）之后，广播DHCP Request报文应答自己选择的IP地址 收到Request报文的服务端如果发现客户端使用的是自己的IP地址，就广播应答DHCP ACK报文，并开始提供服务，如果出错就广播DHCP NAK表示否定确认 DHCP服务器提供服务的时段称为主机IP的租期，在租期中，客户端可以点对点向服务器发送DHCP Request表示续租，待DHCP服务器应答ACK消息后就更新自己的配置，如果客户端长时间不续租，服务器就自动释放租约 如果客户端不再需要使用服务器分配的IP地址，就会主动点对点发送DHCP Release报文释放被绑定的租约 可以注意的是，由于在获取IP地址期间客户端并没有IP地址，所以DHCP的报文有自己特殊的结构，但具体内容课程不做要求，可做了解
+DHCP报文类型 DHCP Discover表示寻找服务器 DHCP Offer表示提供IP地址 DHCP Request表示客户端续约 DHCP ACK表示确认 DHCP NAK表示服务器撤销之前分配的IP地址 DHCP Release表示释放IP地址租约 DHCP Decline表示客户端发现IP地址不能使用 DHCP Inform DHCP欺骗与防范 原理 由于任何启动DHCP进程的主机都可称为DHCP服务器，因此未授权的DHCP服务器应答客户端，分配未授权的网络参数给客户端导致客户端受到欺骗。属于内部安全问题的隐式攻击。</h4>            
+        </div>
+        <div class="card-footer bg-white">
+            <div class="wrapfooter">
+                
+                
+                
+                <span class="post-date">Jan 31, 2023 - 1 min read </span>
+                <span class="post-read-more"><a href="https://corax.com.cn/note/internet/dhcp/" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-lg-4 col-md-6 mb-30px card-group">
+    <div class="card h-100">
+        <div class="maxthumb">
+            <a href="https://corax.com.cn/note/internet/application/">
+                
+                
+                    <img class="img-fluid" src="https://corax.com.cn/note/internet/application/cover.jpg" alt="A thumbnail image">
+                                
+            </a>
+        </div>
+        <div class="card-body">
+            <h2 class="card-title"><a class="text-dark" href="https://corax.com.cn/note/internet/application/">OSI参考模型第五至七层 应用层次原理与技术</a></h2>
+            <h4 class="card-text">第五层会话层(Session) 任务与功能 从网络进程到应用程序的转换 数据的呈现 主机间交流，包括会话的建立，管理（包含会话类型，即全双工或半双工）与终止 检查点(Checkpoint) 检查点是用于将一整个会话分成数个部分的节点，会话层逐段管理其状态，每一段称为对话(dialog)，对话分离就是对整个会话依次初始化，管理和终止，典型的例子如掉线一段时间之内可以重连
+典型应用 Network File System(NFS) Structured Query Language(SQL) Remote-Procedure Call(RPC) Apple Talk Session Protocol(ASP) DNA Session Control Protocol(SCP) 现在的很多进程已经很少严格按照session进行操作，但是分检查点的控制逻辑仍然被大量使用</h4>            
+        </div>
+        <div class="card-footer bg-white">
+            <div class="wrapfooter">
+                
+                
+                
+                <span class="post-date">Jan 31, 2023 - 1 min read </span>
+                <span class="post-read-more"><a href="https://corax.com.cn/note/internet/application/" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-lg-4 col-md-6 mb-30px card-group">
+    <div class="card h-100">
+        <div class="maxthumb">
+            <a href="https://corax.com.cn/note/internet/transport/">
+                
+                
+                    <img class="img-fluid" src="https://corax.com.cn/note/internet/transport/cover.jpg" alt="A thumbnail image">
+                                
+            </a>
+        </div>
+        <div class="card-body">
+            <h2 class="card-title"><a class="text-dark" href="https://corax.com.cn/note/internet/transport/">OSI参考模型第四层 传输层原理与技术</a></h2>
+            <h4 class="card-text">概述 传输层功能 对来自上层应用的数据进行分段 建立终端与终端之间的操作 将数据段从一台主机发往另一台主机 流控制和可靠性 主要协议 $Transmission~Control~Protocol(TCP)$，传输控制协议，随后还衍生出了流传输控制协议STCP(stream TCP)，是一种可靠传输协议，面向连接需要确认，软件对数据段进行校验，支持重传与流控制(flow control)，不支持组播和广播
+$User~Datagram~Protocol(UDP)$，用户数据报协议，是一种不可靠传输协议，但传输速度显著高于TCP，不面向连接不需要确认，虽然会做数据校验，但是如果发现错误直接丢弃报文而不要求重传，并且不提供流控制
+服务模型 TCP和UDP协议均是以端口(port)的形式进行识别并跟踪不同的上网进程，每个端口可以绑定一个上网进程，因此通信的双方实际上是进程，计算机总共有0~65535共计65536个端口，根据RFC1700规定软件开发者使用的端口应该为熟知端口，其中0到255端口被保留为TCP，UDP公共应用使用
+套接字 $Socket$呈现为IP地址加端口的形式，因此两台设备之间的通信又可以具体化为发出方和接收方的套接字之间的点对点通信
+传输控制协议(TCP) TCP解决的问题 可靠传输问题
+TCP需要保证传输数据的正确性/可靠性
+流控制
+使用窗口的机制缓存数据流量，同时具有避免链路拥塞的问题
+连接管理
+TCP需要三次握手来完成连接的建立，需要四次握手来完成连接的断开
+TCP首部 源与目的端口 端口是传输层和应用层的服务接口，传输层的复用功能需要通过端口来实现。由于端口号的取值范围为0~65535，所以长度均为2个字节</h4>            
+        </div>
+        <div class="card-footer bg-white">
+            <div class="wrapfooter">
+                
+                
+                
+                <span class="post-date">Jan 30, 2023 - 1 min read </span>
+                <span class="post-read-more"><a href="https://corax.com.cn/note/internet/transport/" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-lg-4 col-md-6 mb-30px card-group">
+    <div class="card h-100">
+        <div class="maxthumb">
+            <a href="https://corax.com.cn/note/internet/network/">
+                
+                
+                    <img class="img-fluid" src="https://corax.com.cn/note/internet/network/cover.jpg" alt="A thumbnail image">
+                                
+            </a>
+        </div>
+        <div class="card-body">
+            <h2 class="card-title"><a class="text-dark" href="https://corax.com.cn/note/internet/network/">OSI参考模型第三层 网络层原理与技术</a></h2>
+            <h4 class="card-text">概述 网络层的主要任务 连通各个网络并在网络中传输数据，基于IP地址进行定位和分段（隔离广播域），减少网络的拥塞情况
+网络层设备 路由器实现了不同网段之间的互连，其工作是基于IP地址决定是否对报文进行转发，如果转发，则选择最优路径进行转发
+IP地址与子网 IP数据报/包(Datagram/Packet) 首部是由网络层封装在数据部分之前的一段帮助数据传输的内容，其包含的内容信息如下：
+固定部分 版本
+描述该IP数据报属于的协议版本，目前由IPv4和IPv6两种选项，两种选项下的报文结构有较大的差异，本文的内容仅适用于IPv4协议下的IP数据报结构
+首部长度
+描述首部的长度，长度为4bit，即最大值为15，单位为4字节（图中的一行），由于首部的固定部分有5行，因此首部长度的最小值为5
+服务类型
+长度为8bit，结构如上图顶部所示，在旧标准中一直未被使用过，前3位为优先级，优先级越高越先转发，其中的D，T，R，C，分别表示将数量、速度(time)、可靠性(reliability)、消耗少(consume)作为优先考量
+总长度
+长度为16bit，描述首部加上数据部分的长度总和，单位为字节，因此数字上数据报长度的最大值为65535字节，但其实际最大长度受到最大传输单元MTU的限制
+标识
+长度为16bit，在传输过程中经常存在一个IP数据报需要被拆分为多个小数据帧（称为分片）进行传输的情况，接收方收到的由一个IP数据报拆分出来的数据帧具有相同的标识，由此也可以看出每一个分片都需要携带相同标识的首部
+标志
+长度为3bit，首位为0，第二位为MF位，如果为1表示后续还有分片，如果为0表示后续没有分片；第三位为DF位，如果为1表示该IP数据报禁止分片，为0表示允许分片。值得指出的是需要将此标志与802.11帧的标志位进行区分，因为网络层的传输不面向连接，不需要确认，只负责尽量将数据送达目的地址，在后面的内容中也能体现这一点
+片偏移
+长度为13bit，用于描述在此分片之前的数据量，例如：
+总长度 标识 MF DF 片偏移 原始数据报 3820 2333 0 0 0 分片1 1420 2333 1 0 0 分片2 1420 2333 1 0 175 分片3 1020 2333 0 0 350 可以发现三个分片的总长度为3860，这是因为多传输了两个长度为20字节的首部（注意首部长度上限是15*4 = 60字节），而片偏移的单位是8字节，且首部长度不计在内，因此片偏移分别是1400÷8 = 175，2800÷8 = 350</h4>            
+        </div>
+        <div class="card-footer bg-white">
+            <div class="wrapfooter">
+                
+                
+                
+                <span class="post-date">Jan 28, 2023 - 2 min read </span>
+                <span class="post-read-more"><a href="https://corax.com.cn/note/internet/network/" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-lg-4 col-md-6 mb-30px card-group">
+    <div class="card h-100">
+        <div class="maxthumb">
+            <a href="https://corax.com.cn/note/internet/datalink/">
+                
+                
+                    <img class="img-fluid" src="https://corax.com.cn/note/internet/datalink/cover.jpg" alt="A thumbnail image">
+                                
+            </a>
+        </div>
+        <div class="card-body">
+            <h2 class="card-title"><a class="text-dark" href="https://corax.com.cn/note/internet/datalink/">OSI参考模型第二层 数据链路层原理与技术</a></h2>
+            <h4 class="card-text">概述 数据链路层的任务和工作 数据链路层与第一层物理层的关系相对紧密，数据链路层主要解决的问题是：如何在链路稳定性不确定的情况下完成正确的数据传输；数据链路层的主要任务是逻辑连接控制（网络拓扑控制，Logical Link Control, LLC）和介质访问控制（Media Access Control, MAC），其中包含的工作有身份标识（Addressing/Naming Process），错误识别（Error Notification），流控制（Flow Control），数据成帧与解封装
+为上层提供的接口和服务 面向连接指的是需要通信双方同意后才能开始通信
+需要确认/需要应答指的是收到消息后需要向发送方发送确认消息
+无连接无应答服务，常应用于可靠链路上的连接、实时任务（需要在规定时间内给出结果的任务）和大多数局域网 无连接有应答服务，常应用于不太可靠的链路，特点是如果接收方未进行确认则发送方需要重传数据 面向连接有应答服务，一般应用于陌生主机之间的通信，并且一般没有面向连接但无应答的服务 常见的局域网介质访问控制 局域网技术 以太网(Ethernet)，采用总线拓扑
+令牌环网(Token Ring)，采用单环/多环拓扑
+光纤分布式数据接口(FDDI)，采用单环/多环拓扑
+广播控制方式 确定控制方式(Deterministic)，局域网内用户轮流访问，访问权限令牌按确定顺序传递，并在每个用户停留约定时间，使用协议Deterministic MAC Protocols，例如令牌环网和FDDI</h4>            
+        </div>
+        <div class="card-footer bg-white">
+            <div class="wrapfooter">
+                
+                
+                
+                <span class="post-date">Jan 21, 2023 - 2 min read </span>
+                <span class="post-read-more"><a href="https://corax.com.cn/note/internet/datalink/" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-lg-4 col-md-6 mb-30px card-group">
+    <div class="card h-100">
+        <div class="maxthumb">
+            <a href="https://corax.com.cn/note/internet/physical/">
+                
+                
+                    <img class="img-fluid" src="https://corax.com.cn/note/internet/physical/cover.jpg" alt="A thumbnail image">
+                                
+            </a>
+        </div>
+        <div class="card-body">
+            <h2 class="card-title"><a class="text-dark" href="https://corax.com.cn/note/internet/physical/">OSI参考模型第一层 物理层原理与技术</a></h2>
+            <h4 class="card-text">网络类型 共享介质 $Shared~Media(Multiple~Access)$，一般用于局域网，接入的主机数量不能过多，否则容易引发冲突，连接线通常使用双绞线(UTP居多)。例如局域网中的总线拓扑，其中的总线就是局域网内主机的共享介质
+特点是常用广播，非持续不断地使用介质，且介质传输数据时数据量相对集中于某些时段
+点对点通信 $Point-to-point~Network$，一般用于广域网之间的连接，通信双方持续占用介质，不可以插入
+特点是控制简单，但是建设代价大（参考网状拓扑）
+局域网传输介质 传输介质是用于传输数据的方式
+信号种类 传输数据过程的本质是用某种信号的两种或更多的不同易区分状态来完成与数据相关的特定信号编码
+常用的介质信号如下：
+电信号，分别用高电平和低电平表示两种不同状态 光信号，用波长来反应不同的状态 微波信号，可以通过振幅的大小、频率的高低、相位等来表示不同的状态 线缆种类 屏蔽双绞线 $Shielded~Twisted~Pair,STP$
+特点：使用双层屏蔽，外层屏蔽减轻了外部磁场对电流的干扰，而加装内层屏蔽是为了削弱线缆内部电流的磁场干扰，因此通信线偏细，电阻高，性能好(不容易出错)，但造价高昂，带宽$1\sim10G$，通量$10\sim 100Mbps$，因电阻高而传输距离仅有100m，并且由于外层屏蔽需要接地，所以安装也相对复杂
+半屏弊双绞线 我也不知英文全写是啥😅$ScTP$
+特点：相比STP，ScTP舍弃了内层的屏蔽，只保留了最外层的屏蔽，造价更低，电阻更小，但性能和STP差不多，安装时外层屏蔽仍然需要接地
+无屏蔽双绞线 $Unshielded~Twisted~Pair,UTP$</h4>            
+        </div>
+        <div class="card-footer bg-white">
+            <div class="wrapfooter">
+                
+                
+                
+                <span class="post-date">Jan 19, 2023 - 1 min read </span>
+                <span class="post-read-more"><a href="https://corax.com.cn/note/internet/physical/" title="Read Story"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25"><path d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z" fill-rule="evenodd"></path></svg></a></span>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+            </div>
+        </section>
+<div class="bottompagination">
+  <div class="pointerup"><i class="fa fa-caret-up"></i></div>
+  <div class="navigation" role="navigation">
+    
+      <div class="pagination">
+        
+          <a class="ml-1 mr-1" href="/note/page/2/">&laquo; Prev</a>
+          <a class="ml-1 mr-1" href="/note/page/2/">2</a>
+        
+
+        <span class="ml-1 mr-1">3</span>
+
+        
+          <a class="ml-1 mr-1" href="/note/page/4/">4</a>
+          <a class="ml-1 mr-1" href="/note/page/4/">Next &raquo;</a>
+        
+      </div>
+    
+  </div>
+</div></div>
+
+
+            </div>
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+			<div class="d-md-flex align-items-center justify-content-center h-100">
+				<h2 class="d-md-block d-none align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+			</div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+			
+			<a class="mt-1 mb-1" href="/tags/cpp">cpp</a>
+			
+			<a class="mt-1 mb-1" href="/tags/drink">drink</a>
+			
+			<a class="mt-1 mb-1" href="/tags/interesting">interesting</a>
+			
+			<a class="mt-1 mb-1" href="/tags/web%E5%BC%80%E5%8F%91">web开发</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E8%AE%A1%E7%AE%97">互联网计算</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F">分布式</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%9F%BA%E7%A1%80">数据管理基础</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95">数据结构与算法</a>
+			
+		</div>
+	</div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                &copy; Copyright John Doe - All rights reserved
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" rel="noopener" href="https://www.wowthemes.net">Mediumish Theme</a> by WowThemes.net
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+        </div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+<script src="https://corax.com.cn/js/mediumish.e4b90c58dfa15ac82caf2edfa01e5fd047e17bc15e6babe5c0e442a4407d0b25.js" integrity="sha256-5LkMWN&#43;hWsgsry7foB5f0Efhe8Fea6vlwORCpEB9CyU="></script>
+    </body>
+</html>

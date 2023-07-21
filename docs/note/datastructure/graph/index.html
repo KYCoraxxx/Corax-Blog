@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="generator" content="Hugo 0.104.3" />
+	
+	<link rel="icon" href="/images/logo.png">
+	
+	<title>图论专题 | Corax Blog</title>
+	
+	
+
+	<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://corax.com.cn/note/datastructure/graph/cover.jpg"/>
+<meta name="twitter:title" content="图论专题"/>
+<meta name="twitter:description" content="数据结构与算法课程图论专题笔记"/>
+
+	<meta property="og:title" content="图论专题" />
+<meta property="og:description" content="数据结构与算法课程图论专题笔记" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://corax.com.cn/note/datastructure/graph/" /><meta property="og:image" content="https://corax.com.cn/note/datastructure/graph/cover.jpg"/><meta property="article:section" content="Note" />
+<meta property="article:published_time" content="2023-02-08T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-02-08T00:00:00+00:00" />
+
+
+
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+	
+	<link rel="stylesheet" href="https://corax.com.cn/css/medium.ece05c3e0cb4c172303048d902f5c72734dac11b313a671c381a53648c811f4d.css" integrity="sha256-7OBcPgy0wXIwMEjZAvXHJzTawRsxOmccOBpTZIyBH00=">
+
+	
+	<link rel="stylesheet" href="https://corax.com.cn/css/additional.14f7dbd08a523bb7dd03b308a991480ea5d8d744f6229068023169de78b48922.css" integrity="sha256-FPfb0IpSO7fdA7MIqZFIDqXY10T2IpBoAjFp3ni0iSI=">
+
+	
+	
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+    <div class="container pr-0">
+        
+        <a class="navbar-brand" href="https://corax.com.cn//">
+
+            
+            <img src="/images/logo.png" alt="logo">
+            
+        </a>
+        
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        
+        <div class="collapse navbar-collapse" id="navbarMediumish">
+            
+            <ul class="navbar-nav ml-auto">
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/blog">Blog</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/">About Me</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/static/imprint">Imprint</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+    </div>
+</nav>
+
+
+        <div class="site-content">   
+            <div class="container">
+<div class="mainheading">
+    <h1 class="sitetitle">Corax Blog</h1>
+    <p class="lead">
+         the clean blog!
+    </p>
+</div><div class="main-content">
+        
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-md-2 pl-0"><div class="share sticky-top sticky-top-offset">
+    <p>Share</p>
+    <ul>
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://twitter.com/intent/tweet?text=%e5%9b%be%e8%ae%ba%e4%b8%93%e9%a2%98&url=https%3a%2f%2fcorax.com.cn%2fnote%2fdatastructure%2fgraph%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=435');return false;">
+        <i class="fab fa-twitter"></i>
+        </a>
+        </li>
+        
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://facebook.com/sharer.php?u=https%3a%2f%2fcorax.com.cn%2fnote%2fdatastructure%2fgraph%2f" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+        <i class="fab fa-facebook-f"></i>
+        </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://www.xing.com/spi/shares/new?url=https%3a%2f%2fcorax.com.cn%2fnote%2fdatastructure%2fgraph%2f" onclick="window.open(this.href, 'xing-share', 'width=550,height=435');return false;">
+        <i class="fab fa-xing"></i>
+        </a>
+        </li>        
+    </ul>
+
+    
+        <div class="sep">
+        </div>				
+        <ul>
+            <li> 
+            <a  class="small smoothscroll" href="#disqus_thread"></a>
+            </li>
+        </ul>
+    
+</div>
+</div>
+                                
+                <div class="col-md-9 flex-first flex-md-unordered">
+                    <div class="mainheading">
+                        	
+                        
+                        
+                        
+                        <div class="row post-top-meta">
+                            <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0 md-nopad-right">
+                                <img class="author-thumb" src="/images/avator.jpg" alt="Corax">
+                            </div>
+                            <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left md-nopad-left">
+                                <a target="_blank" class="link-dark">Corax</a><br>
+                                <span class="author-description">
+                                    Creator of this blog.<br>
+                                    <i class="far fa-star"></i>
+                                    Feb 8, 2023
+                                    <i class="far fa-clock clock"></i>
+                                    1 min read
+                                </span>					
+                            </div>
+                        </div>			
+                        	
+                        
+                                                
+                        
+                        <h1 class="posttitle">图论专题</h1> 
+                    </div>
+
+                    
+                    
+                    
+                        <img class="featured-image img-fluid" src="https://corax.com.cn/note/datastructure/graph/cover.jpg" alt="thumbnail for this post">
+                    
+                    
+
+                    
+                    <div class="article-post">
+                        <h2 id="概念与定义">概念与定义</h2>
+<h3 id="图graph">图(Graph)</h3>
+<p>图是由点集$V(vertex)$和边集$E(edge)$组成的数据结构，其中可以分为无向图和有向图</p>
+<h3 id="完全图complete-graph">完全图(Complete Graph)</h3>
+<p>对于有$n$个节点的无向图，如果它的边集大小为$\frac{n*(n-1)}{2}$，即每两个节点之间都有连边，则称其为完全图</p>
+<h3 id="度数degree">度数(degree)</h3>
+<p>节点的度数（degree，记为$TD(v)$）就是与之相连的边的条数</p>
+<p>特别的，对于有向图(digraph)而言，节点的入度（in-degree，记为$ID(v)$）是指向它的边的条数，出度（out-degree，记为$OD(v)$）是由它指出的边的条数，显然有$TD(v)=ID(v)+OD(v)$</p>
+<h3 id="子图subgraph">子图(Subgraph)</h3>
+<p>点集是原点集子集，边集是原边集子集，且边集中的节点都在点集中的图</p>
+<h3 id="路径path">路径(Path)</h3>
+<p>一个满足前一个节点到后一个节点有连边的节点序列</p>
+<h3 id="简单路径和简单环路">简单路径和简单环路</h3>
+<p>简单路径中不包含重复顶点；简单环路除了首尾节点重复，其它均满足简单路径的要求</p>
+<h3 id="连通图和连通分量">连通图和连通分量</h3>
+<p>对于无向图而言，如果任意两个节点之间都有路径可达，则将其称为连通图；非连通图的极大连通子图称为连通分量</p>
+<h3 id="强连通图和强连通分量">强连通图和强连通分量</h3>
+<p>对于有向图而言，如果任意两个节点之间（既包含从a到b，也包含从b到a）均有路径可达，则将其称为强连通图；非强连通图的极大强连通子图称为强连通分量</p>
+<h3 id="网络">网络</h3>
+<p>网络是指带权图或带权有向图</p>
+<h3 id="生成树">生成树</h3>
+<p>生成树是一张图的极小连通子图，有且仅有n个顶点和n-1条边</p>
+<h2 id="图的表示方法">图的表示方法</h2>
+<h3 id="邻接矩阵adjacency-matrix">邻接矩阵(Adjacency Matrix)</h3>
+<p>01矩阵，第i行和第j列置1表示从i到j有一条边，否则没有，无向图的邻接矩阵对称</p>
+<p>对于带权图而言，用边权代替1，如果没有边则置为无穷大</p>
+<h3 id="邻接表linked-adjacency-list">邻接表(Linked-adjacency List)</h3>
+<p>每个节点下挂一张说明邻接节点的链表，如果带权则缓存邻接节点编号的同时缓存边权，有向图为了快速地查找哪些节点能够到达当前节点还会存储一张逆连接表</p>
+<p>相较于邻接矩阵降低了对内存空间的需要，从$n^2$降低到了只与边的数量$m(最大取值为\frac{n*(n-1)}{2})$有关</p>
+<h3 id="邻接多重表adjacency-multi-list">邻接多重表(Adjacency Multi-list)</h3>
+<p>对于邻接表来说，图中的一条边会被存储两次，邻接多重表则将边视为一个节点，缓存了起点与终点的数据，其中path1表示指向起点节点下一条同类型边的指针，path2表示指向终点下一条同类型边的指针</p>
+<p><img src="multilist.png" alt="无向图的邻接多重表"></p>
+<p><img src="dimultilist.png" alt="有向图的邻接多重表（十字链表）"></p>
+<h2 id="图的遍历">图的遍历</h2>
+<h3 id="深度优先遍历">深度优先遍历</h3>
+<p>$Depth~First~Search$</p>
+<p>沿着一条路径走到底后再依次回退</p>
+<h3 id="广度优先遍历">广度优先遍历</h3>
+<p>$Breadth~First~Search$</p>
+<p>经过一个节点后就将所有与它邻接且未访问过的节点加入访问队列，然后依次访问</p>
+<h2 id="最小生成树">最小生成树</h2>
+<p>$Minimum-cost~Spanning~Tree$</p>
+<h3 id="kruskal算法">Kruskal算法</h3>
+<p>每次按边权从小到大的顺序取出边集中的一条边，检查其连接的两端节点是否已经连通，如果不连通则加入此边，否则继续，直到选择满n-1条边</p>
+<p>该算法需要执行边数次数的循环，每次循环需要进行一次并查集的find操作，因此时间复杂度为$mlog_2n$</p>
+<h3 id="prim算法">Prim算法</h3>
+<p>从任意一个节点出发，将其加入集合$U$，然后在$U$与$V-U$的顶点之间的连边中选出权值最小的边，将对应的节点加入集合$U$，如此重复，直到$U=V$</p>
+<p>该算法的循环需要执行n次，每一次循环要从平均$\frac{n}{2}$条可能存在的边中选出最短边，因此时间复杂度为$n^2$</p>
+<h2 id="最短路径">最短路径</h2>
+<h3 id="dijkstra算法">Dijkstra算法</h3>
+<p>用于权值非负的带权图中单源最短路问题，其做法是先将源点选入集合中，标记距离为0，到其他节点的距离更新为与当前集合中的点有直接连边的距离；然后找出到其他点的连边中权值最小的，将对应的节点加入集合，此时更新的距离一定是从源点到该节点最短的路径，所以算法的思想是用当前的最短路径在一步之内来更新其他的路径；然后进行下一次循环，直到所有节点都被加入集合当中</p>
+<p>以下是一次该算法的运算过程实例</p>
+<p><img src="1.png" alt=""></p>
+<p><img src="2.png" alt=""></p>
+<p>表中的每一列对应于一次循环后的结果，由于这种实现过程与Prim算法几乎一致，因此时间复杂度是$n^2$</p>
+<h3 id="bellman-fort算法">Bellman-Fort算法</h3>
+<p>Dijkstra算法无法解决边权为负的情况，因为它默认了多走一步的距离一定不少于不走这一步，即边权一定非负</p>
+<p>贝尔曼-福特算法的思路是构造最短路径长度的数组$dist^x[v]$表示从源点$u$出发到达终点$v$最多经过$x$条边的最短路径长度，如果$x\ge3$则需要满足经过的路径中不含有负长度回路，否则会一直更新下去。于是就可以得到状态转移方程：</p>
+<p>$dist^1[v]=edge[u][v],dist^k[v]=min(dist^{k-1}[v],min(dist^{k-1}[j]+edge[j][v])),j为中间节点,2\le k\le n-1$</p>
+<p>即要么继承自上一步，要么多走更短距离的一步</p>
+<p>复杂度显然也是$n^2$，仍然解决单源最短路问题</p>
+<h3 id="floyed算法">Floyed算法</h3>
+<p>能够解决所有顶点之间的最短路问题，但是所有边权都必须大于0，有两种计算方法，第一种是将每个节点作为源点，各运行一次Dijkstra算法，时间复杂度为$n^3$；第二种则是直接使用邻接矩阵进行状态转移：
+$dist[u][v]=min(dist[u][v],dist[u][k]+dist[k][v])$</p>
+<p>对于每一对起点和终点，都需要遍历所有的节点作为中间节点进行状态的转移，因此时间复杂度同样为$n^3$</p>
+<h2 id="活动网络">活动网络</h2>
+<p>$Activity~Network$</p>
+<h3 id="aov网络">AOV网络</h3>
+<p>用顶点表示活动，用边表示活动间的优先关系的有向图称为AOV网，其中不应该出现有向环</p>
+<p><strong>直接前驱/后继</strong></p>
+<p>如果$&lt;u,v&gt;$是有向图中的一条边，则u是v的直接前驱，v是u的直接后继</p>
+<p><strong>前驱/后继</strong></p>
+<p>如果顶点u和v之间存在一条有向路径（从u到v），则u是v的前驱，v是u的后继</p>
+<p><strong>拓扑排序</strong></p>
+<p>拓扑序列指的是一个节点的线性序列，满足如果有向图中有一条从u到v的路径，则序列中u必定位于v之前。拓扑序列很好地表示了AOV网络中活动先后顺序的关系，但拓扑序列不是唯一的</p>
+<p><strong>算法过程</strong></p>
+<p>先找出图中入度为0的节点，然后将它加入序列，并删除图中与之相关的边，然后重复该过程。拓扑排序的时间复杂度为$n+e$</p>
+<h3 id="aoe网络">AOE网络</h3>
+<p>用有向边表示活动，而用顶点表示事件（活动的状态），入边表示活动已经完成，出边表示活动可以开始。边权可以表示活动需要的时间，因此可以通过该网络计算出所有活动需要的时间，与AOV网络不同的是AOE网络有<strong>唯一的</strong>入度为0的节点和出度为0的节点</p>
+<p><strong>关键路径</strong></p>
+<p>源点到汇点之间最长的路径，缩短它的路径即可压缩整个工程完成需要的时间</p>
+<p><strong>算法过程</strong></p>
+<p>定义$Ve[i]$（earliest）表示事件i最早发生的时间，即源点到$V_i$的最大路径长度；$Vl[i]$（latest）表示事件i允许最晚发生时间，即$V_e[n-1]-V_i到汇点的最大路径长度$；$e[i]$表示活动$&lt;V_i,V_j&gt;$的最早开始时间，即$Ve[i]$；$l[i]$表示活动$&lt;V_i,V_j&gt;$的允许最晚开始时间，即$Vl[j]-val&lt;i,j&gt;$；$l[i]-e[i]$表示活动的时间余量，称为松弛时间(Slack Time)，如果该值为0则表示该活动是没有时间余量的关键活动</p>
+<p>先进行拓扑排序，从$Ve[0]=0$开始，在排序的同时计算$Ve[i]=max(Ve[j]+val&lt;j,i&gt;)$，其中j是所有与i之间有连边的节点，取最大值是因为必须要所有前置事件都处理完毕才能开始</p>
+<p>然后进行逆拓扑排序，从$Vl[n-1]=Ve[n-1]$开始，在排序的同时计算$Vl[i]=min(Vl[j]-val&lt;i,j&gt;)$，取最小值是因为必须要保证剩下的活动也来得及处理</p>
+<p>接下来即可计算$e[i]$和$l[i]$，如果$e[i]$与$l[i]$相等则活动i是关键活动</p>
+<p>拓扑排序和逆拓扑排序可以使用节点表进行预处理，例如：</p>
+<p><img src="map.png" alt=""></p>
+<p><img src="nodetable.png" alt=""></p>
+<p>算法的复杂度是$n+e$</p>
+
+                    </div>
+                    
+                    
+                    <div class="after-post-tags">
+                        <ul class="tags">
+                        
+                        <li>
+                        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95">数据结构与算法</a>
+                        </li>
+                        
+                        </ul>
+                    </div>
+                    
+                    
+                    
+                    <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+                    
+                        <a class="d-block col-md-6" href="https://corax.com.cn/note/cpp/"> &laquo; Cpp高级程序设计</a>
+                    
+                    
+                        <a class="d-block col-md-6 text-lg-right" href="https://corax.com.cn/note/datastructure/hashheap/">哈希与堆专题 &raquo;</a>
+                    
+                    <div class="clearfix"></div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+<div class="container">
+    <div id="comments" class="row justify-content-center mb-5">
+        <div class="col-md-8">              
+                           
+        </div>
+    </div>
+</div>
+
+    </div>
+
+
+            </div>
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+			<div class="d-md-flex align-items-center justify-content-center h-100">
+				<h2 class="d-md-block d-none align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+			</div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+			
+			<a class="mt-1 mb-1" href="/tags/cpp">cpp</a>
+			
+			<a class="mt-1 mb-1" href="/tags/drink">drink</a>
+			
+			<a class="mt-1 mb-1" href="/tags/interesting">interesting</a>
+			
+			<a class="mt-1 mb-1" href="/tags/web%E5%BC%80%E5%8F%91">web开发</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E8%AE%A1%E7%AE%97">互联网计算</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F">分布式</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%9F%BA%E7%A1%80">数据管理基础</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95">数据结构与算法</a>
+			
+		</div>
+	</div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                &copy; Copyright John Doe - All rights reserved
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" rel="noopener" href="https://www.wowthemes.net">Mediumish Theme</a> by WowThemes.net
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+        </div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+<script src="https://corax.com.cn/js/mediumish.e4b90c58dfa15ac82caf2edfa01e5fd047e17bc15e6babe5c0e442a4407d0b25.js" integrity="sha256-5LkMWN&#43;hWsgsry7foB5f0Efhe8Fea6vlwORCpEB9CyU="></script>
+    </body>
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="generator" content="Hugo 0.104.3" />
+	
+	<link rel="icon" href="/images/logo.png">
+	
+	<title>如何将网站部署到服务器 | Corax Blog</title>
+	
+	
+
+	<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://corax.com.cn/other/server-deploy/cover.jpg"/>
+<meta name="twitter:title" content="如何将网站部署到服务器"/>
+<meta name="twitter:description" content="本页面将简要介绍如何使用nginx搭建个人网站服务器"/>
+
+	<meta property="og:title" content="如何将网站部署到服务器" />
+<meta property="og:description" content="本页面将简要介绍如何使用nginx搭建个人网站服务器" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://corax.com.cn/other/server-deploy/" /><meta property="og:image" content="https://corax.com.cn/other/server-deploy/cover.jpg"/><meta property="article:section" content="Other" />
+<meta property="article:published_time" content="2022-10-31T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-10-31T00:00:00+00:00" />
+
+
+
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+	
+	<link rel="stylesheet" href="https://corax.com.cn/css/medium.ece05c3e0cb4c172303048d902f5c72734dac11b313a671c381a53648c811f4d.css" integrity="sha256-7OBcPgy0wXIwMEjZAvXHJzTawRsxOmccOBpTZIyBH00=">
+
+	
+	<link rel="stylesheet" href="https://corax.com.cn/css/additional.14f7dbd08a523bb7dd03b308a991480ea5d8d744f6229068023169de78b48922.css" integrity="sha256-FPfb0IpSO7fdA7MIqZFIDqXY10T2IpBoAjFp3ni0iSI=">
+
+	
+	
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+    <div class="container pr-0">
+        
+        <a class="navbar-brand" href="https://corax.com.cn//">
+
+            
+            <img src="/images/logo.png" alt="logo">
+            
+        </a>
+        
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        
+        <div class="collapse navbar-collapse" id="navbarMediumish">
+            
+            <ul class="navbar-nav ml-auto">
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/blog">Blog</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/">About Me</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/static/imprint">Imprint</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+    </div>
+</nav>
+
+
+        <div class="site-content">   
+            <div class="container">
+<div class="mainheading">
+    <h1 class="sitetitle">Corax Blog</h1>
+    <p class="lead">
+         the clean blog!
+    </p>
+</div><div class="main-content">
+        
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-md-2 pl-0"><div class="share sticky-top sticky-top-offset">
+    <p>Share</p>
+    <ul>
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://twitter.com/intent/tweet?text=%e5%a6%82%e4%bd%95%e5%b0%86%e7%bd%91%e7%ab%99%e9%83%a8%e7%bd%b2%e5%88%b0%e6%9c%8d%e5%8a%a1%e5%99%a8&url=https%3a%2f%2fcorax.com.cn%2fother%2fserver-deploy%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=435');return false;">
+        <i class="fab fa-twitter"></i>
+        </a>
+        </li>
+        
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://facebook.com/sharer.php?u=https%3a%2f%2fcorax.com.cn%2fother%2fserver-deploy%2f" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+        <i class="fab fa-facebook-f"></i>
+        </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://www.xing.com/spi/shares/new?url=https%3a%2f%2fcorax.com.cn%2fother%2fserver-deploy%2f" onclick="window.open(this.href, 'xing-share', 'width=550,height=435');return false;">
+        <i class="fab fa-xing"></i>
+        </a>
+        </li>        
+    </ul>
+
+    
+        <div class="sep">
+        </div>				
+        <ul>
+            <li> 
+            <a  class="small smoothscroll" href="#disqus_thread"></a>
+            </li>
+        </ul>
+    
+</div>
+</div>
+                                
+                <div class="col-md-9 flex-first flex-md-unordered">
+                    <div class="mainheading">
+                        	
+                        
+                        
+                        
+                        <div class="row post-top-meta">
+                            <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0 md-nopad-right">
+                                <img class="author-thumb" src="/images/avator.jpg" alt="Corax">
+                            </div>
+                            <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left md-nopad-left">
+                                <a target="_blank" class="link-dark">Corax</a><br>
+                                <span class="author-description">
+                                    Creator of this blog.<br>
+                                    <i class="far fa-star"></i>
+                                    Oct 31, 2022
+                                    <i class="far fa-clock clock"></i>
+                                    1 min read
+                                </span>					
+                            </div>
+                        </div>			
+                        	
+                        
+                                                
+                        
+                        <h1 class="posttitle">如何将网站部署到服务器</h1> 
+                    </div>
+
+                    
+                    
+                    
+                        <img class="featured-image img-fluid" src="https://corax.com.cn/other/server-deploy/cover.jpg" alt="thumbnail for this post">
+                    
+                    
+
+                    
+                    <div class="article-post">
+                        <h2 id="服务器选择">服务器选择</h2>
+<h3 id="校内服务器">校内服务器</h3>
+<p>如果你有多余的电脑，你可以直接用校内局域网IP搭建校内服务器，但如果这个电脑的操作系统不是Linux操作系统，作者不建议这样操作，因为Windows系统的相关操作相当复杂（下面会提到的网站部署工具<code>Nginx</code>对Windows系统的支持不太好，你也可以自己去摸索一下<code>Tom🐱</code>的使用）</p>
+<p>当然你甚至可以和你的<code>ISP(Internet Service Provider)</code>联系，向它申请一个公网IP，这样你的电脑就成为了一台云服务器😄，不过要申请一个公网IP是需要一定必要的理由的，作者自己没有这个财力所以就请有这个想法的uu自行摸索辣🌶</p>
+<h3 id="云服务器平台">云服务器平台</h3>
+<p>目前市面上有众多云服务器平台可供选择，例如阿里云、腾讯云、华为云等等，在完成注册和实名认证（尤其是学生认证）之后就可以多逛逛，哪个平台活动好就在哪个平台入手即可，要恰🍚的都知道吧😀</p>
+<h3 id="云服务器配置">云服务器配置</h3>
+<p>即使在一个平台的学生特价活动中也有众多服务器配置可供选择，根据配置的不同，其价格也参差不齐</p>
+<p>通常来说，最低配置的服务器对于维护个人网站来说已经完全够用（前提是使用Linux系统），在学生计划的加持下价格在60~100💴/年比较合适，可以根据个人愿意投入的资金情况进行选择</p>
+<p>如前文所述，作者强烈推荐选择<strong>Linux系统镜像</strong>，Linux系统有诸多好处：</p>
+<ul>
+<li>系统稳定性强，即使长时间不重启系统也不会crash</li>
+<li>系统内存/CPU占用小</li>
+<li>命令行简洁易用，用户权限高，使用自由度极高，所有操作均有记录</li>
+<li>开发环境可一键配置</li>
+<li>……</li>
+</ul>
+<p>即使是专注于算法的<code>NOI(National Olympiad in Informatics)</code>都已经要求参赛选手必须使用Linux系统环境，作为开发者的你还在犹豫什么？</p>
+<p>使用Linux的云服务器有助于提升你对Linux操作系统的熟悉程度，同时即使你做了什么逆天操作也可以<strong>一键重装系统</strong>，当你对Linux系统足够熟悉，了解到它的诸多好处之后，你可以安装<code>WSL(Windows Subsystem for Linux)</code>让你的Windows电脑顺畅地运行Linux开发环境，具体信息见<a href="https://oi-wiki.org/tools/wsl/">链接</a></p>
+<p>当你购买了云服务器之后，还会有一些初始化操作需要处理，根据不同的平台而定会有不同的操作方式，这里就不作赘述</p>
+<h2 id="本地工具支持">本地工具支持</h2>
+<h3 id="文件传输软件">文件传输软件</h3>
+<p>用于在本机与服务器之间交换文件，共有<strong>SSH传输协议，FTP文件传输协议，SFTP文件传输协议</strong>三种，作者推荐第一种，即SSH传输协议，虽然在传输文件的时候速度不如后两种协议，但是可以和后面的软件共用服务器的21号端口，简化服务器的防火墙配置</p>
+<p>由于服务器的性能受限和网络安全因素考虑，开发过程并不适合在服务器上直接进行，所以一般开发者都是先在本地的电脑上完成开发过程，再将release版本的文件传输到服务器上并进行部署</p>
+<p>作者常用的软件是FileZilla，你不妨自己去尝试一下或者用用别的😄</p>
+<h3 id="远程终端软件">远程终端软件</h3>
+<p>在每个云服务器平台上都会有云控制台的选项，但它的使用有时并不那么方便，尤其是当你需要操作别人的服务器时，你显然不能直接找人家要他的平台账号😂，所以需要使用远程终端软件</p>
+<p>作者常用的软件是XShell，你不妨自己去尝试一下或者用用别的😄</p>
+<h3 id="使用上述软件时出现问题">使用上述软件时出现问题</h3>
+<p>如果你在使用这些软件的时候出现了诸如无法直接登录root账号、用户密码没有配置的问题，肯定是服务器的系统配置文件没有合理配置，请查阅各个云服务器平台提供的FAQ或者手册自行解决</p>
+<h2 id="服务器工具支持">服务器工具支持</h2>
+<h3 id="nginx">Nginx</h3>
+<p><code>Nginx</code>是一个高性能HTTP和反向代理web服务器，提供了诸如<strong>网站一键部署，反向代理，负载均衡</strong>的强大功能，在使用时，你只需要简单地更改配置文件中的<code>server</code>语法块即可完成网站的部署</p>
+<p>具体的配置更改需要根据需要自行摸索，Google中也有对<code>nginx.conf</code>文件语法的详细解析，这里仅稍作解释</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nginx" data-lang="nginx"><span style="display:flex;"><span><span style="color:#66d9ef">user</span>	<span style="color:#e6db74">root</span>; <span style="color:#75715e">#将nginx的调用者修改为root
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">http{</span> <span style="color:#75715e">#http语法块
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#e6db74">server</span> { <span style="color:#75715e">#新增服务器配置语法块
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#f92672">listen</span> <span style="color:#ae81ff">80</span>; <span style="color:#75715e">#监听端口号，这里以80端口(HTTP)为例
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#f92672">server_name</span> <span style="color:#e6db74">_</span>; <span style="color:#75715e">#域名，如果没有可以用_标识
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">###########################
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#75715e">#如果有域名需要额外配置其他内容#
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#75715e">###########################
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		
+</span></span><span style="display:flex;"><span>		<span style="color:#f92672">location</span> <span style="color:#e6db74">/</span> { <span style="color:#75715e">#网站根目录语法块
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>			<span style="color:#f92672">root</span> <span style="color:#e6db74">/usr/share/nginx/html</span>; <span style="color:#75715e">#网站根目录路径，根据个人存放位置而定
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>			<span style="color:#f92672">index</span> <span style="color:#e6db74">index.html</span> <span style="color:#e6db74">index.htm</span>; <span style="color:#75715e">#网站首页文件，根据个人网站文件而定
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		}
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">#如果你的页面中有php等其他文件，需要再添加其他配置
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">##############
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">#SSL Settings#
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">##############
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">#配置SSL证书内容，如果没有则不需要配置
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">######################
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">#Virtual Host Configs#
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">######################
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">#注意需要注释掉这两条语句，否则你的设置很可能和默认配置冲突
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">#include /etc/nginx/conf.d/*.conf;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">#include /etc/nginx/sites-enabled/*;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">}</span>
+</span></span></code></pre></div><p>在服务器上安装Nginx只需要一条命令即可，你也可以在命令的后面跟上-y参数，这样就不用在安装的过程中再次确认</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt-get install nginx	<span style="color:#75715e">#针对Ubuntu用户</span>
+</span></span><span style="display:flex;"><span>yum install nginx	<span style="color:#75715e">#针对centOS用户</span>
+</span></span></code></pre></div><h2 id="常用命令">常用命令</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>find / -name &lt;dir/filename&gt;	<span style="color:#75715e">#在根目录下查找文件/目录名的路径</span>
+</span></span><span style="display:flex;"><span>ls -a	<span style="color:#75715e">#详细地展开当前目录下的内容</span>
+</span></span><span style="display:flex;"><span>cd &lt;dirname&gt;	<span style="color:#75715e">#切换目录</span>
+</span></span><span style="display:flex;"><span>vim &lt;filename&gt;	<span style="color:#75715e">#使用vim编辑器打开文件</span>
+</span></span><span style="display:flex;"><span>netstat -ntlp	<span style="color:#75715e">#查看网络端口占用</span>
+</span></span><span style="display:flex;"><span>nginx	<span style="color:#75715e">#启动nginx服务</span>
+</span></span><span style="display:flex;"><span>sudo service nginx restart	<span style="color:#75715e">#重启nginx服务，但是一般不能成功</span>
+</span></span><span style="display:flex;"><span>kill &lt;pid&gt;	<span style="color:#75715e">#如果不能用service重启，就只能通过kill命令强行终止nginx服务，然后再通过nginx命令重启</span>
+</span></span></code></pre></div><p>呃呃作者暂时就想到这么多😴</p>
+<h2 id="ssl证书安装">SSL证书安装</h2>
+<p>如果你有一些闲💴，又正好没什么事干，在访问你的网站时总是被提醒<strong>不安全</strong>🤬，那么你就可以为你的网站安装SSL证书</p>
+<p>不安全的原因主要有两个：</p>
+<ul>
+<li>基于HTTP协议的网站通信没有经过加密</li>
+<li>直接使用公网ip访问网站会暴露服务器位置</li>
+</ul>
+<p>安装SSL的步骤如下：</p>
+<h3 id="购买域名">购买域名</h3>
+<p>你需要前往前面提到的各大云服务器平台购买域名，并按照这些平台提供的引导完成域名备案，域名审核以及SSL证书的申请😴</p>
+<h3 id="添加记录">添加记录</h3>
+<p>在域名分配下发完成之后，你需要为域名开启DNS域名解析服务，具体来说，你需要为这个域名添加一条记录，说明这个域名将定向到哪个公网ip😄</p>
+<h3 id="下载证书">下载证书</h3>
+<p>接下来你就可以在域名控制台下载SSL证书，并将它传输到服务器上</p>
+<h3 id="开放服务器端口">开放服务器端口</h3>
+<p>然后，你需要在云服务器的控制台上开放服务器相应端口的<strong>防火墙</strong>或者<strong>安全组</strong>选项</p>
+<p>然后在服务器的nginx配置文件中说明需要为这两个端口提供怎样的服务，具体操作如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nginx" data-lang="nginx"><span style="display:flex;"><span><span style="color:#66d9ef">http{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">server</span>{
+</span></span><span style="display:flex;"><span>    	<span style="color:#f92672">listen</span> <span style="color:#ae81ff">443</span> <span style="color:#e6db74">ssl</span>; <span style="color:#75715e">#监听443(HTTPS)端口
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#f92672">server_name</span> <span style="color:#e6db74">yourwebsite.cn</span>; <span style="color:#75715e">#你的域名
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#f92672">ssl_certificate</span> <span style="color:#e6db74">_</span>; <span style="color:#75715e">#按照最下面的配置即可
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#f92672">ssl_certificate_key</span> <span style="color:#e6db74">_</span>; <span style="color:#75715e">#按照最下面的配置即可
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">#下面的按照配置进行即可，注意根据nginx版本不同有的配置可能不同
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    	<span style="color:#f92672">ssl_session_timeout</span> <span style="color:#ae81ff">5m</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">ssl_protocols</span> <span style="color:#e6db74">TLSv1.2</span> <span style="color:#e6db74">TLSv1.3</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">ssl_ciphers</span> <span style="color:#e6db74">ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">ssl_prefer_server_ciphers</span> <span style="color:#66d9ef">on</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">location</span> <span style="color:#e6db74">/</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">root</span> <span style="color:#e6db74">...</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">index</span> <span style="color:#e6db74">...</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">#如果你的页面中有php等其他文件，需要再添加其他配置
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">server{</span> <span style="color:#75715e">#将80端口的访问重定向到443端口的加密链接进行访问
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#e6db74">listen</span> <span style="color:#ae81ff">80</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">server_name</span> <span style="color:#e6db74">yourwebsite.cn</span>; <span style="color:#75715e">#你的域名
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">301</span> <span style="color:#e6db74">https://</span>$host$request_uri; <span style="color:#75715e">#301是HTTP状态码，标识正常访问
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">###
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">#SSL Settings
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">###
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">#如果是国密证书，配置会有一些不同，具体可以按照相关云服务器平台的文档来操作
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#e6db74">ssl_certificate</span> <span style="color:#e6db74">yourwebsite.cn_bundle.crt</span>; <span style="color:#75715e">#填写你的证书文件路径
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">ssl_certificate_key</span> <span style="color:#e6db74">yourwebsite.cn.key</span>; <span style="color:#75715e">#填写你的证书文件密钥
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">}</span>
+</span></span></code></pre></div><h3 id="测试域名连通性">测试域名连通性</h3>
+<p>你可以进入<code>DNSPod</code>系统检测你的域名解析和服务器的连接是否正常，能否Ping通等，如果可以，就可以使用域名访问你的网站辣🌶</p>
+
+                    </div>
+                    
+                    
+                    <div class="after-post-tags">
+                        <ul class="tags">
+                        
+                        </ul>
+                    </div>
+                    
+                    
+                    
+                    <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+                    
+                    
+                        <a class="d-block col-md-6 text-lg-right" href="https://corax.com.cn/other/hugo/">使用HUGO快速搭建静态网站 &raquo;</a>
+                    
+                    <div class="clearfix"></div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+<div class="container">
+    <div id="comments" class="row justify-content-center mb-5">
+        <div class="col-md-8">              
+                           
+        </div>
+    </div>
+</div>
+
+    </div>
+
+
+            </div>
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+			<div class="d-md-flex align-items-center justify-content-center h-100">
+				<h2 class="d-md-block d-none align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+			</div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+			
+			<a class="mt-1 mb-1" href="/tags/cpp">cpp</a>
+			
+			<a class="mt-1 mb-1" href="/tags/drink">drink</a>
+			
+			<a class="mt-1 mb-1" href="/tags/interesting">interesting</a>
+			
+			<a class="mt-1 mb-1" href="/tags/web%E5%BC%80%E5%8F%91">web开发</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E8%AE%A1%E7%AE%97">互联网计算</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F">分布式</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%9F%BA%E7%A1%80">数据管理基础</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95">数据结构与算法</a>
+			
+		</div>
+	</div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                &copy; Copyright John Doe - All rights reserved
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" rel="noopener" href="https://www.wowthemes.net">Mediumish Theme</a> by WowThemes.net
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+        </div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+<script src="https://corax.com.cn/js/mediumish.e4b90c58dfa15ac82caf2edfa01e5fd047e17bc15e6babe5c0e442a4407d0b25.js" integrity="sha256-5LkMWN&#43;hWsgsry7foB5f0Efhe8Fea6vlwORCpEB9CyU="></script>
+    </body>
+</html>
